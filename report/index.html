@@ -1,0 +1,214 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vimeo Growth Case</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  --paper:#fbfcfd; --surface:#ffffff; --ink:#131a24; --ink-soft:#39434f; --muted:#5f6b7a;
+  --line:#e2e7ef; --line-strong:#c9d2df; --accent:#1d4ed8; --accent-wash:#eef3ff;
+  --flag:#b5352c; --flag-wash:#fdeceb; --ok:#0c6b59; --ok-wash:#e8f5f1;
+  --warn:#8a5a00; --warn-wash:#fdf3dc;
+  --plate:#fcfcfb; --plate-edge:#dde4ee; --shadow:0 1px 2px rgba(19,26,36,.06),0 8px 24px rgba(19,26,36,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f141b; --surface:#161d26; --ink:#e7ecf3; --ink-soft:#c3cbd6; --muted:#8b97a6;
+    --line:#232c38; --line-strong:#33404f; --accent:#7ba4ff; --accent-wash:#17233a;
+    --flag:#f08a80; --flag-wash:#2e1b1a; --ok:#5fc6ae; --ok-wash:#12291f;
+    --warn:#f0c060; --warn-wash:#2e2512;
+    --plate:#1a1a19; --plate-edge:#2b3542; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f141b; --surface:#161d26; --ink:#e7ecf3; --ink-soft:#c3cbd6; --muted:#8b97a6;
+  --line:#232c38; --line-strong:#33404f; --accent:#7ba4ff; --accent-wash:#17233a;
+  --flag:#f08a80; --flag-wash:#2e1b1a; --ok:#5fc6ae; --ok-wash:#12291f;
+  --warn:#f0c060; --warn-wash:#2e2512;
+  --plate:#1a1a19; --plate-edge:#2b3542; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px; line-height:1.68; -webkit-font-smoothing:antialiased;
+}
+.page{padding:clamp(1.25rem,4vw,3.5rem) clamp(1rem,4vw,2rem) 5rem}
+.doc{display:grid; gap:1.5rem; justify-items:center}
+.doc > *{width:100%; max-width:42rem; margin:0}
+.doc > figure, .doc > .table-wrap{max-width:57rem}
+
+h1,h2,h3{font-family:"Source Serif 4",Georgia,"Times New Roman",serif; text-wrap:balance; margin:0}
+h1{font-size:clamp(2.1rem,5.5vw,3.1rem); font-weight:600; letter-spacing:-.015em; line-height:1.12}
+h2{font-size:clamp(1.5rem,3.4vw,2rem); font-weight:600; letter-spacing:-.01em;
+   display:flex; align-items:baseline; gap:.75rem; padding-top:2.5rem;
+   border-top:1px solid var(--line); margin-top:1.5rem}
+h2 .num{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.8rem;
+  font-weight:500; color:var(--accent); letter-spacing:.08em; transform:translateY(-.15em);
+}
+h3{font-size:1.22rem; font-weight:600; padding-top:1.25rem}
+p{margin:0; color:var(--ink-soft)}
+strong{color:var(--ink); font-weight:600}
+a{color:var(--accent); text-decoration:underline; text-underline-offset:2px; text-decoration-thickness:1px}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+.masthead{border-bottom:2px solid var(--ink); padding-bottom:1.5rem}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:.72rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted); margin-bottom:1rem
+}
+dl.meta{display:grid; grid-template-columns:auto 1fr; gap:.4rem 1.25rem; margin:1.4rem 0 0; font-size:.94rem}
+dl.meta dt{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:.72rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); padding-top:.28em
+}
+dl.meta dd{margin:0; color:var(--ink-soft)}
+
+.notice{
+  background:var(--accent-wash); border-left:3px solid var(--accent); border-radius:0 4px 4px 0;
+  padding:1rem 1.25rem; font-size:.95rem; color:var(--ink-soft)
+}
+p.note{font-size:.9rem; color:var(--muted)}
+
+figure{display:flex; flex-direction:column; gap:.6rem}
+figure .plate{
+  background:var(--plate); border:1px solid var(--plate-edge); border-radius:6px;
+  box-shadow:var(--shadow); padding:.5rem; overflow-x:auto
+}
+figure svg{display:block; width:100%; height:auto; min-width:32rem}
+figcaption{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:.72rem; letter-spacing:.06em;
+  color:var(--muted); text-transform:uppercase
+}
+
+.table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:6px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:.92rem; font-variant-numeric:tabular-nums}
+th,td{padding:.62rem .9rem; text-align:left; border-bottom:1px solid var(--line)}
+thead th{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:.68rem; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--muted);
+  border-bottom:1px solid var(--line-strong); white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:none}
+td.r,th.r{text-align:right}
+td.r{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:.86rem}
+
+.pill{
+  display:inline-block; padding:.14em .6em; border-radius:999px; font-size:.72rem;
+  font-weight:600; letter-spacing:.02em; white-space:nowrap
+}
+.pill.flag{background:var(--flag-wash); color:var(--flag)}
+.pill.ok{background:var(--ok-wash); color:var(--ok)}
+.pill.warn{background:var(--warn-wash); color:var(--warn)}
+ul{margin:0; padding-left:1.2rem; display:grid; gap:.5rem; color:var(--ink-soft)}
+ul li::marker{color:var(--accent)}
+
+code{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.86em;
+  background:var(--accent-wash); color:var(--ink); padding:.1em .35em; border-radius:3px
+}
+ol{margin:0; padding-left:1.3rem; display:grid; gap:.75rem; color:var(--ink-soft)}
+ol li::marker{color:var(--accent); font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:.85em}
+hr{border:none; height:1px; background:var(--line); margin:1rem 0}
+
+footer.colophon{
+  max-width:42rem; margin:3rem auto 0; padding-top:1.25rem; border-top:1px solid var(--line);
+  font-size:.85rem; color:var(--muted)
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  dl.meta{grid-template-columns:1fr; gap:.15rem}
+  dl.meta dd{margin-bottom:.5rem}
+}
+</style>
+</head><body><div class="page"><article class="doc"><header class="masthead"><p class="eyebrow">Business analysis &middot; outside-in, public filings</p><h1>Vimeo: where the next dollar comes from</h1>
+<dl class="meta"><dt>For</dt><dd>the business owner of Vimeo Self-Serve and Enterprise</dd><dt>Sources</dt><dd>Vimeo, Inc. annual reports (10-K, covering 2021–2024) and quarterly reports (10-Q, Q1–Q3 2025) filed with the SEC; every figure traced in <a href="https://github.com/D0M3N1C0X/vimeo-growth-case/blob/main/data/SOURCES.md">data/SOURCES.md</a></dd><dt>Status</dt><dd>an outside-in exercise on public data. Assumptions are mine and labelled; the test results are simulated.</dd></dl></header>
+<div class="notice">The question: Self-Serve has lost subscribers every quarter for three years while price held revenue up. Where does growth come from next, and how would we know before spending on it?</div>
+<h2><span>The answer</span></h2>
+<ul><li><strong>Self-Serve is running on price.</strong> Subscribers fell 21% from 2021 to 2024 and ARPU rose 9%. In 2025 subscribers are down 11% a year in every quarter, and ARPU growth has accelerated to +13%. Price cannot outrun an 11% annual loss for long.</li><li><strong>Enterprise carried the growth, and it is slowing.</strong> Enterprise revenue went from $23.2M to $83.2M between 2021 and 2024, but in Q3 2025 its bookings fell 2% on the year before.</li><li><strong>The biggest lever is between the two.</strong> An Enterprise account pays about 120 times a Self-Serve one ($24,567 against $204 a year), and Vimeo's own filings say Enterprise is often an upgrade from Self-Serve.</li><li><strong>The bet:</strong> score the Self-Serve base for team-level signals and route the 2% with the strongest ones (22,558 accounts) to sales. At 1 extra upgrade per 100 accounts a year its three-year net present value is $2.2M, with payback in year 2.</li><li><strong>The test decides it, not the model.</strong> The bet pays only above 0.68% upgrades per account a year. A 90-day test cannot see that; a 180-day one-sided test on the eligible base can, with 20,982 of 22,558 accounts.</li></ul>
+<h2><span class="num">01</span><span>What the filings say</span></h2>
+<figure><div class="plate"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-label="Self-Serve: −21% subscribers, +9% ARPU since 2021"><style>
+  svg { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7;
+        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --base:#0b0b0b; --up:#e34948; --down:#2a78d6; }
+  @media (prefers-color-scheme: dark) {
+    svg { --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --axis:#383835;
+          --s1:#3987e5; --s2:#d95926; --s3:#199e70; --base:#ffffff; --up:#e66767; --down:#3987e5; }
+  }
+  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink2); font-size: 12px; }
+  .title { fill: var(--ink); font-size: 15px; font-weight: 600; }
+  .muted { fill: var(--muted); font-size: 11px; }
+  .val { fill: var(--ink); font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface);
+         stroke-width: 4px; stroke-linejoin: round; }
+  .inbar { fill: #ffffff; font-weight: 600; font-variant-numeric: tabular-nums; }
+</style><rect width="720" height="380" rx="8" fill="var(--surface)"/><text class="title" x="24" y="34">Self-Serve: −21% subscribers, +9% ARPU since 2021</text><text x="24" y="56">Self-Serve &amp; Add-Ons, year-end subscribers and ARPU, 2021 = 100 (10-K, 2022 basis)</text><line x1="70" y1="276.8" x2="600" y2="276.8" stroke="var(--grid)"/><text class="muted" x="62" y="280.8" text-anchor="end">80</text><line x1="70" y1="221.7" x2="600" y2="221.7" stroke="var(--grid)"/><text class="muted" x="62" y="225.7" text-anchor="end">90</text><line x1="70" y1="166.6" x2="600" y2="166.6" stroke="var(--grid)"/><text class="muted" x="62" y="170.6" text-anchor="end">100</text><line x1="70" y1="111.5" x2="600" y2="111.5" stroke="var(--grid)"/><text class="muted" x="62" y="115.5" text-anchor="end">110</text><line x1="70" y1="166.6" x2="600" y2="166.6" stroke="var(--axis)" stroke-width="1.5"/><text class="muted" x="70.0" y="332" text-anchor="middle">2021</text><text class="muted" x="246.7" y="332" text-anchor="middle">2022</text><text class="muted" x="423.3" y="332" text-anchor="middle">2023</text><text class="muted" x="600.0" y="332" text-anchor="middle">2024</text><path d="M70.0,166.6 L246.7,184.2 L423.3,228.6 L600.0,282.5" fill="none" stroke="var(--s1)" stroke-width="2.5"/><circle cx="70.0" cy="166.6" r="4" fill="var(--s1)"><title>Subscribers 2021: 100</title></circle><circle cx="246.7" cy="184.2" r="4" fill="var(--s1)"><title>Subscribers 2022: 97</title></circle><circle cx="423.3" cy="228.6" r="4" fill="var(--s1)"><title>Subscribers 2023: 89</title></circle><circle cx="600.0" cy="282.5" r="4" fill="var(--s1)"><title>Subscribers 2024: 79</title></circle><text class="val" x="610.0" y="286.5" style="fill:var(--s1)">Subscribers 79</text><path d="M70.0,166.6 L246.7,143.5 L423.3,146.4 L600.0,117.5" fill="none" stroke="var(--s2)" stroke-width="2.5"/><circle cx="70.0" cy="166.6" r="4" fill="var(--s2)"><title>ARPU 2021: 100</title></circle><circle cx="246.7" cy="143.5" r="4" fill="var(--s2)"><title>ARPU 2022: 104</title></circle><circle cx="423.3" cy="146.4" r="4" fill="var(--s2)"><title>ARPU 2023: 104</title></circle><circle cx="600.0" cy="117.5" r="4" fill="var(--s2)"><title>ARPU 2024: 109</title></circle><text class="val" x="610.0" y="121.5" style="fill:var(--s2)">ARPU 109</text></svg>
+</div><figcaption>Self-Serve subscribers and ARPU</figcaption></figure>
+<div class="table-wrap"><table><thead><tr><th>2021 → 2024, US$ millions</th><th class="r">Volume (subscribers)</th><th class="r">Price (ARPU)</th><th class="r">Rounding</th><th class="r">Change</th></tr></thead><tbody><tr><td>Self-Serve &amp; Add-Ons</td><td class="r">−$28.7M</td><td class="r">+$24.1M</td><td class="r">+$1.0M</td><td class="r">−$3.6M</td></tr><tr><td>Vimeo Enterprise</td><td class="r">+$51.6M</td><td class="r">+$8.9M</td><td class="r">−$0.6M</td><td class="r">+$60.0M</td></tr><tr><td>Other</td><td class="r">−$86.6M</td><td class="r">+$55.5M</td><td class="r">+$0.1M</td><td class="r">−$31.1M</td></tr></tbody></table></div>
+<p class="note">Volume is the change in average subscribers at the mid ARPU; price is the change in ARPU at the mid subscriber count. Rounding is what the published ARPU, rounded to the dollar, leaves unexplained.</p>
+<figure><div class="plate"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 362" role="img" aria-label="2021 to 2024: Self-Serve lost on volume what it won on price"><style>
+  svg { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7;
+        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --base:#0b0b0b; --up:#e34948; --down:#2a78d6; }
+  @media (prefers-color-scheme: dark) {
+    svg { --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --axis:#383835;
+          --s1:#3987e5; --s2:#d95926; --s3:#199e70; --base:#ffffff; --up:#e66767; --down:#3987e5; }
+  }
+  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink2); font-size: 12px; }
+  .title { fill: var(--ink); font-size: 15px; font-weight: 600; }
+  .muted { fill: var(--muted); font-size: 11px; }
+  .val { fill: var(--ink); font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface);
+         stroke-width: 4px; stroke-linejoin: round; }
+  .inbar { fill: #ffffff; font-weight: 600; font-variant-numeric: tabular-nums; }
+</style><rect width="720" height="362" rx="8" fill="var(--surface)"/><text class="title" x="24" y="34">2021 to 2024: Self-Serve lost on volume what it won on price</text><text x="24" y="56">Change in revenue by category, split into subscribers (volume) and ARPU (price), US$ millions</text><rect x="210" y="76" width="12" height="12" rx="2" fill="var(--s1)"/><text x="228" y="86">Volume: subscribers</text><rect x="410" y="76" width="12" height="12" rx="2" fill="var(--s2)"/><text x="428" y="86">Price: ARPU</text><line x1="475.0" y1="102" x2="475.0" y2="338" stroke="var(--base)" stroke-width="1.5"/><text x="196" y="140" text-anchor="end">Self-Serve &amp; Add-Ons</text><rect x="424.6" y="116" width="50.4" height="22" rx="3" fill="var(--s1)"><title>Self-Serve &amp; Add-Ons volume: −$28.7M</title></rect><text class="val" x="416.6" y="132" text-anchor="end">−$28.7M</text><rect x="475.0" y="144" width="42.4" height="22" rx="3" fill="var(--s2)"><title>Self-Serve &amp; Add-Ons price: +$24.1M</title></rect><text class="val" x="525.4" y="160" text-anchor="start">+$24.1M</text><text x="196" y="214" text-anchor="end">Vimeo Enterprise</text><rect x="475.0" y="190" width="90.7" height="22" rx="3" fill="var(--s1)"><title>Vimeo Enterprise volume: +$51.6M</title></rect><text class="val" x="573.7" y="206" text-anchor="start">+$51.6M</text><rect x="475.0" y="218" width="15.7" height="22" rx="3" fill="var(--s2)"><title>Vimeo Enterprise price: +$8.9M</title></rect><text class="val" x="498.7" y="234" text-anchor="start">+$8.9M</text><text x="196" y="288" text-anchor="end">Other</text><rect x="322.8" y="264" width="152.2" height="22" rx="3" fill="var(--s1)"><title>Other volume: −$86.6M</title></rect><text class="val" x="314.8" y="280" text-anchor="end">−$86.6M</text><rect x="475.0" y="292" width="97.5" height="22" rx="3" fill="var(--s2)"><title>Other price: +$55.5M</title></rect><text class="val" x="580.5" y="308" text-anchor="start">+$55.5M</text></svg>
+</div><figcaption>Volume and price</figcaption></figure>
+<p>In 2025 Vimeo regrouped its categories, so the quarterly series stands apart from the annual one. On the new basis, the price effect on Self-Serve is growing each quarter:</p>
+<div class="table-wrap"><table><thead><tr><th>Self-Serve, year on year</th><th class="r">Subscribers</th><th class="r">ARPU</th><th class="r">Bookings</th><th class="r">Volume effect</th><th class="r">Price effect</th></tr></thead><tbody><tr><td>Q1 2025</td><td class="r">−11%</td><td class="r">+8%</td><td class="r">+6%</td><td class="r">−$6.8M</td><td class="r">+$4.0M</td></tr><tr><td>Q2 2025</td><td class="r">−11%</td><td class="r">+11%</td><td class="r">+11%</td><td class="r">−$6.9M</td><td class="r">+$6.1M</td></tr><tr><td>Q3 2025</td><td class="r">−11%</td><td class="r">+13%</td><td class="r">+14%</td><td class="r">−$6.9M</td><td class="r">+$7.2M</td></tr></tbody></table></div>
+<figure><div class="plate"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-label="Enterprise revenue still grows; its bookings fell 2% in Q3 2025"><style>
+  svg { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7;
+        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --base:#0b0b0b; --up:#e34948; --down:#2a78d6; }
+  @media (prefers-color-scheme: dark) {
+    svg { --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --axis:#383835;
+          --s1:#3987e5; --s2:#d95926; --s3:#199e70; --base:#ffffff; --up:#e66767; --down:#3987e5; }
+  }
+  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink2); font-size: 12px; }
+  .title { fill: var(--ink); font-size: 15px; font-weight: 600; }
+  .muted { fill: var(--muted); font-size: 11px; }
+  .val { fill: var(--ink); font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface);
+         stroke-width: 4px; stroke-linejoin: round; }
+  .inbar { fill: #ffffff; font-weight: 600; font-variant-numeric: tabular-nums; }
+</style><rect width="720" height="380" rx="8" fill="var(--surface)"/><text class="title" x="24" y="34">Enterprise revenue still grows; its bookings fell 2% in Q3 2025</text><text x="24" y="56">Year-on-year change, 2025 quarters against 2024 (10-Q, 2025 basis)</text><rect x="70" y="72" width="12" height="12" rx="2" fill="var(--s1)"/><text x="88" y="82">Enterprise revenue</text><rect x="260" y="72" width="12" height="12" rx="2" fill="var(--s2)"/><text x="278" y="82">Enterprise bookings</text><rect x="450" y="72" width="12" height="12" rx="2" fill="var(--muted)"/><text x="468" y="82">Self-Serve subscribers</text><line x1="70" y1="334.2" x2="690" y2="334.2" stroke="var(--grid)"/><text class="muted" x="62" y="338.2" text-anchor="end">−20%</text><line x1="70" y1="295.3" x2="690" y2="295.3" stroke="var(--grid)"/><text class="muted" x="62" y="299.3" text-anchor="end">−10%</text><line x1="70" y1="256.5" x2="690" y2="256.5" stroke="var(--grid)"/><text class="muted" x="62" y="260.5" text-anchor="end">0%</text><line x1="70" y1="217.6" x2="690" y2="217.6" stroke="var(--grid)"/><text class="muted" x="62" y="221.6" text-anchor="end">+10%</text><line x1="70" y1="178.7" x2="690" y2="178.7" stroke="var(--grid)"/><text class="muted" x="62" y="182.7" text-anchor="end">+20%</text><line x1="70" y1="139.9" x2="690" y2="139.9" stroke="var(--grid)"/><text class="muted" x="62" y="143.9" text-anchor="end">+30%</text><line x1="70" y1="101.0" x2="690" y2="101.0" stroke="var(--grid)"/><text class="muted" x="62" y="105.0" text-anchor="end">+40%</text><line x1="70" y1="256.5" x2="690" y2="256.5" stroke="var(--base)" stroke-width="1.5"/><text class="muted" x="173.3" y="344" text-anchor="middle">Q1 2025</text><rect x="101.0" y="131.1" width="44.2" height="125.4" rx="2" fill="var(--s1)"><title>Enterprise revenue Q1 2025: +32%</title></rect><text class="val" x="123.1" y="125.1" text-anchor="middle">+32%</text><rect x="149.2" y="204.1" width="44.2" height="52.3" rx="2" fill="var(--s2)"><title>Enterprise bookings Q1 2025: +13%</title></rect><text class="val" x="171.3" y="198.1" text-anchor="middle">+13%</text><rect x="197.4" y="256.5" width="44.2" height="44.1" rx="2" fill="var(--muted)"><title>Self-Serve subscribers Q1 2025: −11%</title></rect><text class="val" x="219.6" y="316.6" text-anchor="middle">−11%</text><text class="muted" x="380.0" y="344" text-anchor="middle">Q2 2025</text><rect x="307.7" y="160.6" width="44.2" height="95.9" rx="2" fill="var(--s1)"><title>Enterprise revenue Q2 2025: +25%</title></rect><text class="val" x="329.8" y="154.6" text-anchor="middle">+25%</text><rect x="355.9" y="220.6" width="44.2" height="35.9" rx="2" fill="var(--s2)"><title>Enterprise bookings Q2 2025: +9%</title></rect><text class="val" x="378.0" y="214.6" text-anchor="middle">+9%</text><rect x="404.1" y="256.5" width="44.2" height="42.4" rx="2" fill="var(--muted)"><title>Self-Serve subscribers Q2 2025: −11%</title></rect><text class="val" x="426.2" y="314.8" text-anchor="middle">−11%</text><text class="muted" x="586.7" y="344" text-anchor="middle">Q3 2025</text><rect x="514.3" y="187.8" width="44.2" height="68.6" rx="2" fill="var(--s1)"><title>Enterprise revenue Q3 2025: +18%</title></rect><text class="val" x="536.4" y="181.8" text-anchor="middle">+18%</text><rect x="562.6" y="256.5" width="44.2" height="7.3" rx="2" fill="var(--s2)"><title>Enterprise bookings Q3 2025: −2%</title></rect><text class="val" x="584.7" y="279.8" text-anchor="middle">−2%</text><rect x="610.8" y="256.5" width="44.2" height="43.2" rx="2" fill="var(--muted)"><title>Self-Serve subscribers Q3 2025: −11%</title></rect><text class="val" x="632.9" y="315.7" text-anchor="middle">−11%</text></svg>
+</div><figcaption>Enterprise momentum</figcaption></figure>
+<p><strong>Two observations to test, not conclusions.</strong> Advertising fell from $87.1M in 2021 to $32.4M in 2024, and Self-Serve average subscribers moved from +6% to −10% a year over the same years: three data points, consistent with acquisition spend driving the base, not proof of it. Meanwhile the company turned an operating margin of −16% into +4%, with sales and marketing down from 39% to 29% of revenue.</p>
+<h2><span class="num">02</span><span>Three places to look, sized</span></h2>
+<div class="table-wrap"><table><thead><tr><th>Bet</th><th>Size</th><th>Why now</th><th>Order</th></tr></thead><tbody><tr><td>More price on Self-Serve</td><td>Each 1% of ARPU ≈ $2.3M a year on a $235M run rate</td><td>Already in motion; the open question is how much of the 11% loss price causes</td><td>Second: a price holdout cohort</td></tr><tr><td>Route Self-Serve teams to Enterprise</td><td>$6.0M net new revenue in year 3 at plan</td><td>Uses the existing base, no new acquisition spend; adds a pipeline as Enterprise bookings slow</td><td><strong>First</strong></td></tr><tr><td>Stop the Add-Ons decline</td><td>$30.5M → $24.8M in the first nine months, −19%</td><td>Vimeo attributes it to lower bandwidth demand; packaging bandwidth into plans may matter more than selling it</td><td>Third</td></tr></tbody></table></div>
+<h2><span class="num">03</span><span>The business case</span></h2>
+<p>The model starts from Q3 2025: 1,127,900 Self-Serve subscribers at $204 a year and Enterprise ARPU of $24,567. Upgrades start at 50% of the Enterprise average ($12,284), keep 90% of revenue each year after the first, and stop paying their Self-Serve plan. The sales team is hired for the plan before the real uplift is known, so its cost is fixed.</p>
+<div class="table-wrap"><table><thead><tr><th>US$</th><th class="r">Year 1</th><th class="r">Year 2</th><th class="r">Year 3</th></tr></thead><tbody><tr><td>Net new revenue</td><td class="r">$1,362,447</td><td class="r">$3,810,249</td><td class="r">$6,008,670</td></tr><tr><td>Gross profit</td><td class="r">$1,062,709</td><td class="r">$2,971,994</td><td class="r">$4,686,762</td></tr><tr><td>Account executives</td><td class="r">$1,080,000</td><td class="r">$1,080,000</td><td class="r">$1,080,000</td></tr><tr><td>Outreach</td><td class="r">$676,740</td><td class="r">$676,740</td><td class="r">$676,740</td></tr><tr><td>Build</td><td class="r">$400,000</td><td class="r">$0</td><td class="r">$0</td></tr><tr><td><strong>Contribution</strong></td><td class="r">−$1,094,031</td><td class="r">$1,215,254</td><td class="r">$2,930,022</td></tr></tbody></table></div>
+<p><strong>Net present value $2.2M at 10%, payback in year 2.</strong> Because the team is a fixed cost, value is linear in the uplift, and it is zero at <strong>0.68% upgrades per eligible account a year</strong>: the bar the test must clear.</p>
+<div class="table-wrap"><table><thead><tr><th>Driver</th><th class="r">Low</th><th class="r">High</th><th class="r">NPV at low</th><th class="r">NPV at high</th></tr></thead><tbody><tr><td>uplift</td><td class="r">0.004</td><td class="r">0.02</td><td class="r">−$2.0M</td><td class="r">$9.2M</td></tr><tr><td>entry acv share</td><td class="r">0.3</td><td class="r">0.7</td><td class="r">−$0.6M</td><td class="r">$5.0M</td></tr><tr><td>eligible share</td><td class="r">0.01</td><td class="r">0.04</td><td class="r">$0.9M</td><td class="r">$4.8M</td></tr><tr><td>upgrades per ae</td><td class="r">20.0</td><td class="r">60.0</td><td class="r">−$0.5M</td><td class="r">$3.1M</td></tr><tr><td>outreach cost</td><td class="r">15.0</td><td class="r">60.0</td><td class="r">$3.1M</td><td class="r">$0.5M</td></tr><tr><td>retention</td><td class="r">0.75</td><td class="r">1.05</td><td class="r">$1.3M</td><td class="r">$3.2M</td></tr><tr><td>gross margin</td><td class="r">0.7</td><td class="r">0.82</td><td class="r">$1.5M</td><td class="r">$2.6M</td></tr></tbody></table></div>
+<p class="note">Sorted by swing. The uplift dominates: it is the one number no filing can provide, which is why the next section exists.</p>
+<h2><span class="num">04</span><span>How to test it before hiring for it</span></h2>
+<p>Randomise eligible accounts 50/50: treatment gets outreach, control gets the product as today. Primary metric: upgrades to Enterprise in the window. Guardrail: Self-Serve cancellations must not rise by more than half a point per 90 days.</p>
+<div class="table-wrap"><table><thead><tr><th>Design</th><th class="r">Needed</th><th class="r">Available</th><th>Feasible</th></tr></thead><tbody><tr><td>90 days, two-sided</td><td class="r">53,540</td><td class="r">22,558</td><td>No</td></tr><tr><td>90 days, one-sided</td><td class="r">42,174</td><td class="r">22,558</td><td>No</td></tr><tr><td>180 days, one-sided</td><td class="r">20,982</td><td class="r">22,558</td><td>Yes</td></tr><tr><td>90 days, one-sided, eligibility doubled</td><td class="r">154,130</td><td class="r">45,116</td><td>No</td></tr></tbody></table></div>
+<p class="note">Sample sizes to detect the break-even uplift at 80% power, α = 5%. Organic upgrades are assumed at 0.4% in 90 days, a number to read from Vimeo's own data first.</p>
+<p><strong>The decision rule, in order:</strong> a broken 50/50 split invalidates the test; without a significant uplift there is nothing to protect; then the cancellations guardrail; then the business bar. Scale only if the uplift is significant and at least break-even.</p>
+<figure><div class="plate"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 324" role="img" aria-label="The decision rule almost never scales a bet that does not work"><style>
+  svg { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7;
+        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --base:#0b0b0b; --up:#e34948; --down:#2a78d6; }
+  @media (prefers-color-scheme: dark) {
+    svg { --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --axis:#383835;
+          --s1:#3987e5; --s2:#d95926; --s3:#199e70; --base:#ffffff; --up:#e66767; --down:#3987e5; }
+  }
+  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink2); font-size: 12px; }
+  .title { fill: var(--ink); font-size: 15px; font-weight: 600; }
+  .muted { fill: var(--muted); font-size: 11px; }
+  .val { fill: var(--ink); font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface);
+         stroke-width: 4px; stroke-linejoin: round; }
+  .inbar { fill: #ffffff; font-weight: 600; font-variant-numeric: tabular-nums; }
+</style><rect width="720" height="324" rx="8" fill="var(--surface)"/><text class="title" x="24" y="34">The decision rule almost never scales a bet that does not work</text><text x="24" y="56">Share of 200 simulated tests ending in each decision, by true uplift</text><rect x="24" y="78" width="12" height="12" rx="2" fill="var(--s3)"/><text x="42" y="88">Scale</text><rect x="194" y="78" width="12" height="12" rx="2" fill="var(--s1)"/><text x="212" y="88">Iterate</text><rect x="364" y="78" width="12" height="12" rx="2" fill="var(--muted)"/><text x="382" y="88">Stop or redesign</text><rect x="534" y="78" width="12" height="12" rx="2" fill="var(--s2)"/><text x="552" y="88">Do not scale</text><text x="188" y="139" text-anchor="end">No real uplift</text><rect x="200.0" y="124" width="19.2" height="24" fill="var(--s1)"><title>No real uplift: Iterate 4%</title></rect><rect x="219.2" y="124" width="458.4" height="24" fill="var(--muted)"><title>No real uplift: Stop or redesign 96%</title></rect><text class="inbar" x="448.4" y="141" text-anchor="middle">96%</text><rect x="677.6" y="124" width="2.4" height="24" fill="var(--s2)"><title>No real uplift: Do not scale 0%</title></rect><text x="188" y="185" text-anchor="end">At break-even</text><rect x="200.0" y="170" width="213.6" height="24" fill="var(--s3)"><title>At break-even: Scale 44%</title></rect><text class="inbar" x="306.8" y="187" text-anchor="middle">44%</text><rect x="413.6" y="170" width="129.6" height="24" fill="var(--s1)"><title>At break-even: Iterate 27%</title></rect><text class="inbar" x="478.4" y="187" text-anchor="middle">27%</text><rect x="543.2" y="170" width="115.2" height="24" fill="var(--muted)"><title>At break-even: Stop or redesign 24%</title></rect><text class="inbar" x="600.8" y="187" text-anchor="middle">24%</text><rect x="658.4" y="170" width="21.6" height="24" fill="var(--s2)"><title>At break-even: Do not scale 4%</title></rect><text x="188" y="231" text-anchor="end">At plan (1% a year)</text><rect x="200.0" y="216" width="376.8" height="24" fill="var(--s3)"><title>At plan (1% a year): Scale 78%</title></rect><text class="inbar" x="388.4" y="233" text-anchor="middle">78%</text><rect x="576.8" y="216" width="62.4" height="24" fill="var(--s1)"><title>At plan (1% a year): Iterate 13%</title></rect><text class="inbar" x="608.0" y="233" text-anchor="middle">13%</text><rect x="639.2" y="216" width="12.0" height="24" fill="var(--muted)"><title>At plan (1% a year): Stop or redesign 2%</title></rect><rect x="651.2" y="216" width="28.8" height="24" fill="var(--s2)"><title>At plan (1% a year): Do not scale 6%</title></rect><text x="188" y="277" text-anchor="end">Strong (1.5% a year)</text><rect x="200.0" y="262" width="451.2" height="24" fill="var(--s3)"><title>Strong (1.5% a year): Scale 94%</title></rect><text class="inbar" x="425.6" y="279" text-anchor="middle">94%</text><rect x="651.2" y="262" width="28.8" height="24" fill="var(--s2)"><title>Strong (1.5% a year): Do not scale 6%</title></rect></svg>
+</div><figcaption>Decision rule</figcaption></figure>
+<p>Run 200 times on simulated accounts, the rule scales a bet with no real effect in 0% of tests and a bet at plan in 78%. The cost: the guardrail stops about 6% of good bets by chance, which a larger margin or a longer window would reduce.</p>
+<p>One simulated run, read with the <a href="vimeo_upgrade_case.xlsx">workbook's readout sheet</a>: control 0.81%, treatment 1.17%, uplift 0.73% a year (one-sided p = 0.003). Decision: <em>Scale: the uplift is real and above break-even</em>.</p>
+<h2><span class="num">05</span><span>What I would want to know first</span></h2>
+<ul><li><strong>The organic upgrade rate</strong> from Self-Serve to Enterprise, by plan and team size: it sets the sample size.</li><li><strong>Which signals predict an upgrade</strong> in past data (seats, sign-on attempts, bandwidth, company domains): they define who is eligible.</li><li><strong>Why Self-Serve customers cancel</strong>, by price change and by tenure: it decides whether more price is safe.</li><li><strong>Sales capacity</strong>: whether the Enterprise team can absorb about 225 more deals a year, or needs hiring.</li></ul>
+<h2><span>Method and limits</span></h2>
+<ul><li><strong>Two engines, one answer.</strong> Every figure is computed in pandas and again by live formulas in <a href="vimeo_upgrade_case.xlsx">the workbook</a>; its Reconciliation sheet checks each pair, and CI recalculates it with LibreOffice.</li><li><strong>Public data only.</strong> Subscriber metrics are transcribed from the filings and checked: categories add up to the reported revenue, and ARPU × average subscribers reproduces each category's revenue within 2%.</li><li><strong>Two bases.</strong> Vimeo regrouped its categories in 2025; the annual and quarterly series are never joined.</li><li><strong>Assumptions are mine.</strong> Eligibility, uplift, contract size, retention and costs are judgements, shown in the sensitivity table; the test results are simulated. Not investment advice.</li></ul></article><footer class="colophon">Generated from <code>report/memo.md</code> by <code>python3 src/run_all.py</code>. Public SEC filings; assumptions labelled; test results simulated. Not investment advice. Not affiliated with Vimeo or Bending Spoons. Source: <a href="https://github.com/D0M3N1C0X/vimeo-growth-case">vimeo-growth-case</a>.</footer></div></body></html>
