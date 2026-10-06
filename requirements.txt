@@ -1,0 +1,7 @@
+# Runtime: pinned so every build produces the same numbers. Python 3.12 or newer.
+pandas==3.0.5
+numpy==2.5.3
+openpyxl==3.1.5
+# openpyxl writes XML with lxml when it is installed, and with the standard library otherwise;
+# the two serialise differently, so pin it to keep the workbook byte-stable.
+lxml==6.1.3
