@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements-dev.txt
+
+      - name: Rebuild everything from the source file
+        run: python src/run_all.py
+
+      - name: Text outputs are unchanged
+        run: |
+          git diff --exit-code --stat -- data report \
+            || (echo "::error::Rebuilding changed a committed output - the pipeline is not deterministic" && exit 1)
+
+      - name: The workbook has the same content
+        run: python src/deterministic.py --check deliverables/vimeo_upgrade_case.xlsx
+
+      - name: Tests
+        run: pytest -q
+
+  workbook:
+    # The full model, recalculated by a real spreadsheet engine and checked against pandas.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install LibreOffice and the model
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends libreoffice-calc
+          pip install -r requirements.txt
+
+      - name: Recalculate the workbook
+        run: python src/recalc_libreoffice.py deliverables/vimeo_upgrade_case.xlsx build/
+
+      - name: Every formula reproduces the model
+        run: python src/check_workbook.py build/vimeo_upgrade_case.xlsx
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: workbook-recalculated
+          path: build/vimeo_upgrade_case.xlsx

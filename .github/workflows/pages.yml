@@ -1,0 +1,56 @@
+# Publishes the memo, its figures and the workbook to GitHub Pages.
+name: site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - report/**
+      - deliverables/**
+      - site-assets/**
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble the site
+        run: |
+          mkdir -p site
+          cp report/index.html site/index.html
+          cp -r report/figures site/figures
+          cp deliverables/vimeo_upgrade_case.xlsx site/
+
+      - name: Add the link preview
+        run: |
+          cp site-assets/og.png site/og.png
+          python3 - <<'PY'
+          from pathlib import Path
+          page = Path("site/index.html")
+          html = page.read_text(encoding="utf-8")
+          assert html.count("<head>") == 1, "expected one <head> tag"
+          meta = Path("site-assets/og-meta.html").read_text(encoding="utf-8")
+          page.write_text(html.replace("<head>", "<head>\n" + meta, 1), encoding="utf-8")
+          PY
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
