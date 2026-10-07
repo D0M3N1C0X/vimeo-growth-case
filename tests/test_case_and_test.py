@@ -57,3 +57,16 @@ def test_broken_split_stops_the_test():
 def test_guardrail_blocks_a_harmful_uplift():
     counts = {"control": [10000, 80, 600], "treatment": [10000, 160, 900]}
     assert experiment.readout(counts, 180, 0.001)["decision"].startswith("Do not scale")
+
+
+def test_value_of_information_holds_together(ex):
+    for name, v in ex["voi"].items():
+        t = v["table"]
+        assert t["probability"].sum() == pytest.approx(1.0)
+        # linearity: launching now is worth the NPV at the prior's mean uplift
+        mean_npv = business_case.model({**C.BET, "uplift": v["prior_mean"]})["npv"]
+        assert v["launch_now"] == pytest.approx(mean_npv, rel=1e-9)
+        assert 0 <= v["value_of_test"] + max(v["launch_now"], 0) - v["test_first"] + 1e-6
+        assert v["value_of_test"] <= v["evpi"] + 1e-6          # no test beats perfect information
+        assert (t["p_scale"].diff().dropna() >= 0).all()      # more uplift, more often scaled
+    assert ex["voi"]["sceptical"]["best"] == "Test first" and ex["voi"]["optimistic"]["best"] == "Launch now"

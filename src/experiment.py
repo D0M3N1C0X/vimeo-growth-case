@@ -9,6 +9,7 @@ case cannot: does outreach cause upgrades, and how many?
 The simulation is not evidence about Vimeo: it shows the readout and the decision rule working on
 data whose truth is known.
 """
+import functools
 import math
 import random
 from statistics import NormalDist
@@ -126,7 +127,8 @@ def readout(counts: dict, window: int, breakeven_yearly: float) -> dict:
 
 def run() -> dict:
     return {"designs": designs(), "simulation": simulate(),
-            "simulation_null": simulate(true_uplift=0.0, seed=C.TEST["seed"] + 1)}
+            "simulation_null": simulate(true_uplift=0.0, seed=C.TEST["seed"] + 1),
+            "voi": {name: value_of_information(prior) for name, prior in C.PRIORS.items()}}
 
 
 if __name__ == "__main__":
@@ -150,3 +152,37 @@ def operating_characteristics(runs: int = 200, uplifts: tuple | None = None) -> 
             counts[d] = counts.get(d, 0) + 1
         rows.append({"true_uplift": u, **{k: v / runs for k, v in counts.items()}})
     return pd.DataFrame(rows).fillna(0.0)
+
+
+@functools.lru_cache(maxsize=None)
+def p_scale(uplift: float, runs: int = C.VOI_RUNS) -> float:
+    """Share of simulated tests at this true uplift that end in 'Scale'."""
+    return sum(simulate(true_uplift=uplift, seed=50_000 + s)["decision"].startswith("Scale") for s in range(runs)) / runs
+
+
+def value_of_information(prior: dict) -> dict:
+    """Launch now, do nothing, or test first and decide on the rule. NPV is linear in the uplift, so
+    each option's value under the prior is a weighted sum over the scenarios."""
+    b = C.BET
+    design = chosen_design()
+    years = design["window_days"] / 365
+    delay = 1 / (1 + b["discount_rate"]) ** years
+    pv_build = b["build_cost"] / (1 + b["discount_rate"])
+    eligible = business_case.model()["eligible"]
+    test_cost = (eligible / 2 * b["outreach_cost"] * years + C.TEST_STAFF * b["ae_cost"] * years + b["build_cost"])
+    rows = []
+    for u, prob in prior.items():
+        npv = business_case.model({**b, "uplift": u})["npv"]
+        after_test = (npv + pv_build) * delay          # the build is paid for the test; the rest starts later
+        ps = p_scale(u)
+        rows.append({"uplift": u, "probability": prob, "npv_launch_now": npv, "p_scale": ps,
+                     "value_after_test": after_test, "test_value": ps * after_test - test_cost})
+    t = pd.DataFrame(rows)
+    launch = (t["probability"] * t["npv_launch_now"]).sum()
+    test = (t["probability"] * t["test_value"]).sum()
+    perfect = (t["probability"] * t["npv_launch_now"].clip(lower=0)).sum()
+    best_without = max(launch, 0.0)
+    return {"table": t, "launch_now": launch, "do_nothing": 0.0, "test_first": test, "test_cost": test_cost,
+            "evpi": perfect - best_without, "value_of_test": test - best_without,
+            "best": max((("Launch now", launch), ("Do nothing", 0.0), ("Test first", test)), key=lambda x: x[1])[0],
+            "prior_mean": float((t["uplift"] * t["probability"]).sum())}

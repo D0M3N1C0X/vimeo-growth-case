@@ -65,7 +65,7 @@ def facts(a: dict, bc: dict, ex: dict, oc: pd.DataFrame) -> dict:
         "addons_9m_24": sum(addons[k] for k in ("2024Q1", "2024Q2", "2024Q3")) / 1000,
         "addons_9m_25": sum(addons[k] for k in ("2025Q1", "2025Q2", "2025Q3")) / 1000,
         "mod": mod, "be": bc["breakeven_uplift"], "sens": bc["sensitivity"], "d": d, "ch": ch,
-        "sim": ex["simulation"], "oc": oc,
+        "sim": ex["simulation"], "oc": oc, "voi": ex["voi"],
     }
 
 
@@ -245,7 +245,35 @@ def write(a, bc, ex, oc) -> dict:
         f"a year (one-sided p = {sim['p_one_sided']:.3f}). Decision: *{sim['decision']}*.")
     add("")
 
-    add("## 5. What I would want to know first")
+    add("## 5. Is the test worth running?")
+    add("")
+    add("A test costs money and half a year, so it is not free insurance. Put a belief on the real uplift, then compare "
+        "three options: launch now, do nothing, or test first and follow the rule. Value is linear in the uplift, so each "
+        "option's expected value is a weighted sum over the scenarios; the chance that the test says *Scale* at each uplift "
+        f"comes from {C.VOI_RUNS} simulated tests.")
+    add("")
+    voi = f["voi"]
+    t = voi["sceptical"]["table"]
+    add(table(["True uplift a year", "Sceptical prior", "Optimistic prior", "NPV if launched now", "Test says Scale"],
+              [[pct(r.uplift, 1), pct(C.PRIORS["sceptical"][r.uplift]), pct(C.PRIORS["optimistic"][r.uplift]),
+                usd_m(r.npv_launch_now / 1e6, 2), pct(r.p_scale)] for r in t.itertuples(index=False)], "lrrrr"))
+    add("")
+    add(table(["Expected value", "Sceptical prior", "Optimistic prior"],
+              [["Launch now", *[usd_m(voi[k]["launch_now"] / 1e6, 2) for k in ("sceptical", "optimistic")]],
+               ["Do nothing", "$0.00M", "$0.00M"],
+               ["Test first, then follow the rule", *[usd_m(voi[k]["test_first"] / 1e6, 2) for k in ("sceptical", "optimistic")]],
+               ["**Value of running the test**", *[f"**{usd_m(voi[k]['value_of_test'] / 1e6, 2, True)}**" for k in ("sceptical", "optimistic")]],
+               ["Best option", *[voi[k]["best"] for k in ("sceptical", "optimistic")]]], "lrr"))
+    add("")
+    sc, op = voi["sceptical"], voi["optimistic"]
+    add(f"**The answer depends on the belief, and that is the point.** If the average expectation sits below break-even "
+        f"(sceptical prior, mean {pct(sc['prior_mean'], 2)}), launching blind loses {usd_m(-sc['launch_now'] / 1e6, 2)} in "
+        f"expectation and the test is worth {usd_m(sc['value_of_test'] / 1e6, 2)}. If it sits well above "
+        f"(optimistic, mean {pct(op['prior_mean'], 2)}), the test costs more than it saves and launching is better by "
+        f"{usd_m(-op['value_of_test'] / 1e6, 2)}. The test also has a price in errors: at "
+        f"{pct(t.iloc[1].uplift, 1)} a year, below break-even, it still says *Scale* in {pct(t.iloc[1].p_scale)} of runs.")
+    add("")
+    add("## 6. What I would want to know first")
     add("")
     add("- **The organic upgrade rate** from Self-Serve to Enterprise, by plan and team size: it sets the sample size.")
     add("- **Which signals predict an upgrade** in past data (seats, sign-on attempts, bandwidth, company domains): they define "

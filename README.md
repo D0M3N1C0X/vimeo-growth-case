@@ -34,6 +34,7 @@ and the **experiment** that would decide it before anyone is hired for it.
 | **Understand** | What is driving revenue, by category? Each category's revenue change split into a **volume** effect (subscribers) and a **price** effect (ARPU), annual 2021–2024 and quarterly 2025. | [memo §1](report/memo.md), `src/analysis.py`, sheets *Bridge* and *Segments* |
 | **Ideate** | Where can growth come from? Three bets, sized from the filings: more price, Self-Serve to Enterprise routing, the Add-Ons decline. | [memo §2](report/memo.md) |
 | **Execute** | Is the best bet worth it? A three-year **business case** with fixed sales capacity, its **break-even uplift** in closed form, and a sensitivity table. | [memo §3](report/memo.md), `src/business_case.py`, sheets *Business case* and *Sensitivity* |
+| **Decide** | Is the test even worth running? Each option's expected value under a sceptical and an optimistic prior: the test is worth $0.57M if you doubt the bet, and not worth its cost if you already believe it. | [memo §5](report/memo.md), sheet *Value of test* |
 | **Optimise** | How would we know? **Sample sizes** for four test designs against the accounts available, a **decision rule** with its error rates over 200 simulated tests, and a readout sheet to paste real counts into. | [memo §4](report/memo.md), `src/experiment.py`, sheets *Test design* and *Test readout* |
 
 ## What makes the numbers trustworthy

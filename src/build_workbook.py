@@ -95,7 +95,7 @@ class Workbook_:
         self.checks.append((area, item, plain(value), ref))
 
     def build(self, path: Path):
-        names = ["Cover", "Summary", "Business case", "Sensitivity", "Test design", "Test readout", "Bridge",
+        names = ["Cover", "Summary", "Business case", "Sensitivity", "Test design", "Test readout", "Value of test", "Bridge",
                  "Segments", "P&L", "Inputs", "Reconciliation"]
         self.wb.active.title = names[0]
         for n in names[1:]:
@@ -108,6 +108,7 @@ class Workbook_:
         self.sensitivity(self.wb["Sensitivity"])
         self.design(self.wb["Test design"])
         self.readout(self.wb["Test readout"])
+        self.voi(self.wb["Value of test"])
         self.summary(self.wb["Summary"])
         self.reconciliation(self.wb["Reconciliation"])
         self.cover(self.wb["Cover"], names)
@@ -460,6 +461,63 @@ class Workbook_:
         put(ws, "A24", "Rule, in order: a broken split invalidates the test; without an uplift there is nothing to protect; "
                        "then the guardrail; then the business bar.", color=MUTED, italic=True)
 
+    def voi(self, ws):
+        R_, v = self.R, self.ex["voi"]
+        priors = list(C.PRIORS)
+        title(ws, "Is the test worth running?",
+              "Each option's expected value under a prior belief about the real uplift. NPV is linear in the uplift, so it comes "
+              "straight from the business case; the chance that the test says 'Scale' comes from simulated tests (blue).")
+        widths(ws, {"A": 34, "B": 13, "C": 13, "D": 16, "E": 14, "F": 16, "G": 16, "H": 14})
+        put(ws, "A4", "Test window, days")
+        put(ws, "B4", "=INDEX('Test design'!B5:B8,MATCH(\"Yes\",'Test design'!L5:L8,0))", color=GREEN)
+        put(ws, "A5", "Cost of the test (build, outreach to the treated half, one account executive)")
+        put(ws, "B5", f"={R_['eligible']}/2*{R_['outreach_cost']}*B4/365+{C.TEST_STAFF}*{R_['ae_cost']}*B4/365+{R_['build_cost']}", fmt=USD)
+        put(ws, "A6", "Delay factor for value after the test")
+        put(ws, "B6", f"=1/(1+{R_['discount_rate']})^(B4/365)", fmt="0.0000")
+        self.check("Value of test", "Cost of the test", v[priors[0]]["test_cost"], "'Value of test'!B5")
+        header(ws, 8, ["True uplift", *[f"Prior: {p}" for p in priors], "NPV if launched now", "Chance the test says Scale",
+                       "Value if scaled after the test", "Test-first value", "NPV, if positive"], height=44)
+        t = v[priors[0]]["table"]
+        first = 9
+        for r, row in enumerate(t.itertuples(index=False), start=first):
+            put(ws, f"A{r}", float(row.uplift), color=BLUE, fmt=PCT2)
+            for j, pr in enumerate(priors):
+                put(ws, f"{col(2 + j)}{r}", float(C.PRIORS[pr][row.uplift]), color=BLUE, fmt=PCT)
+            c = col(2 + len(priors))
+            put(ws, f"{c}{r}", f"='Business case'!$B$35*A{r}-'Business case'!$B$36", fmt=USD)
+            put(ws, f"{col(3 + len(priors))}{r}", float(row.p_scale), color=BLUE, fmt=PCT1)
+            put(ws, f"{col(4 + len(priors))}{r}", f"=({c}{r}+{R_['build_cost']}/(1+{R_['discount_rate']}))*$B$6", fmt=USD)
+            put(ws, f"{col(5 + len(priors))}{r}", f"={col(3 + len(priors))}{r}*{col(4 + len(priors))}{r}-$B$5", fmt=USD)
+            put(ws, f"{col(6 + len(priors))}{r}", f"=MAX(0,{c}{r})", fmt=USD)
+            self.check("Value of test", f"NPV at {row.uplift:.3f}", float(row.npv_launch_now), f"'Value of test'!{c}{r}")
+            self.check("Value of test", f"Test-first value at {row.uplift:.3f}", float(row.test_value), f"'Value of test'!{col(5 + len(priors))}{r}")
+        last = first + len(t) - 1
+        rng = lambda letter: f"{letter}{first}:{letter}{last}"
+        npv_c, tv_c, pos_c = col(2 + len(priors)), col(5 + len(priors)), col(6 + len(priors))
+        r = last + 2
+        header(ws, r, ["Under the prior", *[p for p in priors]], height=20)
+        lines = [("Launch now", lambda pc: f"=SUMPRODUCT({rng(pc)},{rng(npv_c)})", "launch_now"),
+                 ("Do nothing", lambda pc: "=0", "do_nothing"),
+                 ("Test first, then follow the rule", lambda pc: f"=SUMPRODUCT({rng(pc)},{rng(tv_c)})", "test_first"),
+                 ("Value of perfect information", lambda pc: f"=SUMPRODUCT({rng(pc)},{rng(pos_c)})-MAX(0,SUMPRODUCT({rng(pc)},{rng(npv_c)}))", "evpi")]
+        for k, (label, f, key) in enumerate(lines, start=1):
+            put(ws, f"A{r + k}", label, bold=key == "test_first")
+            for j, pr in enumerate(priors):
+                cc = col(2 + j)
+                put(ws, f"{cc}{r + k}", f(cc), fmt=USD, bold=key == "test_first")
+                self.check("Value of test", f"{pr} {label}", float(v[pr][key]), f"'Value of test'!{cc}{r + k}")
+        k = len(lines) + 1
+        put(ws, f"A{r + k}", "Value of running the test", bold=True)
+        put(ws, f"A{r + k + 1}", "Best option", bold=True)
+        for j, pr in enumerate(priors):
+            cc = col(2 + j)
+            put(ws, f"{cc}{r + k}", f"={cc}{r + 3}-MAX(0,{cc}{r + 1})", fmt=USD, bold=True, fill=YELLOW)
+            put(ws, f"{cc}{r + k + 1}", f'=IF(AND({cc}{r + 3}>={cc}{r + 1},{cc}{r + 3}>=0),"Test first",IF({cc}{r + 1}>=0,"Launch now","Do nothing"))', bold=True)
+            self.check("Value of test", f"{pr} value of running the test", float(v[pr]["value_of_test"]), f"'Value of test'!{cc}{r + k}")
+            self.check("Value of test", f"{pr} best option", v[pr]["best"], f"'Value of test'!{cc}{r + k + 1}")
+        put(ws, f"A{r + k + 3}", "The test's own upgrades are not counted, which understates its value slightly. The chance of 'Scale' at an "
+                                 "uplift below break-even is the rule's cost: it can scale a bet that loses.", color=MUTED, italic=True)
+
     def summary(self, ws):
         R_ = self.R
         title(ws, "Summary", "Everything on this sheet is a link or a formula.")
@@ -514,6 +572,7 @@ class Workbook_:
                    "Sensitivity": "The case recomputed with each driver at its low and high value.",
                    "Test design": "Sample sizes for four designs against the accounts available.",
                    "Test readout": "Paste the counts of a real test and read the decision.",
+                   "Value of test": "Launch now, do nothing, or test first: each option's value under two priors.",
                    "Bridge": "Each category's revenue change split into volume and price.",
                    "Segments": "Subscribers, ARPU, bookings and revenue from the filings.",
                    "P&L": "Revenue, costs and margins from the XBRL facts.", "Inputs": "Every assumption, with its reason.",

@@ -98,7 +98,29 @@ Run 200 times on simulated accounts, the rule scales a bet with no real effect i
 
 One simulated run, read with the [workbook's readout sheet](../deliverables/vimeo_upgrade_case.xlsx): control 0.81%, treatment 1.17%, uplift 0.73% a year (one-sided p = 0.003). Decision: *Scale: the uplift is real and above break-even*.
 
-## 5. What I would want to know first
+## 5. Is the test worth running?
+
+A test costs money and half a year, so it is not free insurance. Put a belief on the real uplift, then compare three options: launch now, do nothing, or test first and follow the rule. Value is linear in the uplift, so each option's expected value is a weighted sum over the scenarios; the chance that the test says *Scale* at each uplift comes from 300 simulated tests.
+
+| True uplift a year | Sceptical prior | Optimistic prior | NPV if launched now | Test says Scale |
+|---|---:|---:|---:|---:|
+| 0.0% | 25% | 10% | −$4.73M | 0% |
+| 0.4% | 20% | 10% | −$1.95M | 14% |
+| 0.7% | 20% | 20% | $0.13M | 56% |
+| 1.0% | 20% | 30% | $2.21M | 82% |
+| 1.5% | 15% | 30% | $5.68M | 94% |
+
+| Expected value | Sceptical prior | Optimistic prior |
+|---|---:|---:|
+| Launch now | −$0.25M | $1.73M |
+| Do nothing | $0.00M | $0.00M |
+| Test first, then follow the rule | $0.57M | $1.61M |
+| **Value of running the test** | **+$0.57M** | **−$0.12M** |
+| Best option | Test first | Launch now |
+
+**The answer depends on the belief, and that is the point.** If the average expectation sits below break-even (sceptical prior, mean 0.65%), launching blind loses $0.25M in expectation and the test is worth $0.57M. If it sits well above (optimistic, mean 0.93%), the test costs more than it saves and launching is better by $0.12M. The test also has a price in errors: at 0.4% a year, below break-even, it still says *Scale* in 14% of runs.
+
+## 6. What I would want to know first
 
 - **The organic upgrade rate** from Self-Serve to Enterprise, by plan and team size: it sets the sample size.
 - **Which signals predict an upgrade** in past data (seats, sign-on attempts, bandwidth, company domains): they define who is eligible.

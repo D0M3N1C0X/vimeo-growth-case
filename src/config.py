@@ -68,3 +68,14 @@ TEST = {
     "guardrail_margin": 0.005,          # half a point
     "seed": 2025,
 }
+
+# ---- Is the test worth running? ------------------------------------------------------------------
+# A prior on the real uplift: what we believe before any test. Judgement, and two of them, so the
+# conclusion can be checked against the belief. Probabilities add up to 1.
+PRIORS = {
+    "sceptical": {0.0: 0.25, 0.004: 0.20, 0.007: 0.20, 0.010: 0.20, 0.015: 0.15},
+    "optimistic": {0.0: 0.10, 0.004: 0.10, 0.007: 0.20, 0.010: 0.30, 0.015: 0.30},
+}
+# While the test runs: outreach to the treatment half and one account executive for the window.
+TEST_STAFF = 1
+VOI_RUNS = 300            # simulated tests per uplift scenario
