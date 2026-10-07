@@ -45,7 +45,7 @@ and the **experiment** that would decide it before anyone is hired for it.
   and ARPU × average subscribers reproduces each category's revenue within 2%.
 - **Two bases are never joined.** Vimeo regrouped its categories in 2025; annual and quarterly series stay apart.
 - **Two engines, one answer.** The Excel model recomputes everything with live formulas and is checked
-  against Python on **186 values**; CI recalculates it with LibreOffice. The break-even uplift is a closed
+  against Python on **209 values**; CI recalculates it with LibreOffice. The break-even uplift is a closed
   formula in Excel and a numerical search in Python, and the two must agree.
 - **Three engines, one answer.** The interactive model's JavaScript is checked against Python on 1,200 values
   from 40 random scenarios in CI, including sample sizes to the unit: it uses the same inverse-normal algorithm.
