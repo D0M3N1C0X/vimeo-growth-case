@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - report/**
+      - web/**
       - deliverables/**
       - site-assets/**
       - .github/workflows/pages.yml
@@ -35,6 +36,8 @@ jobs:
           cp report/index.html site/index.html
           cp -r report/figures site/figures
           cp deliverables/vimeo_upgrade_case.xlsx site/
+          mkdir -p site/model
+          cp web/index.html web/model.js web/inputs.json site/model/
 
       - name: Add the link preview
         run: |

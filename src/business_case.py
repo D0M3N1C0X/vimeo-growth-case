@@ -64,6 +64,17 @@ def breakeven(field: str = "uplift", lo: float = 0.0, hi: float = 0.2) -> float:
     return (lo + hi) / 2
 
 
+def breakeven_for(bet: dict, lo: float = 0.0, hi: float = 1.0) -> float:
+    """Break-even uplift for any set of assumptions, by bisection (no closed form assumed)."""
+    npv = lambda x: model({**bet, "uplift": x})["npv"]
+    if not npv(lo) < 0 < npv(hi):
+        raise ValueError("break-even not bracketed")
+    for _ in range(100):
+        mid = (lo + hi) / 2
+        lo, hi = (mid, hi) if npv(mid) < 0 else (lo, mid)
+    return (lo + hi) / 2
+
+
 def sensitivity() -> pd.DataFrame:
     base_npv = model()["npv"]
     rows = []

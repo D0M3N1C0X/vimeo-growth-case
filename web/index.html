@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vimeo Upgrade Model</title>
+<meta name="description" content="Interactive version of the Vimeo growth case: move the assumptions and see the value of the bet, its break-even uplift and which tests can detect it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  --paper:#fbfcfd; --surface:#ffffff; --ink:#131a24; --ink-soft:#39434f; --muted:#5f6b7a;
+  --line:#e2e7ef; --line-strong:#c9d2df; --accent:#1d4ed8; --accent-wash:#eef3ff;
+  --good:#0c6b59; --good-wash:#e8f5f1; --bad:#b5352c; --bad-wash:#fdeceb;
+  --s1:#2a78d6; --s2:#eb6834; --grid:#e1e0d9; --on-accent:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f141b; --surface:#161d26; --ink:#e7ecf3; --ink-soft:#c3cbd6; --muted:#8b97a6;
+    --line:#232c38; --line-strong:#33404f; --accent:#7ba4ff; --accent-wash:#17233a;
+    --good:#5fc6ae; --good-wash:#12291f; --bad:#f08a80; --bad-wash:#2e1b1a;
+    --s1:#3987e5; --s2:#d95926; --grid:#2c2c2a; --on-accent:#0f141b;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f141b; --surface:#161d26; --ink:#e7ecf3; --ink-soft:#c3cbd6; --muted:#8b97a6;
+  --line:#232c38; --line-strong:#33404f; --accent:#7ba4ff; --accent-wash:#17233a;
+  --good:#5fc6ae; --good-wash:#12291f; --bad:#f08a80; --bad-wash:#2e1b1a;
+  --s1:#3987e5; --s2:#d95926; --grid:#2c2c2a; --on-accent:#0f141b;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased;
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:15px; line-height:1.55}
+.page{max-width:72rem; margin:0 auto; padding:clamp(1.25rem,3vw,2.5rem) 16px 4rem}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace; font-size:.72rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 .5rem}
+h1,h2{font-family:"Source Serif 4",Georgia,serif; margin:0; text-wrap:balance}
+h1{font-size:clamp(1.8rem,4.5vw,2.5rem); font-weight:600; line-height:1.15}
+h2{font-size:1.2rem; font-weight:600; margin:0 0 .75rem}
+p{margin:.5rem 0 0; color:var(--ink-soft); max-width:46rem}
+a{color:var(--accent); text-underline-offset:2px}
+.grid{display:grid; grid-template-columns:minmax(0,21rem) minmax(0,1fr); gap:1.5rem; margin-top:1.75rem; align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.1rem 1.1rem 1rem}
+.controls{position:sticky; top:1rem}
+@media (max-width:860px){.controls{position:static}}
+fieldset{border:0; margin:0 0 1rem; padding:0}
+legend{font-size:.72rem; font-family:"IBM Plex Mono",ui-monospace,monospace; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:.4rem}
+.ctl{margin:.55rem 0 .8rem}
+.ctl label{display:flex; justify-content:space-between; gap:.75rem; font-size:.86rem; color:var(--ink-soft)}
+.ctl output{font-family:"IBM Plex Mono",ui-monospace,monospace; color:var(--ink); white-space:nowrap}
+.ctl .hint{font-size:.75rem; color:var(--muted); margin-top:.1rem}
+input[type=range]{width:100%; accent-color:var(--accent); margin:.3rem 0 0}
+input[type=range]:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.buttons{display:flex; gap:.5rem; flex-wrap:wrap}
+button{font:inherit; font-size:.85rem; font-weight:500; border-radius:8px; padding:.45rem .8rem; cursor:pointer;
+  border:1px solid var(--line-strong); background:var(--surface); color:var(--ink)}
+button.primary{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+.note{font-size:.78rem; color:var(--muted); margin-top:.5rem}
+.kpis{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.75rem}
+@media (max-width:640px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:.8rem .9rem}
+.kpi .k{font-size:.75rem; color:var(--muted)}
+.kpi .v{font-family:"Source Serif 4",Georgia,serif; font-size:1.55rem; font-weight:600; font-variant-numeric:tabular-nums; margin-top:.15rem}
+.verdict{margin-top:.75rem; border-radius:12px; padding:.85rem 1rem; font-weight:500}
+.verdict.good{background:var(--good-wash); color:var(--good)}
+.verdict.bad{background:var(--bad-wash); color:var(--bad)}
+.section{margin-top:1.25rem}
+svg text{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:11px; fill:var(--muted)}
+.table-wrap{overflow-x:auto}
+table{width:100%; border-collapse:collapse; font-size:.86rem}
+th,td{padding:.45rem .5rem; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap}
+th:first-child,td:first-child{text-align:left; white-space:normal}
+th{font-size:.72rem; font-weight:500; color:var(--muted); text-transform:uppercase; letter-spacing:.04em}
+td{font-variant-numeric:tabular-nums}
+.pill{display:inline-block; border-radius:999px; padding:.05rem .55rem; font-size:.75rem; font-weight:600}
+.pill.yes{background:var(--good-wash); color:var(--good)}
+.pill.no{background:var(--bad-wash); color:var(--bad)}
+footer{margin-top:2.5rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--muted); font-size:.82rem}
+</style>
+</head>
+<body>
+<main class="page">
+  <p class="eyebrow">Vimeo growth case · interactive model</p>
+  <h1>Move the assumptions, watch the decision</h1>
+  <p>The business case for routing Self-Serve teams that look like Enterprise buyers to sales. Starting point:
+     Vimeo's Q3 2025 10-Q. Every slider is an assumption; the <a href="../">memo</a> explains each one.</p>
+
+  <div class="grid">
+    <form class="card controls" id="controls" onsubmit="return false">
+      <div id="sliders"></div>
+      <div class="buttons">
+        <button type="button" class="primary" id="copy">Copy link to this scenario</button>
+        <button type="button" id="reset">Reset to the memo</button>
+      </div>
+      <p class="note" id="copied" aria-live="polite"></p>
+    </form>
+
+    <section>
+      <div class="kpis" id="kpis"></div>
+      <div class="verdict" id="verdict" aria-live="polite"></div>
+
+      <div class="card section">
+        <h2>Value against the real uplift</h2>
+        <div id="chart"></div>
+        <p class="note">The team is hired for the planned uplift, so value is a straight line in the real one. Where it
+          crosses zero is the bar the test has to clear.</p>
+      </div>
+
+      <div class="card section">
+        <h2>Can a test see the break-even?</h2>
+        <div class="table-wrap"><table id="designs"></table></div>
+        <p class="note">Accounts needed to detect the break-even uplift at 80% power and 5% significance. Doubling eligibility
+          assumes the extra accounts halve the uplift per account.</p>
+      </div>
+
+      <div class="card section">
+        <h2>Three years</h2>
+        <div class="table-wrap"><table id="years"></table></div>
+      </div>
+    </section>
+  </div>
+
+  <footer>Same formulas as the Python model and the Excel workbook; this page's JavaScript is checked against Python on
+    1,200 values in CI. Public SEC data and labelled assumptions; not affiliated with Vimeo or Bending Spoons.
+    <a href="https://github.com/D0M3N1C0X/vimeo-growth-case">Source</a>.</footer>
+</main>
+<script type="module">
+import { model, breakeven, designs } from "./model.js";
+
+const inputs = await (await fetch("./inputs.json")).json();
+const base = inputs.base;
+const LABELS = {
+  eligible_share: ["Eligible share of Self-Serve", "pct1", "Accounts with team-level signals"],
+  uplift: ["Real uplift", "pct2", "Extra upgrades per account per year: what the test measures"],
+  planned_uplift: ["Team hired for", "pct2", "Sales capacity is set before the real uplift is known"],
+  entry_acv_share: ["First-year contract", "pct0", "Share of average Enterprise ARPU"],
+  retention: ["Revenue retention after year 1", "pct0", ""],
+  gross_margin: ["Gross margin", "pct0", ""],
+  outreach_cost: ["Outreach per eligible account", "usd", "Per year"],
+  upgrades_per_ae: ["Upgrades per account executive", "int", "Per year"],
+  baseline_upgrade_rate: ["Organic upgrades in 90 days", "pct2", "Sets the test's sample size"],
+};
+const GROUPS = [["The bet", ["eligible_share", "uplift", "planned_uplift", "entry_acv_share", "retention", "gross_margin"]],
+                ["Costs", ["outreach_cost", "upgrades_per_ae"]], ["The test", ["baseline_upgrade_rate"]]];
+const fmt = {
+  pct0: (v) => `${(v * 100).toFixed(0)}%`, pct1: (v) => `${(v * 100).toFixed(1)}%`, pct2: (v) => `${(v * 100).toFixed(2)}%`,
+  usd: (v) => `$${Math.round(v)}`, int: (v) => `${Math.round(v)}`,
+};
+const money = (v) => `${v < 0 ? "−" : ""}$${(Math.abs(v) / 1e6).toFixed(2)}M`;
+const num = (v) => Math.round(v).toLocaleString("en-US");
+const defaults = { ...inputs.bet, baseline_upgrade_rate: inputs.test.baseline_upgrade_rate };
+let state = { ...defaults };
+
+function readHash() {
+  try {
+    const h = new URLSearchParams(location.hash.slice(1));
+    for (const [k, v] of h) if (k in LABELS && !isNaN(+v)) state[k] = +v;
+  } catch (e) {}
+}
+
+function buildControls() {
+  const root = document.getElementById("sliders");
+  root.innerHTML = GROUPS.map(([title, keys]) => `<fieldset><legend>${title}</legend>${keys.map((k) => {
+    const [lo, hi, step] = inputs.sliders[k] || inputs.test_sliders[k];
+    const [label, , hint] = LABELS[k];
+    return `<div class="ctl"><label for="${k}">${label}<output id="${k}-out"></output></label>
+      <input type="range" id="${k}" min="${lo}" max="${hi}" step="${step}" value="${state[k]}">
+      ${hint ? `<div class="hint">${hint}</div>` : ""}</div>`;
+  }).join("")}</fieldset>`).join("");
+  for (const k of Object.keys(LABELS)) {
+    document.getElementById(k).addEventListener("input", (e) => { state[k] = +e.target.value; render(); });
+  }
+}
+
+function chart(bet, width) {
+  // drawn at the container's real width, so labels keep their size on a phone
+  const W = Math.max(300, Math.min(760, width)), H = 260, x0 = 64, x1 = W - 16, y0 = H - 34, y1 = 14, maxU = 0.03;
+  const pts = Array.from({ length: 31 }, (_, i) => { const u = i / 30 * maxU; return [u, model({ ...bet, uplift: u }, base).npv]; });
+  const vals = pts.map((p) => p[1]).concat([model(bet, base).npv]);
+  let lo = Math.min(0, ...vals), hi = Math.max(0, ...vals);
+  const pad = (hi - lo) * 0.08; lo -= pad; hi += pad;
+  const X = (u) => x0 + u / maxU * (x1 - x0), Y = (v) => y0 - (v - lo) / (hi - lo) * (y0 - y1);
+  const be = breakeven(bet, base);
+  const cur = model(bet, base).npv;
+  const ticks = [];
+  const step = Math.pow(10, Math.floor(Math.log10((hi - lo) / 4)));
+  const tstep = [1, 2, 5, 10].map((m) => m * step).find((s) => (hi - lo) / s <= 6);
+  for (let v = Math.ceil(lo / tstep) * tstep; v <= hi; v += tstep) ticks.push(v);
+  return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="max-width:100%;height:auto" role="img" aria-label="Net present value against the real uplift">
+    ${ticks.map((v) => `<line x1="${x0}" x2="${x1}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--grid)"/>
+      <text x="${x0 - 8}" y="${Y(v) + 4}" text-anchor="end">${money(v)}</text>`).join("")}
+    ${(W < 480 ? [0, 0.01, 0.02, 0.03] : [0, 0.005, 0.01, 0.015, 0.02, 0.025, 0.03]).map((u) => `<text x="${X(u)}" y="${H - 12}" text-anchor="middle">${(u * 100).toFixed(1)}%</text>`).join("")}
+    <line x1="${x0}" x2="${x1}" y1="${Y(0)}" y2="${Y(0)}" stroke="var(--ink-soft)" stroke-width="1.2"/>
+    <path d="M${pts.map((p) => `${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(" L")}" fill="none" stroke="var(--s1)" stroke-width="2.5"/>
+    ${be > 0 && be <= maxU ? `<line x1="${X(be)}" x2="${X(be)}" y1="${y1}" y2="${y0}" stroke="var(--s2)" stroke-dasharray="4 4"/>
+      <text x="${X(be) + 6}" y="${y1 + 12}" style="fill:var(--s2)">break-even ${(be * 100).toFixed(2)}%</text>` : ""}
+    ${bet.uplift <= maxU ? `<circle cx="${X(bet.uplift)}" cy="${Y(cur)}" r="5.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"><title>Current scenario: ${money(cur)}</title></circle>` : ""}
+  </svg>`;
+}
+
+function render() {
+  for (const k of Object.keys(LABELS)) document.getElementById(`${k}-out`).textContent = fmt[LABELS[k][1]](state[k]);
+  const bet = { ...inputs.bet, ...state };
+  delete bet.baseline_upgrade_rate;
+  const test = { ...inputs.test, baseline_upgrade_rate: state.baseline_upgrade_rate };
+  const m = model(bet, base);
+  const be = breakeven(bet, base);
+  const kp = [["Net present value, 3 years", money(m.npv)], ["Break-even uplift", be > 0 && isFinite(be) ? `${(be * 100).toFixed(2)}%` : "none"],
+    ["Payback", m.payback_year ? `year ${m.payback_year}` : "after year 3"], ["Account executives", num(m.account_executives)]];
+  document.getElementById("kpis").innerHTML = kp.map(([k, v]) => `<div class="kpi"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+  const v = document.getElementById("verdict");
+  v.className = `verdict ${m.npv >= 0 ? "good" : "bad"}`;
+  v.textContent = m.npv >= 0
+    ? `At ${(bet.uplift * 100).toFixed(2)}% the bet is worth ${money(m.npv)}: ${num(m.upgrades)} upgrades a year from ${num(m.eligible)} eligible accounts.`
+    : `At ${(bet.uplift * 100).toFixed(2)}% the bet loses ${money(-m.npv)}. It needs at least ${(be * 100).toFixed(2)}% upgrades a year.`;
+  const box = document.getElementById("chart");
+  box.innerHTML = chart(bet, box.clientWidth || 640);
+  const d = designs(bet, base, test);
+  document.getElementById("designs").innerHTML = `<tr><th>Design</th><th>Needed</th><th>Available</th><th>Feasible</th></tr>` +
+    d.map((r) => `<tr><td>${r.design}</td><td>${isFinite(r.needed) ? num(r.needed) : "—"}</td><td>${num(r.available)}</td>
+      <td><span class="pill ${r.feasible ? "yes" : "no"}">${r.feasible ? "Yes" : "No"}</span></td></tr>`).join("");
+  const rows = [["Net new revenue", "net_revenue"], ["Gross profit", "gross_profit"], ["Account executives", "sales_cost"],
+    ["Outreach", "outreach_cost"], ["Build", "build_cost"], ["Contribution", "contribution"]];
+  document.getElementById("years").innerHTML = `<tr><th>US$</th>${m.years.map((y) => `<th>Year ${y.year}</th>`).join("")}</tr>` +
+    rows.map(([l, k]) => `<tr><td>${l}</td>${m.years.map((y) => `<td>${money(y[k])}</td>`).join("")}</tr>`).join("");
+}
+
+readHash();
+buildControls();
+render();
+let resizeTimer;
+addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(render, 150); });
+document.getElementById("reset").addEventListener("click", () => {
+  state = { ...defaults };
+  for (const k of Object.keys(LABELS)) document.getElementById(k).value = state[k];
+  history.replaceState(null, "", location.pathname);
+  render();
+});
+document.getElementById("copy").addEventListener("click", async () => {
+  const h = Object.keys(LABELS).filter((k) => state[k] !== defaults[k]).map((k) => `${k}=${state[k]}`).join("&");
+  history.replaceState(null, "", h ? `#${h}` : location.pathname);
+  try { await navigator.clipboard.writeText(location.href); document.getElementById("copied").textContent = "Link copied."; }
+  catch (e) { document.getElementById("copied").textContent = "Copy the address bar to share this scenario."; }
+});
+</script>
+</body>
+</html>

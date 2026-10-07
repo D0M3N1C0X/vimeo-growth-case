@@ -1,0 +1,4252 @@
+{
+ "base": {
+  "enterprise_arpu": 24567.0,
+  "enterprise_revenue_q": 25503000.0,
+  "enterprise_subscribers": 4200.0,
+  "period": "2025Q3",
+  "self_serve_arpu": 204.0,
+  "self_serve_subscribers": 1127900.0
+ },
+ "cases": [
+  {
+   "acv": 6337.033082999999,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.019572,
+    "entry_acv_share": 0.257949,
+    "gross_margin": 0.752231,
+    "outreach_cost": 36.568892,
+    "planned_uplift": 0.020226,
+    "retention": 0.867941,
+    "upgrades_per_ae": 14,
+    "uplift": 0.004525,
+    "years": 3
+   },
+   "breakeven": 0.051783818845336144,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 752
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 593
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 293
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 1422
+    }
+   ],
+   "eligible": 22075.2588,
+   "npv": -15236568.141929982,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.001525,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 32,
+     "build_cost": 400000.0,
+     "cannibalised": 10188.835699140001,
+     "contribution": -6736847.35500944,
+     "cumulative": -6736847.35500944,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 316504.84756226285,
+     "gross_profit": 230420.39991980878,
+     "net_revenue": 306316.01186312287,
+     "outreach_cost": 807267.7549292495,
+     "present_value": -6124406.686372219,
+     "sales_cost": 5760000,
+     "upgrades": 99.89054607000001,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 32,
+     "build_cost": 0.0,
+     "cannibalised": 30566.507097420006,
+     "contribution": -5938889.02527973,
+     "cumulative": -12675736.38028917,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 865919.9153583389,
+     "gross_profit": 628378.7296495192,
+     "net_revenue": 835353.4082609188,
+     "outreach_cost": 807267.7549292495,
+     "present_value": -4908172.748165065,
+     "sales_cost": 5760000,
+     "upgrades": 99.89054607000001,
+     "weight": 1.367941,
+     "year": 2
+    },
+    {
+     "account_executives": 32,
+     "build_cost": 0.0,
+     "cannibalised": 50944.178495700005,
+     "contribution": -5595508.969539682,
+     "cumulative": -18271245.349828854,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 1342779.7787163327,
+     "gross_profit": 971758.7853895668,
+     "net_revenue": 1291835.6002206327,
+     "outreach_cost": 807267.7549292495,
+     "present_value": -4203988.707392698,
+     "sales_cost": 5760000,
+     "upgrades": 99.89054607000001,
+     "weight": 2.121262579481,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 13256.721704999998,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.024514,
+    "entry_acv_share": 0.539615,
+    "gross_margin": 0.78823,
+    "outreach_cost": 12.380196,
+    "planned_uplift": 0.00454,
+    "retention": 1.013426,
+    "upgrades_per_ae": 26,
+    "uplift": 0.002096,
+    "years": 3
+   },
+   "breakeven": 0.0033581514749860463,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 331204
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 260889
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 128500
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 1029067
+    }
+   ],
+   "eligible": 27649.3406,
+   "npv": -1297823.7619871965,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.014268,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 5,
+     "build_cost": 400000.0,
+     "cannibalised": 5911.2078255552005,
+     "contribution": -1344178.0866226715,
+     "cumulative": -1344178.0866226715,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 384133.5151166837,
+     "gross_profit": 298126.1692760862,
+     "net_revenue": 378222.3072911285,
+     "outreach_cost": 342304.2558987576,
+     "present_value": -1221980.0787478832,
+     "sales_cost": 900000,
+     "upgrades": 57.953017897600006,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 5,
+     "build_cost": 0.0,
+     "cannibalised": 17733.6234766656,
+     "contribution": -339795.3501967195,
+     "cumulative": -1683973.4368193909,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 1162715.2984979642,
+     "gross_profit": 902508.9057020381,
+     "net_revenue": 1144981.6750212985,
+     "outreach_cost": 342304.2558987576,
+     "present_value": -280822.60346836323,
+     "sales_cost": 900000,
+     "upgrades": 57.953017897600006,
+     "weight": 1.513426,
+     "year": 2
+    },
+    {
+     "account_executives": 5,
+     "build_cost": 0.0,
+     "cannibalised": 29556.039127776003,
+     "contribution": 272826.94282486546,
+     "cumulative": -1411146.4939945254,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 1951750.3209029217,
+     "gross_profit": 1515131.198723623,
+     "net_revenue": 1922194.2817751458,
+     "outreach_cost": 342304.2558987576,
+     "present_value": 204978.92022904987,
+     "sales_cost": 900000,
+     "upgrades": 57.953017897600006,
+     "weight": 2.5404582574759997,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 5828.913822,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.03097,
+    "entry_acv_share": 0.237266,
+    "gross_margin": 0.635338,
+    "outreach_cost": 28.960929,
+    "planned_uplift": 0.029335,
+    "retention": 1.029234,
+    "upgrades_per_ae": 20,
+    "uplift": 0.0119,
+    "years": 3
+   },
+   "breakeven": 0.057147185712746074,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 962
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 758
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 373
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 2180
+    }
+   ],
+   "eligible": 34931.063,
+   "npv": -20709710.683320913,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.005319,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 52,
+     "build_cost": 400000.0,
+     "cannibalised": 42399.3242694,
+     "contribution": -10028874.385263402,
+     "cumulative": -10028874.385263402,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 1211480.4278302242,
+     "gross_profit": 742761.6501741268,
+     "net_revenue": 1169081.1035608242,
+     "outreach_cost": 1011636.0354375271,
+     "present_value": -9117158.532057637,
+     "sales_cost": 9360000,
+     "upgrades": 415.6796497,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 52,
+     "build_cost": 0.0,
+     "cannibalised": 127197.9728082,
+     "contribution": -8098348.2915054895,
+     "cumulative": -18127222.67676889,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 3705274.12114505,
+     "gross_profit": 2273287.7439320376,
+     "net_revenue": 3578076.14833685,
+     "outreach_cost": 1011636.0354375271,
+     "present_value": -6692849.827690487,
+     "sales_cost": 9360000,
+     "upgrades": 415.6796497,
+     "weight": 1.529234,
+     "year": 2
+    },
+    {
+     "account_executives": 52,
+     "build_cost": 0.0,
+     "cannibalised": 211996.621347,
+     "contribution": -6521503.792675384,
+     "cumulative": -24648726.469444275,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 6271971.379290241,
+     "gross_profit": 3850132.2427621423,
+     "net_revenue": 6059974.757943241,
+     "outreach_cost": 1011636.0354375271,
+     "present_value": -4899702.323572789,
+     "sales_cost": 9360000,
+     "upgrades": 415.6796497,
+     "weight": 2.5885566267559996,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 17470.355277,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.041726,
+    "entry_acv_share": 0.711131,
+    "gross_margin": 0.61788,
+    "outreach_cost": 54.774447,
+    "planned_uplift": 0.018285,
+    "retention": 0.786199,
+    "upgrades_per_ae": 14,
+    "uplift": 0.005422,
+    "years": 3
+   },
+   "breakeven": 0.023383369129237094,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 3170
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 2497
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 1239
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 7877
+    }
+   ],
+   "eligible": 47062.7554,
+   "npv": -26521542.05397402,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.003883,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 62,
+     "build_cost": 400000.0,
+     "cannibalised": 26027.7744974376,
+     "contribution": -12776668.564189026,
+     "cumulative": -12776668.564189026,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 2228992.487940564,
+     "gross_profit": 1361167.8371422386,
+     "net_revenue": 2202964.713443126,
+     "outreach_cost": 2577836.401331264,
+     "present_value": -11615153.240171842,
+     "sales_cost": 11160000,
+     "upgrades": 255.1742597788,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 62,
+     "build_cost": 0.0,
+     "cannibalised": 78083.3234923128,
+     "contribution": -10243247.692428976,
+     "cumulative": -23019916.256618,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 5733855.81799333,
+     "gross_profit": 3494588.708902288,
+     "net_revenue": 5655772.494501017,
+     "outreach_cost": 2577836.401331264,
+     "present_value": -8465493.960685104,
+     "sales_cost": 11160000,
+     "upgrades": 255.1742597788,
+     "weight": 1.2861989999999999,
+     "year": 2
+    },
+    {
+     "account_executives": 62,
+     "build_cost": 0.0,
+     "cannibalised": 130138.872487188,
+     "contribution": -8572831.049498828,
+     "cumulative": -31592747.306116827,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 8489375.863217486,
+     "gross_profit": 5165005.351832436,
+     "net_revenue": 8359236.990730298,
+     "outreach_cost": 2577836.401331264,
+     "present_value": -6440894.853117074,
+     "sales_cost": 11160000,
+     "upgrades": 255.1742597788,
+     "weight": 1.904307867601,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 16421.786582999997,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.035618,
+    "entry_acv_share": 0.668449,
+    "gross_margin": 0.809698,
+    "outreach_cost": 29.9767,
+    "planned_uplift": 0.010796,
+    "retention": 0.826592,
+    "upgrades_per_ae": 66,
+    "uplift": 0.012828,
+    "years": 3
+   },
+   "breakeven": 0.004028825292819364,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 77774
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 61262
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 30479
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 232729
+    }
+   ],
+   "eligible": 40173.542199999996,
+   "npv": 14178690.024978887,
+   "payback_year": 1,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.004417,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 7,
+     "build_cost": 400000.0,
+     "cannibalised": 52565.312332843205,
+     "contribution": 519366.4978562989,
+     "cumulative": 519366.4978562989,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 4231452.6509739645,
+     "gross_profit": 3383636.7203230388,
+     "net_revenue": 4178887.338641121,
+     "outreach_cost": 1204270.2224667398,
+     "present_value": 472151.36168754444,
+     "sales_cost": 1260000,
+     "upgrades": 515.3461993416,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 7,
+     "build_cost": 0.0,
+     "cannibalised": 157695.93699852962,
+     "contribution": 6498379.393311971,
+     "cumulative": 7017745.89116827,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 11226822.470321707,
+     "gross_profit": 8962649.61577871,
+     "net_revenue": 11069126.533323178,
+     "outreach_cost": 1204270.2224667398,
+     "present_value": 5370561.482076009,
+     "sales_cost": 1260000,
+     "upgrades": 515.3461993416,
+     "weight": 1.326592,
+     "year": 2
+    },
+    {
+     "account_executives": 7,
+     "build_cost": 0.0,
+     "cannibalised": 262826.56166421605,
+     "contribution": 11095185.628197614,
+     "cumulative": 18112931.519365884,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 17009139.200035997,
+     "gross_profit": 13559455.850664355,
+     "net_revenue": 16746312.63837178,
+     "outreach_cost": 1204270.2224667398,
+     "present_value": 8335977.181215335,
+     "sales_cost": 1260000,
+     "upgrades": 515.3461993416,
+     "weight": 2.009846334464,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 19249.620252,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.030849,
+    "entry_acv_share": 0.783556,
+    "gross_margin": 0.725437,
+    "outreach_cost": 98.017485,
+    "planned_uplift": 0.026504,
+    "retention": 0.743969,
+    "upgrades_per_ae": 18,
+    "uplift": 0.015756,
+    "years": 3
+   },
+   "breakeven": 0.023651166070066294,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 6599
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 5198
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 2560
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 18740
+    }
+   ],
+   "eligible": 34794.587100000004,
+   "npv": -10722851.044902047,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.0116,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 52,
+     "build_cost": 400000.0,
+     "cannibalised": 55918.798463455205,
+     "contribution": -9383240.89006794,
+     "cumulative": -9383240.89006794,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 5276547.232204087,
+     "gross_profit": 3787237.0290875025,
+     "net_revenue": 5220628.433740632,
+     "outreach_cost": 3410477.9191554436,
+     "present_value": -8530218.990970856,
+     "sales_cost": 9360000,
+     "upgrades": 548.2235143476,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 52,
+     "build_cost": 0.0,
+     "cannibalised": 167756.39539036562,
+     "contribution": -3368839.084031873,
+     "cumulative": -12752079.974099813,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 13127722.36779537,
+     "gross_profit": 9401638.83512357,
+     "net_revenue": 12959965.972405005,
+     "outreach_cost": 3410477.9191554436,
+     "present_value": -2784164.532257746,
+     "sales_cost": 9360000,
+     "upgrades": 548.2235143476,
+     "weight": 1.2439689999999999,
+     "year": 2
+    },
+    {
+     "account_executives": 52,
+     "build_cost": 0.0,
+     "cannibalised": 279593.992317276,
+     "contribution": 787329.7286526426,
+     "cumulative": -11964750.24544717,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 18968753.282246083,
+     "gross_profit": 13557807.647808086,
+     "net_revenue": 18689159.28992881,
+     "outreach_cost": 3410477.9191554436,
+     "present_value": 591532.4783265532,
+     "sales_cost": 9360000,
+     "upgrades": 548.2235143476,
+     "weight": 1.797458872961,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 18046.254891,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.011839,
+    "entry_acv_share": 0.734573,
+    "gross_margin": 0.694124,
+    "outreach_cost": 57.302594,
+    "planned_uplift": 0.003098,
+    "retention": 0.982285,
+    "upgrades_per_ae": 71,
+    "uplift": 0.014669,
+    "years": 3
+   },
+   "breakeven": 0.004665737913830747,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 132611
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 104458
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 51630
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 407331
+    }
+   ],
+   "eligible": 13353.2081,
+   "npv": 5819075.775891871,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.010734,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 1,
+     "build_cost": 400000.0,
+     "cannibalised": 19979.5773811278,
+     "contribution": -132223.37456354732,
+     "cumulative": -132223.37456354732,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 1767434.0491876986,
+     "gross_profit": 1212950.087788264,
+     "net_revenue": 1747454.471806571,
+     "outreach_cost": 765173.4623518114,
+     "present_value": -120203.06778504301,
+     "sales_cost": 180000,
+     "upgrades": 195.8782096189,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 1,
+     "build_cost": 0.0,
+     "cannibalised": 59938.7321433834,
+     "contribution": 2650210.6253858963,
+     "cumulative": 2517987.250822349,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 5239681.959200376,
+     "gross_profit": 3595384.0877377074,
+     "net_revenue": 5179743.227056992,
+     "outreach_cost": 765173.4623518114,
+     "present_value": 2190256.7151949555,
+     "sales_cost": 180000,
+     "upgrades": 195.8782096189,
+     "weight": 1.482285,
+     "year": 2
+    },
+    {
+     "account_executives": 1,
+     "build_cost": 0.0,
+     "cannibalised": 99897.88690563901,
+     "contribution": 4989948.453009489,
+     "cumulative": 7507935.703831838,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 8650418.997487178,
+     "gross_profit": 5935121.9153613,
+     "net_revenue": 8550521.11058154,
+     "outreach_cost": 765173.4623518114,
+     "present_value": 3749022.128481959,
+     "sales_cost": 180000,
+     "upgrades": 195.8782096189,
+     "weight": 2.447168821225,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 21421.785258,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.031747,
+    "entry_acv_share": 0.871974,
+    "gross_margin": 0.618201,
+    "outreach_cost": 47.409834,
+    "planned_uplift": 0.014774,
+    "retention": 1.072341,
+    "upgrades_per_ae": 56,
+    "uplift": 0.017397,
+    "years": 3
+   },
+   "breakeven": 0.005075252200926283,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 113420
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 89341
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 44152
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 347715
+    }
+   ],
+   "eligible": 35807.4413,
+   "npv": 22000113.794510376,
+   "payback_year": 1,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.010821,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 10,
+     "build_cost": 400000.0,
+     "cannibalised": 63540.089742202195,
+     "contribution": 187895.79641379882,
+     "cumulative": 187895.79641379882,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 6672265.479076,
+     "gross_profit": 4085520.644411543,
+     "net_revenue": 6608725.389333798,
+     "outreach_cost": 1697624.847997744,
+     "present_value": 170814.36037618073,
+     "sales_cost": 1800000,
+     "upgrades": 622.9420562961,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 10,
+     "build_cost": 0.0,
+     "cannibalised": 190620.2692266066,
+     "contribution": 9355721.571215399,
+     "cumulative": 9543617.367629196,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 20982153.151271675,
+     "gross_profit": 12853346.419213142,
+     "net_revenue": 20791532.882045068,
+     "outreach_cost": 1697624.847997744,
+     "present_value": 7732001.298525122,
+     "sales_cost": 1800000,
+     "upgrades": 622.9420562961,
+     "weight": 1.572341,
+     "year": 2
+    },
+    {
+     "account_executives": 10,
+     "build_cost": 0.0,
+     "cannibalised": 317700.448711011,
+     "contribution": 18763503.818495683,
+     "cumulative": 28307121.18612488,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 36327232.40756165,
+     "gross_profit": 22261128.666493427,
+     "net_revenue": 36009531.958850645,
+     "outreach_cost": 1697624.847997744,
+     "present_value": 14097298.135609074,
+     "sales_cost": 1800000,
+     "upgrades": 622.9420562961,
+     "weight": 2.722256220281,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 10506.716292,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.034121,
+    "entry_acv_share": 0.427676,
+    "gross_margin": 0.738509,
+    "outreach_cost": 66.865272,
+    "planned_uplift": 0.025014,
+    "retention": 0.792896,
+    "upgrades_per_ae": 12,
+    "uplift": 0.029793,
+    "years": 3
+   },
+   "breakeven": 0.04972337293113693,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 978
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 770
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 380
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 2096
+    }
+   ],
+   "eligible": 38485.075899999996,
+   "npv": -17244051.195135474,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.003353,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 81,
+     "build_cost": 400000.0,
+     "cannibalised": 116951.75836144738,
+     "contribution": -13191330.534015633,
+     "cumulative": -13191330.534015633,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 6023426.200756208,
+     "gross_profit": 4361984.533978512,
+     "net_revenue": 5906474.44239476,
+     "outreach_cost": 2573315.0679941447,
+     "present_value": -11992118.667286938,
+     "sales_cost": 14580000,
+     "upgrades": 1146.5858662887,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 81,
+     "build_cost": 0.0,
+     "cannibalised": 350855.27508434217,
+     "contribution": -5909905.470265334,
+     "cumulative": -19101236.004280966,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 15575327.282505797,
+     "gross_profit": 11243409.597728811,
+     "net_revenue": 15224472.007421454,
+     "outreach_cost": 2573315.0679941447,
+     "present_value": -4884219.396913499,
+     "sales_cost": 14580000,
+     "upgrades": 1146.5858662887,
+     "weight": 1.292896,
+     "year": 2
+    },
+    {
+     "account_executives": 81,
+     "build_cost": 0.0,
+     "cannibalised": 584758.791807237,
+     "contribution": -489426.1772745317,
+     "cumulative": -19590662.1815555,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 23148991.44262072,
+     "gross_profit": 16663888.890719613,
+     "net_revenue": 22564232.650813483,
+     "outreach_cost": 2573315.0679941447,
+     "present_value": -367713.13093503495,
+     "sales_cost": 14580000,
+     "upgrades": 1146.5858662887,
+     "weight": 1.9215800668160001,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 7455.396624000001,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.010269,
+    "entry_acv_share": 0.303472,
+    "gross_margin": 0.624174,
+    "outreach_cost": 39.09497,
+    "planned_uplift": 0.023511,
+    "retention": 0.723807,
+    "upgrades_per_ae": 71,
+    "uplift": 0.001769,
+    "years": 3
+   },
+   "breakeven": 0.022698123237224997,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 5001
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 3939
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 1948
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 13597
+    }
+   ],
+   "eligible": 11582.4051,
+   "npv": -3024601.1675982047,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.007289,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 4,
+     "build_cost": 400000.0,
+     "cannibalised": 2089.9060114338,
+     "contribution": -1526445.1864845098,
+     "cumulative": -1526445.1864845098,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 76377.83442216108,
+     "gross_profit": 46368.59342783728,
+     "net_revenue": 74287.92841072727,
+     "outreach_cost": 452813.77991234703,
+     "present_value": -1387677.4422586453,
+     "sales_cost": 720000,
+     "upgrades": 20.489274621899998,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 4,
+     "build_cost": 0.0,
+     "cannibalised": 6269.7180343014,
+     "contribution": -1060041.9296786715,
+     "cumulative": -2586487.116163181,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 186943.45682136333,
+     "gross_profit": 112771.8502336756,
+     "net_revenue": 180673.73878706194,
+     "outreach_cost": 452813.77991234703,
+     "present_value": -876067.7104782409,
+     "sales_cost": 720000,
+     "upgrades": 20.489274621899998,
+     "weight": 1.2238069999999999,
+     "year": 2
+    },
+    {
+     "account_executives": 4,
+     "build_cost": 0.0,
+     "cannibalised": 10449.530057168999,
+     "contribution": -1012699.355780415,
+     "cumulative": -3599186.4719435964,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 266971.62827326276,
+     "gross_profit": 160114.42413193212,
+     "net_revenue": 256522.09821609376,
+     "outreach_cost": 452813.77991234703,
+     "present_value": -760856.0148613183,
+     "sales_cost": 720000,
+     "upgrades": 20.489274621899998,
+     "weight": 1.7477035732489998,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 21893.815596,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.029725,
+    "entry_acv_share": 0.891188,
+    "gross_margin": 0.865258,
+    "outreach_cost": 41.529652,
+    "planned_uplift": 0.02494,
+    "retention": 0.739211,
+    "upgrades_per_ae": 35,
+    "uplift": 0.026502,
+    "years": 3
+   },
+   "breakeven": 0.008230931619302474,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 57866
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 45581
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 22432
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 176426
+    }
+   ],
+   "eligible": 33526.8275,
+   "npv": 32341289.328688554,
+   "payback_year": 1,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.014408,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 24,
+     "build_cost": 400000.0,
+     "cannibalised": 90629.85420531,
+     "contribution": 2225272.1093379017,
+     "cumulative": 2225272.1093379017,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 9726633.8993305,
+     "gross_profit": 8337629.588076931,
+     "net_revenue": 9636004.04512519,
+     "outreach_cost": 1392357.47873903,
+     "present_value": 2022974.6448526378,
+     "sales_cost": 4320000,
+     "upgrades": 888.527982405,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 24,
+     "build_cost": 0.0,
+     "cannibalised": 271889.56261593,
+     "contribution": 14910905.908949304,
+     "cumulative": 17136178.018287204,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 24106703.4420465,
+     "gross_profit": 20623263.387688335,
+     "net_revenue": 23834813.87943057,
+     "outreach_cost": 1392357.47873903,
+     "present_value": 12323062.734668845,
+     "sales_cost": 4320000,
+     "upgrades": 888.527982405,
+     "weight": 1.239211,
+     "year": 2
+    },
+    {
+     "account_executives": 24,
+     "build_cost": 0.0,
+     "cannibalised": 453149.27102655,
+     "contribution": 23951680.344341375,
+     "cumulative": 41087858.36262858,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 34736609.028787136,
+     "gross_profit": 29664037.823080406,
+     "net_revenue": 34283459.757760584,
+     "outreach_cost": 1392357.47873903,
+     "present_value": 17995251.94916707,
+     "sales_cost": 4320000,
+     "upgrades": 888.527982405,
+     "weight": 1.785643902521,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 9499.297322999999,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.011791,
+    "entry_acv_share": 0.386669,
+    "gross_margin": 0.601228,
+    "outreach_cost": 58.91235,
+    "planned_uplift": 0.008495,
+    "retention": 0.842481,
+    "upgrades_per_ae": 28,
+    "uplift": 0.005287,
+    "years": 3
+   },
+   "breakeven": 0.019776535505646585,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 6081
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 4790
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 2371
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 16676
+    }
+   ],
+   "eligible": 13299.0689,
+   "npv": -3333763.4483424565,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.006865,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 5,
+     "build_cost": 400000.0,
+     "cannibalised": 7171.8420819786,
+     "contribution": -1887006.3301810645,
+     "cumulative": -1887006.3301810645,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 333958.13867802965,
+     "gross_profit": 196473.07152985057,
+     "net_revenue": 326786.296596051,
+     "outreach_cost": 783479.401710915,
+     "present_value": -1715460.300164604,
+     "sales_cost": 900000,
+     "upgrades": 70.3121772743,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 5,
+     "build_cost": 0.0,
+     "cannibalised": 21515.5262459358,
+     "contribution": -1157315.0868480988,
+     "cumulative": -3044321.4170291633,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 896664.9119412398,
+     "gross_profit": 526164.3148628162,
+     "net_revenue": 875149.385695304,
+     "outreach_cost": 783479.401710915,
+     "present_value": -956458.7494612385,
+     "sales_cost": 900000,
+     "upgrades": 70.3121772743,
+     "weight": 1.342481,
+     "year": 2
+    },
+    {
+     "account_executives": 5,
+     "build_cost": 0.0,
+     "cannibalised": 35859.210409893,
+     "contribution": -880914.8946918128,
+     "cumulative": -3925236.311720976,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 1370734.6769868026,
+     "gross_profit": 802564.5070191022,
+     "net_revenue": 1334875.4665769096,
+     "outreach_cost": 783479.401710915,
+     "present_value": -661844.3987166135,
+     "sales_cost": 900000,
+     "upgrades": 70.3121772743,
+     "weight": 2.052255235361,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 18484.087965000002,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.021616,
+    "entry_acv_share": 0.752395,
+    "gross_margin": 0.616198,
+    "outreach_cost": 61.759275,
+    "planned_uplift": 0.028687,
+    "retention": 0.857746,
+    "upgrades_per_ae": 57,
+    "uplift": 0.01699,
+    "years": 3
+   },
+   "breakeven": 0.011494763401286488,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 28887
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 22754
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 11203
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 86791
+    }
+   ],
+   "eligible": 24380.6864,
+   "npv": 4745939.099115381,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.013593,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 13,
+     "build_cost": 400000.0,
+     "cannibalised": 42251.241917472,
+     "contribution": -1912770.3758596007,
+     "cumulative": -1912770.3758596007,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 3828312.1187894503,
+     "gross_profit": 2332963.1402067593,
+     "net_revenue": 3786060.8768719784,
+     "outreach_cost": 1505733.51606636,
+     "present_value": -1738882.1598723643,
+     "sales_cost": 2340000,
+     "upgrades": 414.227861936,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 13,
+     "build_cost": 0.0,
+     "cannibalised": 126753.725752416,
+     "contribution": 2482002.0244756984,
+     "cumulative": 569231.6486160976,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 10395750.932075802,
+     "gross_profit": 6327735.540542059,
+     "net_revenue": 10268997.206323387,
+     "outreach_cost": 1505733.51606636,
+     "present_value": 2051241.3425418993,
+     "sales_cost": 2340000,
+     "upgrades": 414.227861936,
+     "weight": 1.3577460000000001,
+     "year": 2
+    },
+    {
+     "account_executives": 13,
+     "build_cost": 0.0,
+     "cannibalised": 211256.20958735998,
+     "contribution": 5901094.868789422,
+     "cumulative": 6470326.51740552,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 16028945.304416915,
+     "gross_profit": 9746828.384855783,
+     "net_revenue": 15817689.094829556,
+     "outreach_cost": 1505733.51606636,
+     "present_value": 4433579.916445846,
+     "sales_cost": 2340000,
+     "upgrades": 414.227861936,
+     "weight": 2.093474200516,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 12625.055001,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.040099,
+    "entry_acv_share": 0.513903,
+    "gross_margin": 0.618674,
+    "outreach_cost": 10.353709,
+    "planned_uplift": 0.02434,
+    "retention": 0.799489,
+    "upgrades_per_ae": 54,
+    "uplift": 0.026235,
+    "years": 3
+   },
+   "breakeven": 0.010567887004398587,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 7476
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 5889
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 2934
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 18847
+    }
+   ],
+   "eligible": 45227.6621,
+   "npv": 16201677.618024066,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.001943,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 21,
+     "build_cost": 400000.0,
+     "cannibalised": 121027.86694973701,
+     "contribution": -89211.38794586732,
+     "cumulative": -89211.38794586732,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 7490115.082814412,
+     "gross_profit": 4559062.664187862,
+     "net_revenue": 7369087.215864675,
+     "outreach_cost": 468274.0521337289,
+     "present_value": -81101.26176897029,
+     "sales_cost": 3780000,
+     "upgrades": 1186.5477151935002,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 21,
+     "build_cost": 0.0,
+     "cannibalised": 363083.60084921104,
+     "contribution": 7570602.270804969,
+     "cumulative": 7481390.8828591015,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 19466644.317702834,
+     "gross_profit": 11818876.322938697,
+     "net_revenue": 19103560.716853622,
+     "outreach_cost": 468274.0521337289,
+     "present_value": 6256696.091574353,
+     "sales_cost": 3780000,
+     "upgrades": 1186.5477151935002,
+     "weight": 1.299489,
+     "year": 2
+    },
+    {
+     "account_executives": 21,
+     "build_cost": 0.0,
+     "cannibalised": 605139.3347486851,
+     "contribution": 13344716.191119073,
+     "cumulative": 20826107.073978174,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 29041747.699174546,
+     "gross_profit": 17592990.243252803,
+     "net_revenue": 28436608.36442586,
+     "outreach_cost": 468274.0521337289,
+     "present_value": 10026082.788218684,
+     "sales_cost": 3780000,
+     "upgrades": 1186.5477151935002,
+     "weight": 1.938671661121,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 5946.68802,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.014394,
+    "entry_acv_share": 0.24206,
+    "gross_margin": 0.709083,
+    "outreach_cost": 15.126493,
+    "planned_uplift": 0.011522,
+    "retention": 0.600117,
+    "upgrades_per_ae": 17,
+    "uplift": 0.004869,
+    "years": 3
+   },
+   "breakeven": 0.03964366916807917,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 1016
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 800
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 396
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 1957
+    }
+   ],
+   "eligible": 16234.992600000001,
+   "npv": -5566549.648316044,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.001357,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 12,
+     "build_cost": 400000.0,
+     "cannibalised": 8062.914254878801,
+     "contribution": -2644634.7317678886,
+     "cumulative": -2644634.7317678886,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 235037.4294400735,
+     "gross_profit": 160943.77015106342,
+     "net_revenue": 226974.5151851947,
+     "outreach_cost": 245578.5019189518,
+     "present_value": -2404213.3925162624,
+     "sales_cost": 2160000,
+     "upgrades": 79.04817896940001,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 12,
+     "build_cost": 0.0,
+     "cannibalised": 24188.742764636405,
+     "contribution": -2056037.0292448204,
+     "cumulative": -4700671.761012709,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 517137.3435266507,
+     "gross_profit": 349541.4726741314,
+     "net_revenue": 492948.6007620143,
+     "outreach_cost": 245578.5019189518,
+     "present_value": -1699204.1564006777,
+     "sales_cost": 2160000,
+     "upgrades": 79.04817896940001,
+     "weight": 1.100117,
+     "year": 2
+    },
+    {
+     "account_executives": 12,
+     "build_cost": 0.0,
+     "cannibalised": 40314.57127439401,
+     "contribution": -1947428.824300208,
+     "cumulative": -6648100.585312917,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 686430.2976685452,
+     "gross_profit": 458149.67761874385,
+     "net_revenue": 646115.7263941511,
+     "outreach_cost": 245578.5019189518,
+     "present_value": -1463132.099399104,
+     "sales_cost": 2160000,
+     "upgrades": 79.04817896940001,
+     "weight": 1.460257413689,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 9871.168002,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.044345,
+    "entry_acv_share": 0.401806,
+    "gross_margin": 0.854681,
+    "outreach_cost": 36.416344,
+    "planned_uplift": 0.006159,
+    "retention": 0.773695,
+    "upgrades_per_ae": 19,
+    "uplift": 0.018422,
+    "years": 3
+   },
+   "breakeven": 0.01043283652939802,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 37777
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 29757
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 14633
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 114383
+    }
+   ],
+   "eligible": 50016.7255,
+   "npv": 9574450.688440267,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.014903,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 17,
+     "build_cost": 400000.0,
+     "cannibalised": 93983.627950422,
+     "contribution": -1474930.4918454522,
+     "cumulative": -1474930.4918454522,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 4547687.161451366,
+     "gross_profit": 3806495.78971612,
+     "net_revenue": 4453703.533500943,
+     "outreach_cost": 1821426.281561572,
+     "present_value": -1340845.9016776837,
+     "sales_cost": 3060000,
+     "upgrades": 921.4081171610001,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 17,
+     "build_cost": 0.0,
+     "cannibalised": 281950.883851266,
+     "contribution": 4778846.667784119,
+     "cumulative": 3303916.175938667,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 11584732.798209595,
+     "gross_profit": 9660272.949345691,
+     "net_revenue": 11302781.914358329,
+     "outreach_cost": 1821426.281561572,
+     "present_value": 3949460.0560199325,
+     "sales_cost": 3060000,
+     "upgrades": 921.4081171610001,
+     "weight": 1.273695,
+     "year": 2
+    },
+    {
+     "account_executives": 17,
+     "build_cost": 0.0,
+     "cannibalised": 469918.13975211,
+     "contribution": 9271528.426884463,
+     "cumulative": 12575444.60282313,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 17029259.822141252,
+     "gross_profit": 14152954.708446035,
+     "net_revenue": 16559341.682389142,
+     "outreach_cost": 1821426.281561572,
+     "present_value": 6965836.534098017,
+     "sales_cost": 3060000,
+     "upgrades": 921.4081171610001,
+     "weight": 1.872298953025,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 6921.7522500000005,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.02597,
+    "entry_acv_share": 0.28175,
+    "gross_margin": 0.648432,
+    "outreach_cost": 26.475689,
+    "planned_uplift": 0.004405,
+    "retention": 0.771318,
+    "upgrades_per_ae": 68,
+    "uplift": 0.014515,
+    "years": 3
+   },
+   "breakeven": 0.008652602634833303,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 8218
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 6474
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 3228
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 20131
+    }
+   ],
+   "eligible": 29291.563,
+   "npv": 2159621.536891659,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.001323,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 2,
+     "build_cost": 400000.0,
+     "cannibalised": 43367.03776839,
+     "contribution": -609499.3309025427,
+     "cumulative": -609499.3309025427,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 1471450.4472999435,
+     "gross_profit": 926014.9814093643,
+     "net_revenue": 1428083.4095315535,
+     "outreach_cost": 775514.312311907,
+     "present_value": -554090.3008204934,
+     "sales_cost": 360000,
+     "upgrades": 425.167036945,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 2,
+     "build_cost": 0.0,
+     "cannibalised": 130101.11330517,
+     "contribution": 1206143.377278917,
+     "cumulative": 596644.0463763743,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 3741362.879520939,
+     "gross_profit": 2341657.689590824,
+     "net_revenue": 3611261.766215769,
+     "outreach_cost": 775514.312311907,
+     "present_value": 996812.7084949727,
+     "sales_cost": 360000,
+     "upgrades": 425.167036945,
+     "weight": 1.271318,
+     "year": 2
+    },
+    {
+     "account_executives": 2,
+     "build_cost": 0.0,
+     "cannibalised": 216835.18884195,
+     "contribution": 2285192.740988067,
+     "cumulative": 2881836.787364441,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 5492187.196916773,
+     "gross_profit": 3420707.0532999737,
+     "net_revenue": 5275352.008074823,
+     "outreach_cost": 775514.312311907,
+     "present_value": 1716899.1292171797,
+     "sales_cost": 360000,
+     "upgrades": 425.167036945,
+     "weight": 1.8662494571239998,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 15588.695046,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.047794,
+    "entry_acv_share": 0.634538,
+    "gross_margin": 0.858998,
+    "outreach_cost": 52.810944,
+    "planned_uplift": 0.006105,
+    "retention": 0.613521,
+    "upgrades_per_ae": 78,
+    "uplift": 0.015848,
+    "years": 3
+   },
+   "breakeven": 0.005480025163584977,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 97081
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 76471
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 37792
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 296946
+    }
+   ],
+   "eligible": 53906.852600000006,
+   "npv": 18317084.94446718,
+   "payback_year": 1,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.010747,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 5,
+     "build_cost": 400000.0,
+     "cannibalised": 87140.21160048962,
+     "contribution": 1498200.252812015,
+     "cumulative": 1498200.252812015,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 6658834.239627178,
+     "gross_profit": 5645072.02668687,
+     "net_revenue": 6571694.028026688,
+     "outreach_cost": 2846871.7738748547,
+     "present_value": 1362000.2298291044,
+     "sales_cost": 900000,
+     "upgrades": 854.3158000048002,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 5,
+     "build_cost": 0.0,
+     "cannibalised": 261420.63480146887,
+     "contribution": 8767082.290653719,
+     "cumulative": 10265282.543465734,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 14829503.522687789,
+     "gross_profit": 12513954.064528573,
+     "net_revenue": 14568082.88788632,
+     "outreach_cost": 2846871.7738748547,
+     "present_value": 7245522.55425927,
+     "sales_cost": 900000,
+     "upgrades": 854.3158000048002,
+     "weight": 1.113521,
+     "year": 2
+    },
+    {
+     "account_executives": 5,
+     "build_cost": 0.0,
+     "cannibalised": 435701.0580024481,
+     "contribution": 12923427.235464195,
+     "cumulative": 23188709.778929926,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 19842380.71190042,
+     "gross_profit": 16670299.00933905,
+     "net_revenue": 19406679.65389797,
+     "outreach_cost": 2846871.7738748547,
+     "present_value": 9709562.160378806,
+     "sales_cost": 900000,
+     "upgrades": 854.3158000048002,
+     "weight": 1.489929017441,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 20084.75085,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.01675,
+    "entry_acv_share": 0.81755,
+    "gross_margin": 0.666913,
+    "outreach_cost": 77.905489,
+    "planned_uplift": 0.006677,
+    "retention": 0.866296,
+    "upgrades_per_ae": 33,
+    "uplift": 0.011001,
+    "years": 3
+   },
+   "breakeven": 0.007322465112476579,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 63019
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 49640
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 24485
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 191897
+    }
+   ],
+   "eligible": 18892.325,
+   "npv": 2920917.7551686754,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.012361,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 4,
+     "build_cost": 400000.0,
+     "cannibalised": 21199.115667150003,
+     "contribution": -1214005.1501634435,
+     "cumulative": -1214005.1501634435,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 2087151.7471325458,
+     "gross_profit": 1377810.6673084816,
+     "net_revenue": 2065952.631465396,
+     "outreach_cost": 1471815.8174719252,
+     "present_value": -1103641.0456031305,
+     "sales_cost": 720000,
+     "upgrades": 207.83446732500002,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 4,
+     "build_cost": 0.0,
+     "cannibalised": 63597.347001450005,
+     "contribution": 1569397.9843640462,
+     "cumulative": 355392.8342006027,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 5703334.167000418,
+     "gross_profit": 3761213.8018359714,
+     "net_revenue": 5639736.819998967,
+     "outreach_cost": 1471815.8174719252,
+     "present_value": 1297023.127573592,
+     "sales_cost": 720000,
+     "upgrades": 207.83446732500002,
+     "weight": 1.366296,
+     "year": 2
+    },
+    {
+     "account_executives": 4,
+     "build_cost": 0.0,
+     "cannibalised": 105995.57833575002,
+     "contribution": 3630349.9810268246,
+     "cumulative": 3985742.8152274275,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 8836018.532602275,
+     "gross_profit": 5822165.79849875,
+     "net_revenue": 8730022.954266524,
+     "outreach_cost": 1471815.8174719252,
+     "present_value": 2727535.6731982143,
+     "sales_cost": 720000,
+     "upgrades": 207.83446732500002,
+     "weight": 2.1167647596159997,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 20996.579622,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.049322,
+    "entry_acv_share": 0.854666,
+    "gross_margin": 0.706669,
+    "outreach_cost": 22.673949,
+    "planned_uplift": 0.02457,
+    "retention": 0.969937,
+    "upgrades_per_ae": 46,
+    "uplift": 0.025579,
+    "years": 3
+   },
+   "breakeven": 0.005952078597671209,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 15558
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 12255
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 6113
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 40636
+    }
+   ],
+   "eligible": 55630.2838,
+   "npv": 55824691.47779995,
+   "payback_year": 1,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.001406,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 30,
+     "build_cost": 400000.0,
+     "cannibalised": 145142.6369906604,
+     "contribution": 3392804.491283851,
+     "cumulative": 3392804.491283851,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 14938720.265301196,
+     "gross_profit": 10454162.709020577,
+     "net_revenue": 14793577.628310535,
+     "outreach_cost": 1261358.2177367262,
+     "present_value": 3084367.7193489554,
+     "sales_cost": 5400000,
+     "upgrades": 1422.9670293202,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 30,
+     "build_cost": 0.0,
+     "cannibalised": 435427.9109719812,
+     "contribution": 24066395.930610996,
+     "cumulative": 27459200.42189485,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 43917955.30123209,
+     "gross_profit": 30727754.14834772,
+     "net_revenue": 43482527.39026011,
+     "outreach_cost": 1261358.2177367262,
+     "present_value": 19889583.413728092,
+     "sales_cost": 5400000,
+     "upgrades": 1422.9670293202,
+     "weight": 1.469937,
+     "year": 2
+    },
+    {
+     "account_executives": 30,
+     "build_cost": 0.0,
+     "cannibalised": 725713.1849533019,
+     "contribution": 43724335.398826204,
+     "cumulative": 71183535.82072106,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 72025987.5942778,
+     "gross_profit": 50385693.61656293,
+     "net_revenue": 71300274.4093245,
+     "outreach_cost": 1261358.2177367262,
+     "present_value": 32850740.344722908,
+     "sales_cost": 5400000,
+     "upgrades": 1422.9670293202,
+     "weight": 2.4107147839690004,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 18523.960206,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.006257,
+    "entry_acv_share": 0.754018,
+    "gross_margin": 0.896411,
+    "outreach_cost": 44.722768,
+    "planned_uplift": 0.009257,
+    "retention": 1.078258,
+    "upgrades_per_ae": 76,
+    "uplift": 0.008383,
+    "years": 3
+   },
+   "breakeven": 0.0036044997502877865,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 290031
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 228458
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 112510
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 900335
+    }
+   ],
+   "eligible": 7057.2703,
+   "npv": 2116051.294644056,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.01437,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 1,
+     "build_cost": 400000.0,
+     "cannibalised": 6034.4318863398,
+     "contribution": -409842.5697421815,
+     "cumulative": -409842.5697421815,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 547948.9025900783,
+     "gross_profit": 485778.0925980089,
+     "net_revenue": 541914.4707037385,
+     "outreach_cost": 315620.66234019044,
+     "present_value": -372584.1543110741,
+     "sales_cost": 180000,
+     "upgrades": 59.1610969249,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 1,
+     "build_cost": 0.0,
+     "cannibalised": 18103.2956590194,
+     "contribution": 1038592.3062647448,
+     "cumulative": 628749.7365225633,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 1729609.4782080236,
+     "gross_profit": 1534212.9686049353,
+     "net_revenue": 1711506.1825490042,
+     "outreach_cost": 315620.66234019044,
+     "present_value": 858340.7489791278,
+     "sales_cost": 180000,
+     "upgrades": 59.1610969249,
+     "weight": 1.578258,
+     "year": 2
+    },
+    {
+     "account_executives": 1,
+     "build_cost": 0.0,
+     "cannibalised": 30172.159431699,
+     "contribution": 2169922.2456680597,
+     "cumulative": 2798671.982190623,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 3003744.447152678,
+     "gross_profit": 2665542.90800825,
+     "net_revenue": 2973572.2877209787,
+     "outreach_cost": 315620.66234019044,
+     "present_value": 1630294.6999760023,
+     "sales_cost": 180000,
+     "upgrades": 59.1610969249,
+     "weight": 2.740898314564,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 8779.385955,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.021409,
+    "entry_acv_share": 0.357365,
+    "gross_margin": 0.852131,
+    "outreach_cost": 62.40664,
+    "planned_uplift": 0.008352,
+    "retention": 0.702187,
+    "upgrades_per_ae": 73,
+    "uplift": 0.006614,
+    "years": 3
+   },
+   "breakeven": 0.011441609932912097,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 17827
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 14042
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 6955
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 51870
+    }
+   ],
+   "eligible": 24147.2111,
+   "npv": -2301268.2446016963,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.007713,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 3,
+     "build_cost": 400000.0,
+     "cannibalised": 16290.384729970801,
+     "contribution": -1863418.9628393631,
+     "cumulative": -1863418.9628393631,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 701076.3475482947,
+     "gross_profit": 583527.3472823411,
+     "net_revenue": 684785.9628183239,
+     "outreach_cost": 1506946.3101217041,
+     "present_value": -1694017.2389448755,
+     "sales_cost": 540000,
+     "upgrades": 159.7096542154,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 3,
+     "build_cost": 0.0,
+     "cannibalised": 48871.154189912406,
+     "contribution": -652196.5352613074,
+     "cumulative": -2515615.4981006705,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 1685649.7420600834,
+     "gross_profit": 1394749.7748603967,
+     "net_revenue": 1636778.587870171,
+     "outreach_cost": 1506946.3101217041,
+     "present_value": -539005.4010424027,
+     "sales_cost": 540000,
+     "upgrades": 159.7096542154,
+     "weight": 1.202187,
+     "year": 2
+    },
+    {
+     "account_executives": 3,
+     "build_cost": 0.0,
+     "cannibalised": 81451.92364985401,
+     "contribution": -90834.89974179026,
+     "cumulative": -2606450.397842461,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 2377004.380232133,
+     "gross_profit": 1956111.4103799139,
+     "net_revenue": 2295552.456582279,
+     "outreach_cost": 1506946.3101217041,
+     "present_value": -68245.6046144179,
+     "sales_cost": 540000,
+     "upgrades": 159.7096542154,
+     "weight": 1.695253582969,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 17896.297923000002,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.034384,
+    "entry_acv_share": 0.728469,
+    "gross_margin": 0.74341,
+    "outreach_cost": 78.230288,
+    "planned_uplift": 0.004374,
+    "retention": 1.054889,
+    "upgrades_per_ae": 63,
+    "uplift": 0.023989,
+    "years": 3
+   },
+   "breakeven": 0.004841960302689413,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 44920
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 35383
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 17618
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 131266
+    }
+   ],
+   "eligible": 38781.713599999995,
+   "npv": 36583753.039021894,
+   "payback_year": 1,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.003499,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 3,
+     "build_cost": 400000.0,
+     "cannibalised": 94894.12181014079,
+     "contribution": 2144268.842192536,
+     "cumulative": 2144268.842192536,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 8324771.936547705,
+     "gross_profit": 6118173.466254053,
+     "net_revenue": 8229877.814737564,
+     "outreach_cost": 3033904.6240615165,
+     "present_value": 1949335.3110841238,
+     "sales_cost": 540000,
+     "upgrades": 930.3345275503999,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 3,
+     "build_cost": 0.0,
+     "cannibalised": 284682.36543042236,
+     "contribution": 15460000.936736435,
+     "cumulative": 17604269.778928973,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 25888192.62329345,
+     "gross_profit": 19033905.560797952,
+     "net_revenue": 25603510.257863026,
+     "outreach_cost": 3033904.6240615165,
+     "present_value": 12776860.278294573,
+     "sales_cost": 540000,
+     "upgrades": 930.3345275503999,
+     "weight": 1.554889,
+     "year": 2
+    },
+    {
+     "account_executives": 3,
+     "build_cost": 0.0,
+     "cannibalised": 474470.60905070393,
+     "contribution": 29092408.965475112,
+     "cumulative": 46696678.744404085,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 44415651.90811398,
+     "gross_profit": 32666313.58953663,
+     "net_revenue": 43941181.29906327,
+     "outreach_cost": 3033904.6240615165,
+     "present_value": 21857557.449643202,
+     "sales_cost": 540000,
+     "upgrades": 930.3345275503999,
+     "weight": 2.667679802321,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 24009.967842000002,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.040511,
+    "entry_acv_share": 0.977326,
+    "gross_margin": 0.81744,
+    "outreach_cost": 40.138682,
+    "planned_uplift": 0.024423,
+    "retention": 0.797919,
+    "upgrades_per_ae": 76,
+    "uplift": 0.009976,
+    "years": 3
+   },
+   "breakeven": 0.004399022358305402,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 52124
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 41058
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 20447
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 152927
+    }
+   ],
+   "eligible": 45692.3569,
+   "npv": 14755779.145825535,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.00338,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 15,
+     "build_cost": 400000.0,
+     "cannibalised": 46494.3491483088,
+     "contribution": -498846.0515269248,
+     "cumulative": -498846.0515269248,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 5472195.234733405,
+     "gross_profit": 4435184.931912681,
+     "net_revenue": 5425700.885585096,
+     "outreach_cost": 1834030.983439606,
+     "present_value": -453496.41047902254,
+     "sales_cost": 2700000,
+     "upgrades": 455.8269524344,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 15,
+     "build_cost": 0.0,
+     "cannibalised": 139483.0474449264,
+     "contribution": 6963629.881149352,
+     "cumulative": 6464783.829622427,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 14204932.333739892,
+     "gross_profit": 11497660.864588957,
+     "net_revenue": 14065449.286294965,
+     "outreach_cost": 1834030.983439606,
+     "present_value": 5755066.017478802,
+     "sales_cost": 2700000,
+     "upgrades": 455.8269524344,
+     "weight": 1.297919,
+     "year": 2
+    },
+    {
+     "account_executives": 15,
+     "build_cost": 0.0,
+     "cannibalised": 232471.745741544,
+     "contribution": 12583552.896177083,
+     "cumulative": 19048336.72579951,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 21172949.18704205,
+     "gross_profit": 17117583.87961669,
+     "net_revenue": 20940477.441300508,
+     "outreach_cost": 1834030.983439606,
+     "present_value": 9454209.538825754,
+     "sales_cost": 2700000,
+     "upgrades": 455.8269524344,
+     "weight": 1.9345937305610001,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 20764.077534,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.010717,
+    "entry_acv_share": 0.845202,
+    "gross_margin": 0.79718,
+    "outreach_cost": 82.651048,
+    "planned_uplift": 0.027336,
+    "retention": 0.673087,
+    "upgrades_per_ae": 79,
+    "uplift": 0.004535,
+    "years": 3
+   },
+   "breakeven": 0.009737278247618806,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 19211
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 15132
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 7511
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 55457
+    }
+   ],
+   "eligible": 12087.704300000001,
+   "npv": -2717438.7673450173,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.005906,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 5,
+     "build_cost": 400000.0,
+     "cannibalised": 5591.409378051,
+     "contribution": -1849827.7929929295,
+     "cumulative": -1849827.7929929295,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 569119.8914224788,
+     "gross_profit": 449233.63531617704,
+     "net_revenue": 563528.4820444279,
+     "outreach_cost": 999061.4283091065,
+     "present_value": -1681661.6299935721,
+     "sales_cost": 900000,
+     "upgrades": 54.817739000500005,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 5,
+     "build_cost": 0.0,
+     "cannibalised": 16774.228134153,
+     "contribution": -847995.4908863262,
+     "cumulative": -2697823.283879256,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 1335254.2921382429,
+     "gross_profit": 1051065.9374227803,
+     "net_revenue": 1318480.06400409,
+     "outreach_cost": 999061.4283091065,
+     "present_value": -700822.7197407654,
+     "sales_cost": 900000,
+     "upgrades": 54.817739000500005,
+     "weight": 1.173087,
+     "year": 2
+    },
+    {
+     "account_executives": 5,
+     "build_cost": 0.0,
+     "cannibalised": 27957.046890255002,
+     "contribution": -445824.3298398147,
+     "cumulative": -3143647.6137190703,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 1850929.3975128143,
+     "gross_profit": 1453237.0984692918,
+     "net_revenue": 1822972.3506225592,
+     "outreach_cost": 999061.4283091065,
+     "present_value": -334954.4176106796,
+     "sales_cost": 900000,
+     "upgrades": 54.817739000500005,
+     "weight": 1.626133109569,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 23994.883704,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.02969,
+    "entry_acv_share": 0.976712,
+    "gross_margin": 0.730143,
+    "outreach_cost": 52.658105,
+    "planned_uplift": 0.002399,
+    "retention": 0.924837,
+    "upgrades_per_ae": 75,
+    "uplift": 0.00393,
+    "years": 3
+   },
+   "breakeven": 0.002902216393519505,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 410074
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 323015
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 159286
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 1275256
+    }
+   ],
+   "eligible": 33487.351,
+   "npv": 1998811.8878947604,
+   "payback_year": 3,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.013204,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 2,
+     "build_cost": 400000.0,
+     "cannibalised": 13423.739521860003,
+     "contribution": -1380339.3386751125,
+     "cumulative": -1380339.3386751125,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 1578926.8073520556,
+     "gross_profit": 1143041.1064547426,
+     "net_revenue": 1565503.0678301957,
+     "outreach_cost": 1763380.445129855,
+     "present_value": -1254853.9442501022,
+     "sales_cost": 360000,
+     "upgrades": 131.60528943000003,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 2,
+     "build_cost": 0.0,
+     "cannibalised": 40271.21856558001,
+     "contribution": 1132440.6942412811,
+     "cumulative": -247898.64443383133,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 4499426.670814162,
+     "gross_profit": 3255821.139371136,
+     "net_revenue": 4459155.452248582,
+     "outreach_cost": 1763380.445129855,
+     "present_value": 935901.4001994058,
+     "sales_cost": 360000,
+     "upgrades": 131.60528943000003,
+     "weight": 1.4248370000000001,
+     "year": 2
+    },
+    {
+     "account_executives": 2,
+     "build_cost": 0.0,
+     "cannibalised": 67118.69760930001,
+     "contribution": 3084944.4589194036,
+     "cumulative": 2837045.8144855723,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 7200413.003038865,
+     "gross_profit": 5208324.904049259,
+     "net_revenue": 7133294.305429565,
+     "outreach_cost": 1763380.445129855,
+     "present_value": 2317764.4319454567,
+     "sales_cost": 360000,
+     "upgrades": 131.60528943000003,
+     "weight": 2.280160476569,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 10671.241491,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.042177,
+    "entry_acv_share": 0.434373,
+    "gross_margin": 0.725704,
+    "outreach_cost": 58.643717,
+    "planned_uplift": 0.009051,
+    "retention": 0.72027,
+    "upgrades_per_ae": 28,
+    "uplift": 0.006331,
+    "years": 3
+   },
+   "breakeven": 0.014533725267678724,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 5626
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 4432
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 2204
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 14313
+    }
+   ],
+   "eligible": 47571.4383,
+   "npv": -8163093.556693327,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.002835,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 16,
+     "build_cost": 400000.0,
+     "cannibalised": 30719.8271394846,
+     "contribution": -4925886.24340816,
+     "cumulative": -4925886.24340816,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 1606954.382192235,
+     "gross_profit": 1143879.7215400012,
+     "net_revenue": 1576234.5550527503,
+     "outreach_cost": 2789765.9649481615,
+     "present_value": -4478078.403098327,
+     "sales_cost": 2880000,
+     "upgrades": 301.1747758773,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 16,
+     "build_cost": 0.0,
+     "cannibalised": 92159.4814184538,
+     "contribution": -2890554.0716534345,
+     "cumulative": -7816440.315061595,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 3921836.447915437,
+     "gross_profit": 2779211.893294727,
+     "net_revenue": 3829676.9664969835,
+     "outreach_cost": 2789765.9649481615,
+     "present_value": -2388887.662523499,
+     "sales_cost": 2880000,
+     "upgrades": 301.1747758773,
+     "weight": 1.22027,
+     "year": 2
+    },
+    {
+     "account_executives": 16,
+     "build_cost": 0.0,
+     "cannibalised": 153599.13569742301,
+     "contribution": -1725145.6906161662,
+     "cumulative": -9541586.005677762,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 5589176.553393887,
+     "gross_profit": 3944620.2743319953,
+     "net_revenue": 5435577.417696465,
+     "outreach_cost": 2789765.9649481615,
+     "present_value": -1296127.4910714994,
+     "sales_cost": 2880000,
+     "upgrades": 301.1747758773,
+     "weight": 1.7390588728999998,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 16378.302993000001,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.045951,
+    "entry_acv_share": 0.666679,
+    "gross_margin": 0.750495,
+    "outreach_cost": 42.062827,
+    "planned_uplift": 0.014829,
+    "retention": 1.052148,
+    "upgrades_per_ae": 74,
+    "uplift": 0.010614,
+    "years": 3
+   },
+   "breakeven": 0.004554714942259012,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 111091
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 87506
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 43354
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 339219
+    }
+   ],
+   "eligible": 51828.1329,
+   "npv": 14246576.19032326,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.008446,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 11,
+     "build_cost": 400000.0,
+     "cannibalised": 56110.587865261194,
+     "contribution": -1221256.0525506074,
+     "cumulative": -1221256.0525506074,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 4504883.378297044,
+     "gross_profit": 3338781.7353551006,
+     "net_revenue": 4448772.790431783,
+     "outreach_cost": 2180037.787905708,
+     "present_value": -1110232.7750460065,
+     "sales_cost": 1980000,
+     "upgrades": 550.1038026005999,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 11,
+     "build_cost": 0.0,
+     "cannibalised": 168331.7635957836,
+     "contribution": 6208920.977228574,
+     "cumulative": 4987664.924677967,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 13984491.451714002,
+     "gross_profit": 10368958.765134282,
+     "net_revenue": 13816159.688118218,
+     "outreach_cost": 2180037.787905708,
+     "present_value": 5131339.650602127,
+     "sales_cost": 1980000,
+     "upgrades": 550.1038026005999,
+     "weight": 1.552148,
+     "year": 2
+    },
+    {
+     "account_executives": 11,
+     "build_cost": 0.0,
+     "cannibalised": 280552.939326306,
+     "contribution": 13610099.657955065,
+     "cumulative": 18597764.582633033,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 23958442.126943506,
+     "gross_profit": 17770137.445860773,
+     "net_revenue": 23677889.1876172,
+     "outreach_cost": 2180037.787905708,
+     "present_value": 10225469.314767139,
+     "sales_cost": 1980000,
+     "upgrades": 550.1038026005999,
+     "weight": 2.6591634139040004,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 8512.121562,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.028558,
+    "entry_acv_share": 0.346486,
+    "gross_margin": 0.742048,
+    "outreach_cost": 79.917045,
+    "planned_uplift": 0.014323,
+    "retention": 0.601966,
+    "upgrades_per_ae": 22,
+    "uplift": 0.000561,
+    "years": 3
+   },
+   "breakeven": 0.03338707426405864,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 3479
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 2741
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 1348
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 9511
+    }
+   ],
+   "eligible": 32210.5682,
+   "npv": -15893897.341727344,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.011153,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 21,
+     "build_cost": 400000.0,
+     "cannibalised": 1843.1531335404,
+     "contribution": -6698472.030635884,
+     "cumulative": -6698472.030635884,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 76907.56632390738,
+     "gross_profit": 55701.397679085436,
+     "net_revenue": 75064.41319036698,
+     "outreach_cost": 2574173.428314969,
+     "present_value": -6089520.027850804,
+     "sales_cost": 3780000,
+     "upgrades": 18.0701287602,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 21,
+     "build_cost": 0.0,
+     "cannibalised": 5529.4594006212,
+     "contribution": -6232500.124174221,
+     "cumulative": -12930972.154810105,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 169499.04646338182,
+     "gross_profit": 121673.3041407474,
+     "net_revenue": 163969.5870627606,
+     "outreach_cost": 2574173.428314969,
+     "present_value": -5150826.548904315,
+     "sales_cost": 3780000,
+     "upgrades": 18.0701287602,
+     "weight": 1.101966,
+     "year": 2
+    },
+    {
+     "account_executives": 21,
+     "build_cost": 0.0,
+     "cannibalised": 9215.765667702,
+     "contribution": -6193876.068178035,
+     "cumulative": -19124848.22298814,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 225235.9693970207,
+     "gross_profit": 160297.36013693348,
+     "net_revenue": 216020.2037293187,
+     "outreach_cost": 2574173.428314969,
+     "present_value": -4653550.764972227,
+     "sales_cost": 3780000,
+     "upgrades": 18.0701287602,
+     "weight": 1.464329065156,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 15829.820150999998,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.030041,
+    "entry_acv_share": 0.644353,
+    "gross_margin": 0.674548,
+    "outreach_cost": 10.610942,
+    "planned_uplift": 0.016514,
+    "retention": 0.992136,
+    "upgrades_per_ae": 49,
+    "uplift": 0.009779,
+    "years": 3
+   },
+   "breakeven": 0.005231727723455487,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 51798
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 40801
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 20286
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 153730
+    }
+   ],
+   "eligible": 33883.2439,
+   "npv": 5762040.058862636,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.004877,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 12,
+     "build_cost": 400000.0,
+     "cannibalised": 33797.112694006195,
+     "contribution": -1173288.3884713547,
+     "cumulative": -1173288.3884713547,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 2622559.8802411626,
+     "gross_profit": 1746244.7473233992,
+     "net_revenue": 2588762.767547156,
+     "outreach_cost": 359533.1357947538,
+     "present_value": -1066625.8077012314,
+     "sales_cost": 2160000,
+     "upgrades": 331.3442420981,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 12,
+     "build_cost": 0.0,
+     "cannibalised": 101391.33808201858,
+     "contribution": 2691377.605387904,
+     "cumulative": 1518089.2169165495,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 7826432.0189270545,
+     "gross_profit": 5210910.741182658,
+     "net_revenue": 7725040.680845036,
+     "outreach_cost": 359533.1357947538,
+     "present_value": 2224279.012717276,
+     "sales_cost": 2160000,
+     "upgrades": 331.3442420981,
+     "weight": 1.492136,
+     "year": 2
+    },
+    {
+     "account_executives": 12,
+     "build_cost": 0.0,
+     "cannibalised": 168985.56347003096,
+     "contribution": 6128438.902469815,
+     "cumulative": 7646528.119386364,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 12989380.907114321,
+     "gross_profit": 8647972.038264569,
+     "net_revenue": 12820395.343644291,
+     "outreach_cost": 359533.1357947538,
+     "present_value": 4604386.853846591,
+     "sales_cost": 2160000,
+     "upgrades": 331.3442420981,
+     "weight": 2.476469842496,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 19850.013165,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.039752,
+    "entry_acv_share": 0.807995,
+    "gross_margin": 0.751666,
+    "outreach_cost": 44.324839,
+    "planned_uplift": 0.017728,
+    "retention": 1.056244,
+    "upgrades_per_ae": 53,
+    "uplift": 0.015231,
+    "years": 3
+   },
+   "breakeven": 0.004841324456218548,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 95723
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 75401
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": false,
+     "per_arm": 37366
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 291431
+    }
+   ],
+   "eligible": 44836.2808,
+   "npv": 25796278.027408138,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.00817,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 15,
+     "build_cost": 400000.0,
+     "cannibalised": 69655.9420722096,
+     "contribution": -45076.5004711831,
+     "cumulative": -45076.5004711831,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 6777800.819381558,
+     "gross_profit": 5042284.427347608,
+     "net_revenue": 6708144.877309348,
+     "outreach_cost": 1987360.927818791,
+     "present_value": -40978.63679198463,
+     "sales_cost": 2700000,
+     "upgrades": 682.9013928648,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 15,
+     "build_cost": 0.0,
+     "cannibalised": 208967.82621662878,
+     "contribution": 11012578.491968758,
+     "cumulative": 10967501.991497576,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 21095823.71671527,
+     "gross_profit": 15699939.419787548,
+     "net_revenue": 20886855.89049864,
+     "outreach_cost": 1987360.927818791,
+     "present_value": 9101304.538817154,
+     "sales_cost": 2700000,
+     "upgrades": 682.9013928648,
+     "weight": 1.556244,
+     "year": 2
+    },
+    {
+     "account_executives": 15,
+     "build_cost": 0.0,
+     "cannibalised": 348279.710361048,
+     "contribution": 22275552.278884735,
+     "cumulative": 33243054.27038231,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 36219149.49388661,
+     "gross_profit": 26962913.206703525,
+     "net_revenue": 35870869.783525564,
+     "outreach_cost": 1987360.927818791,
+     "present_value": 16735952.125382967,
+     "sales_cost": 2700000,
+     "upgrades": 682.9013928648,
+     "weight": 2.671895387536,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 14308.533243,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.036173,
+    "entry_acv_share": 0.582429,
+    "gross_margin": 0.882654,
+    "outreach_cost": 69.921788,
+    "planned_uplift": 0.016932,
+    "retention": 1.070751,
+    "upgrades_per_ae": 71,
+    "uplift": 0.01357,
+    "years": 3
+   },
+   "breakeven": 0.006187408730388224,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 36197
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 28512
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 14177
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 106036
+    }
+   ],
+   "eligible": 40799.526699999995,
+   "npv": 14239693.938435664,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.004634,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 10,
+     "build_cost": 400000.0,
+     "cannibalised": 56472.256886537994,
+     "contribution": -1606467.0526913041,
+     "cumulative": -1606467.0526913041,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 3960956.6910209046,
+     "gross_profit": 3446308.803726435,
+     "net_revenue": 3904484.4341343665,
+     "outreach_cost": 2852775.8564177393,
+     "present_value": -1460424.5933557309,
+     "sales_cost": 1800000,
+     "upgrades": 553.649577319,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 10,
+     "build_cost": 0.0,
+     "cannibalised": 169416.77065961398,
+     "contribution": 6180863.3758727275,
+     "cumulative": 4574396.323181423,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 12443353.366755554,
+     "gross_profit": 10833639.232290467,
+     "net_revenue": 12273936.59609594,
+     "outreach_cost": 2852775.8564177393,
+     "present_value": 5108151.5503080385,
+     "sales_cost": 1800000,
+     "upgrades": 553.649577319,
+     "weight": 1.570751,
+     "year": 2
+    },
+    {
+     "account_executives": 10,
+     "build_cost": 0.0,
+     "cannibalised": 282361.28443268995,
+     "contribution": 14097908.052354353,
+     "cumulative": 18672304.375535775,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 21525888.089695103,
+     "gross_profit": 18750683.908772092,
+     "net_revenue": 21243526.805262413,
+     "outreach_cost": 2852775.8564177393,
+     "present_value": 10591966.981483357,
+     "sales_cost": 1800000,
+     "upgrades": 553.649577319,
+     "weight": 2.717258704001,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 7608.596436,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.030178,
+    "entry_acv_share": 0.309708,
+    "gross_margin": 0.672192,
+    "outreach_cost": 44.211809,
+    "planned_uplift": 0.02552,
+    "retention": 0.660811,
+    "upgrades_per_ae": 15,
+    "uplift": 0.028298,
+    "years": 3
+   },
+   "breakeven": 0.06858760907831157,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 566
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 446
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 219
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 1072
+    }
+   ],
+   "eligible": 34037.7662,
+   "npv": -17662938.370733187,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.002024,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 58,
+     "build_cost": 400000.0,
+     "cannibalised": 98246.4722086152,
+     "contribution": -9947796.725449609,
+     "cumulative": -9947796.725449609,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 3664302.7367453068,
+     "gross_profit": 2397074.4925714475,
+     "net_revenue": 3566056.2645366914,
+     "outreach_cost": 1504871.218021056,
+     "present_value": -9043451.568590553,
+     "sales_cost": 10440000,
+     "upgrades": 963.2007079276,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 58,
+     "build_cost": 0.0,
+     "cannibalised": 294739.4166258456,
+     "contribution": -6424570.757749132,
+     "cumulative": -16372367.48319874,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 8507125.848288113,
+     "gross_profit": 5520300.460271924,
+     "net_revenue": 8212386.431662268,
+     "outreach_cost": 1504871.218021056,
+     "present_value": -5309562.609710026,
+     "sales_cost": 10440000,
+     "upgrades": 963.2007079276,
+     "weight": 1.160811,
+     "year": 2
+    },
+    {
+     "account_executives": 58,
+     "build_cost": 0.0,
+     "cannibalised": 491232.36104307603,
+     "contribution": -4405509.100127802,
+     "cumulative": -20777876.58332654,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 11707316.631449826,
+     "gross_profit": 7539362.117893253,
+     "net_revenue": 11216084.27040675,
+     "outreach_cost": 1504871.218021056,
+     "present_value": -3309924.192432608,
+     "sales_cost": 10440000,
+     "upgrades": 963.2007079276,
+     "weight": 1.597482177721,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 7948.8248189999995,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.035126,
+    "entry_acv_share": 0.323557,
+    "gross_margin": 0.86485,
+    "outreach_cost": 66.025652,
+    "planned_uplift": 0.027117,
+    "retention": 0.95806,
+    "upgrades_per_ae": 20,
+    "uplift": 0.023518,
+    "years": 3
+   },
+   "breakeven": 0.03399122860222921,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 4105
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 3234
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 1585
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 11519
+    }
+   ],
+   "eligible": 39618.615399999995,
+   "npv": -9564234.59153355,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.014546,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 54,
+     "build_cost": 400000.0,
+     "cannibalised": 95038.5608916744,
+     "contribution": -9615360.104744472,
+     "cumulative": -9615360.104744472,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 3703161.1351852166,
+     "gross_profit": 3120484.80837777,
+     "net_revenue": 3608122.574293542,
+     "outreach_cost": 2615844.9131222405,
+     "present_value": -8741236.458858611,
+     "sales_cost": 9720000,
+     "upgrades": 931.7505969772,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 54,
+     "build_cost": 0.0,
+     "cannibalised": 285115.6826750232,
+     "contribution": -3243031.194772251,
+     "cumulative": -12858391.299516723,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 10798862.249536315,
+     "gross_profit": 9092813.71834999,
+     "net_revenue": 10513746.566861292,
+     "outreach_cost": 2615844.9131222405,
+     "present_value": -2680191.070059711,
+     "sales_cost": 9720000,
+     "upgrades": 931.7505969772,
+     "weight": 1.4580600000000001,
+     "year": 2
+    },
+    {
+     "account_executives": 54,
+     "build_cost": 0.0,
+     "cannibalised": 475192.80445837195,
+     "contribution": 2471923.799659135,
+     "cumulative": -10386467.499857588,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 17596969.659151528,
+     "gross_profit": 14807768.712781375,
+     "net_revenue": 17121776.854693156,
+     "outreach_cost": 2615844.9131222405,
+     "present_value": 1857192.937384774,
+     "sales_cost": 9720000,
+     "upgrades": 931.7505969772,
+     "weight": 2.3759389636000003,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 14489.837703000001,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.014881,
+    "entry_acv_share": 0.589809,
+    "gross_margin": 0.729457,
+    "outreach_cost": 83.244467,
+    "planned_uplift": 0.013151,
+    "retention": 1.094936,
+    "upgrades_per_ae": 21,
+    "uplift": 0.028575,
+    "years": 3
+   },
+   "breakeven": 0.01292481319617456,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 15012
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 11825
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 5853
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 43502
+    }
+   ],
+   "eligible": 16784.2799,
+   "npv": 10609864.82378104,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.008218,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 11,
+     "build_cost": 400000.0,
+     "cannibalised": 48920.301410535,
+     "contribution": -1278209.3167159543,
+     "cumulative": -1278209.3167159543,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 3474741.31284556,
+     "gross_profit": 2498989.117538359,
+     "net_revenue": 3425821.011435025,
+     "outreach_cost": 1397198.4342543134,
+     "present_value": -1162008.4697417766,
+     "sales_cost": 1980000,
+     "upgrades": 479.6107981425,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 11,
+     "build_cost": 0.0,
+     "cannibalised": 146760.904231605,
+     "contribution": 4601032.611071344,
+     "cumulative": 3322823.29435539,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 11083980.021089291,
+     "gross_profit": 7978231.045325658,
+     "net_revenue": 10937219.116857687,
+     "outreach_cost": 1397198.4342543134,
+     "present_value": 3802506.2901416067,
+     "sales_cost": 1980000,
+     "upgrades": 479.6107981425,
+     "weight": 1.594936,
+     "year": 2
+    },
+    {
+     "account_executives": 11,
+     "build_cost": 0.0,
+     "cannibalised": 244601.507052675,
+     "contribution": 10607227.481500395,
+     "cumulative": 13930050.775855785,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 19415609.415338848,
+     "gross_profit": 13984425.915754708,
+     "net_revenue": 19171007.908286173,
+     "outreach_cost": 1397198.4342543134,
+     "present_value": 7969367.00338121,
+     "sales_cost": 1980000,
+     "upgrades": 479.6107981425,
+     "weight": 2.7938208440959995,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 19106.271807,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.02026,
+    "entry_acv_share": 0.777721,
+    "gross_margin": 0.605425,
+    "outreach_cost": 55.405025,
+    "planned_uplift": 0.010919,
+    "retention": 0.609741,
+    "upgrades_per_ae": 41,
+    "uplift": 0.005872,
+    "years": 3
+   },
+   "breakeven": 0.010275888282410738,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 16770
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 13210
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 6558
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 48033
+    }
+   ],
+   "eligible": 22851.254,
+   "npv": -2848076.970305987,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.005641,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 7,
+     "build_cost": 400000.0,
+     "cannibalised": 13686.621475776,
+     "contribution": -2158287.8493928146,
+     "cumulative": -2158287.8493928146,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 1281864.264880881,
+     "gross_profit": 767786.4497585357,
+     "net_revenue": 1268177.643405105,
+     "outreach_cost": 1266074.29915135,
+     "present_value": -1962079.8630843768,
+     "sales_cost": 1260000,
+     "upgrades": 134.182563488,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 7,
+     "build_cost": 0.0,
+     "cannibalised": 41059.864427328,
+     "contribution": -828453.6401212276,
+     "cumulative": -2986741.489514042,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 2845074.6623463477,
+     "gross_profit": 1697620.6590301224,
+     "net_revenue": 2804014.7979190196,
+     "outreach_cost": 1266074.29915135,
+     "present_value": -684672.4298522541,
+     "sales_cost": 1260000,
+     "upgrades": 134.182563488,
+     "weight": 1.109741,
+     "year": 2
+    },
+    {
+     "account_executives": 7,
+     "build_cost": 0.0,
+     "cannibalised": 68433.10737888,
+     "contribution": -267963.1455786133,
+     "cumulative": -3254704.635092655,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 3798228.133307338,
+     "gross_profit": 2258111.153572737,
+     "net_revenue": 3729795.025928458,
+     "outreach_cost": 1266074.29915135,
+     "present_value": -201324.67736935627,
+     "sales_cost": 1260000,
+     "upgrades": 134.182563488,
+     "weight": 1.481525087081,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 24273.841989,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.033077,
+    "entry_acv_share": 0.988067,
+    "gross_margin": 0.679669,
+    "outreach_cost": 97.169596,
+    "planned_uplift": 0.0038,
+    "retention": 0.994182,
+    "upgrades_per_ae": 17,
+    "uplift": 0.015368,
+    "years": 3
+   },
+   "breakeven": 0.006180303752077839,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 15615
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 12300
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 6135
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 41129
+    }
+   ],
+   "eligible": 37307.5483,
+   "npv": 19931818.70235656,
+   "payback_year": 2,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.001554,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 9,
+     "build_cost": 400000.0,
+     "cannibalised": 58480.9250319888,
+     "contribution": -955354.589626593,
+     "cumulative": -955354.589626593,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 6958611.43920123,
+     "gross_profit": 4689804.806434894,
+     "net_revenue": 6900130.514169241,
+     "outreach_cost": 3625159.396061487,
+     "present_value": -868504.1723878118,
+     "sales_cost": 1620000,
+     "upgrades": 573.3424022744,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 9,
+     "build_cost": 0.0,
+     "cannibalised": 175442.7750959664,
+     "contribution": 8769221.950606039,
+     "cumulative": 7813867.360979445,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 20794863.914897144,
+     "gross_profit": 14014381.346667526,
+     "net_revenue": 20619421.139801178,
+     "outreach_cost": 3625159.396061487,
+     "present_value": 7247290.868269453,
+     "sales_cost": 1620000,
+     "upgrades": 573.3424022744,
+     "weight": 1.494182,
+     "year": 2
+    },
+    {
+     "account_executives": 9,
+     "build_cost": 0.0,
+     "cannibalised": 292404.625159944,
+     "contribution": 18039085.60061812,
+     "cumulative": 25852952.961597566,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 34550617.07368946,
+     "gross_profit": 23284244.996679608,
+     "net_revenue": 34258212.44852952,
+     "outreach_cost": 3625159.396061487,
+     "present_value": 13553032.006474918,
+     "sales_cost": 1620000,
+     "upgrades": 573.3424022744,
+     "weight": 2.482579849124,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 13212.206301,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.040055,
+    "entry_acv_share": 0.537803,
+    "gross_margin": 0.64481,
+    "outreach_cost": 81.897898,
+    "planned_uplift": 0.005628,
+    "retention": 1.055707,
+    "upgrades_per_ae": 28,
+    "uplift": 0.008113,
+    "years": 3
+   },
+   "breakeven": 0.009883173140951884,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": false,
+     "per_arm": 39273
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": false,
+     "per_arm": 30935
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 15229
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 118825
+    }
+   ],
+   "eligible": 45178.0345,
+   "npv": -2514932.189188732,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.013868,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 10,
+     "build_cost": 400000.0,
+     "cannibalised": 37385.998177647,
+     "contribution": -4362794.495152819,
+     "cumulative": -4362794.495152819,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 2421330.9837837364,
+     "gross_profit": 1537191.5661686624,
+     "net_revenue": 2383944.9856060892,
+     "outreach_cost": 3699986.061321481,
+     "present_value": -3966176.81377529,
+     "sales_cost": 1800000,
+     "upgrades": 366.5293938985,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 10,
+     "build_cost": 0.0,
+     "cannibalised": 112157.994532941,
+     "contribution": -714460.8593512401,
+     "cumulative": -5077255.354504059,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 7533763.12157849,
+     "gross_profit": 4785525.201970241,
+     "net_revenue": 7421605.127045549,
+     "outreach_cost": 3699986.061321481,
+     "present_value": -590463.5201249918,
+     "sales_cost": 1800000,
+     "upgrades": 366.5293938985,
+     "weight": 1.555707,
+     "year": 2
+    },
+    {
+     "account_executives": 10,
+     "build_cost": 0.0,
+     "cannibalised": 186929.990888235,
+     "contribution": 2717513.5406110734,
+     "cumulative": -2359741.8138929857,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 12930993.516473375,
+     "gross_profit": 8217499.6019325545,
+     "net_revenue": 12744063.525585141,
+     "outreach_cost": 3699986.061321481,
+     "present_value": 2041708.1447115496,
+     "sales_cost": 1800000,
+     "upgrades": 366.5293938985,
+     "weight": 2.6702242698489997,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 6043.997907,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.030677,
+    "entry_acv_share": 0.246021,
+    "gross_margin": 0.881505,
+    "outreach_cost": 42.531704,
+    "planned_uplift": 0.004505,
+    "retention": 0.944103,
+    "upgrades_per_ae": 15,
+    "uplift": 0.021013,
+    "years": 3
+   },
+   "breakeven": 0.014788026043430009,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 13654
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 10756
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 5313
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": false,
+     "per_arm": 39716
+    }
+   ],
+   "eligible": 34600.588299999996,
+   "npv": 3766342.279918752,
+   "payback_year": 3,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.009882,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 11,
+     "build_cost": 400000.0,
+     "cannibalised": 74160.34051868579,
+     "contribution": -1980168.5717944398,
+     "cumulative": -1980168.5717944398,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 2197181.092536001,
+     "gross_profit": 1871453.4080070232,
+     "net_revenue": 2123020.752017315,
+     "outreach_cost": 1471621.979801463,
+     "present_value": -1800153.2470858544,
+     "sales_cost": 1980000,
+     "upgrades": 727.0621619478999,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 11,
+     "build_cost": 0.0,
+     "cannibalised": 222481.02155605736,
+     "contribution": 1946212.7050748114,
+     "cumulative": -33955.86671962845,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 6345911.614549034,
+     "gross_profit": 5397834.684876274,
+     "net_revenue": 6123430.592992977,
+     "outreach_cost": 1471621.979801463,
+     "present_value": 1608440.252127943,
+     "sales_cost": 1980000,
+     "upgrades": 727.0621619478999,
+     "weight": 1.4441030000000001,
+     "year": 2
+    },
+    {
+     "account_executives": 11,
+     "build_cost": 0.0,
+     "cannibalised": 370801.7025934289,
+     "contribution": 5268171.57086084,
+     "cumulative": 5234215.704141212,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 10262740.546573104,
+     "gross_profit": 8719793.550662303,
+     "net_revenue": 9891938.843979675,
+     "outreach_cost": 1471621.979801463,
+     "present_value": 3958055.2748766635,
+     "sales_cost": 1980000,
+     "upgrades": 727.0621619478999,
+     "weight": 2.335433474609,
+     "year": 3
+    }
+   ]
+  },
+  {
+   "acv": 6222.771966,
+   "bet": {
+    "ae_cost": 180000,
+    "build_cost": 400000,
+    "cannibalised_self_serve": true,
+    "discount_rate": 0.1,
+    "eligible_share": 0.041073,
+    "entry_acv_share": 0.253298,
+    "gross_margin": 0.765919,
+    "outreach_cost": 45.377352,
+    "planned_uplift": 0.025974,
+    "retention": 1.031387,
+    "upgrades_per_ae": 34,
+    "uplift": 0.002512,
+    "years": 3
+   },
+   "breakeven": 0.0276705744966615,
+   "designs": [
+    {
+     "design": "90 days, two-sided",
+     "feasible": true,
+     "per_arm": 5757
+    },
+    {
+     "design": "90 days, one-sided",
+     "feasible": true,
+     "per_arm": 4535
+    },
+    {
+     "design": "180 days, one-sided",
+     "feasible": true,
+     "per_arm": 2226
+    },
+    {
+     "design": "90 days, one-sided, eligibility doubled",
+     "feasible": true,
+     "per_arm": 16395
+    }
+   ],
+   "eligible": 46326.2367,
+   "npv": -19735662.612870198,
+   "payback_year": null,
+   "test": {
+    "alpha": 0.05,
+    "baseline_upgrade_rate": 0.013973,
+    "guardrail_churn": 0.03,
+    "guardrail_margin": 0.005,
+    "power": 0.8,
+    "seed": 2025,
+    "window_days": 90
+   },
+   "years": [
+    {
+     "account_executives": 36,
+     "build_cost": 400000.0,
+     "cannibalised": 11869.8936722208,
+     "contribution": -8713931.922263093,
+     "cumulative": -8713931.922263093,
+     "discount": 0.9090909090909091,
+     "enterprise_revenue": 362076.67442596273,
+     "gross_profit": 268230.0273081253,
+     "net_revenue": 350206.7807537419,
+     "outreach_cost": 2102161.9495712183,
+     "present_value": -7921756.292966448,
+     "sales_cost": 6480000,
+     "upgrades": 116.3715065904,
+     "weight": 0.5,
+     "year": 1
+    },
+    {
+     "account_executives": 36,
+     "build_cost": 0.0,
+     "cannibalised": 35609.6810166624,
+     "contribution": -7760063.293807059,
+     "cumulative": -16473995.216070153,
+     "discount": 0.8264462809917354,
+     "enterprise_revenue": 1108959.0244383037,
+     "gross_profit": 822098.6557641601,
+     "net_revenue": 1073349.3434216413,
+     "outreach_cost": 2102161.9495712183,
+     "present_value": -6413275.449427321,
+     "sales_cost": 6480000,
+     "upgrades": 116.3715065904,
+     "weight": 1.531387,
+     "year": 2
+    },
+    {
+     "account_executives": 36,
+     "build_cost": 0.0,
+     "cannibalised": 59349.468361104,
+     "contribution": -7188239.6886041295,
+     "cumulative": -23662234.904674284,
+     "discount": 0.7513148009015775,
+     "enterprise_revenue": 1879283.7707704818,
+     "gross_profit": 1393922.2609670884,
+     "net_revenue": 1819934.3024093779,
+     "outreach_cost": 2102161.9495712183,
+     "present_value": -5400630.870476429,
+     "sales_cost": 6480000,
+     "upgrades": 116.3715065904,
+     "weight": 2.595146143769,
+     "year": 3
+    }
+   ]
+  }
+ ]
+}

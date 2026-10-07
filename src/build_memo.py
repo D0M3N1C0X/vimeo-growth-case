@@ -117,6 +117,8 @@ def write(a, bc, ex, oc) -> dict:
         "[data/SOURCES.md](../data/SOURCES.md)")
     add("**Status:** an outside-in exercise on public data. Assumptions are mine and labelled; the test results are simulated.")
     add("")
+    add("**Try it:** [the interactive model](https://d0m3n1c0x.github.io/vimeo-growth-case/model/) recomputes the case and the test as you move each assumption.")
+    add("")
     add("> The question: Self-Serve has lost subscribers every quarter for three years while price held revenue up. "
         "Where does growth come from next, and how would we know before spending on it?")
     add("")

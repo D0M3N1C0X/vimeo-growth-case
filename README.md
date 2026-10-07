@@ -14,7 +14,7 @@ and the **experiment** that would decide it before anyone is hired for it.
 > [docs/assumptions.md](docs/assumptions.md); the test results are simulated. Not affiliated with Vimeo or
 > Bending Spoons. Not investment advice.
 
-### ▶ [Read the memo](https://d0m3n1c0x.github.io/vimeo-growth-case/) · [Download the Excel model](https://github.com/D0M3N1C0X/vimeo-growth-case/raw/main/deliverables/vimeo_upgrade_case.xlsx)
+### ▶ [Read the memo](https://d0m3n1c0x.github.io/vimeo-growth-case/) · [Try the interactive model](https://d0m3n1c0x.github.io/vimeo-growth-case/model/) · [Download the Excel model](https://github.com/D0M3N1C0X/vimeo-growth-case/raw/main/deliverables/vimeo_upgrade_case.xlsx)
 
 ---
 
@@ -46,6 +46,8 @@ and the **experiment** that would decide it before anyone is hired for it.
 - **Two engines, one answer.** The Excel model recomputes everything with live formulas and is checked
   against Python on **186 values**; CI recalculates it with LibreOffice. The break-even uplift is a closed
   formula in Excel and a numerical search in Python, and the two must agree.
+- **Three engines, one answer.** The interactive model's JavaScript is checked against Python on 1,200 values
+  from 40 random scenarios in CI, including sample sizes to the unit: it uses the same inverse-normal algorithm.
 - **The tests caught real mistakes**, including a leap-year quarter that leaked into the residual of the bridge.
 
 ## Run it
@@ -71,9 +73,11 @@ pip install -r requirements-dev.txt && pytest
 │   ├── experiment.py          sample sizes, simulated test, decision rule and its error rates
 │   ├── build_workbook.py      the Excel model and its reconciliation sheet
 │   ├── build_memo.py          the memo and its figures
+│   ├── build_web.py           inputs and JavaScript test vectors for the interactive model
 │   └── run_all.py             the whole case
 ├── deliverables/              the workbook
 ├── report/                    the memo, its HTML page and figures
+├── web/                       the interactive model: one page, model.js, inputs.json
 ├── docs/assumptions.md
 └── tests/
 ```

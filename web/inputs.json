@@ -1,0 +1,85 @@
+{
+ "base": {
+  "enterprise_arpu": 24567.0,
+  "enterprise_revenue_q": 25503000.0,
+  "enterprise_subscribers": 4200.0,
+  "period": "2025Q3",
+  "self_serve_arpu": 204.0,
+  "self_serve_subscribers": 1127900.0
+ },
+ "bet": {
+  "ae_cost": 180000,
+  "build_cost": 400000,
+  "cannibalised_self_serve": true,
+  "discount_rate": 0.1,
+  "eligible_share": 0.02,
+  "entry_acv_share": 0.5,
+  "gross_margin": 0.78,
+  "outreach_cost": 30,
+  "planned_uplift": 0.01,
+  "retention": 0.9,
+  "upgrades_per_ae": 40,
+  "uplift": 0.01,
+  "years": 3
+ },
+ "breakeven": 0.006815540959870341,
+ "npv": 2211137.481569497,
+ "sliders": {
+  "eligible_share": [
+   0.005,
+   0.05,
+   0.0005
+  ],
+  "entry_acv_share": [
+   0.2,
+   1.0,
+   0.05
+  ],
+  "gross_margin": [
+   0.6,
+   0.9,
+   0.01
+  ],
+  "outreach_cost": [
+   0,
+   100,
+   1
+  ],
+  "planned_uplift": [
+   0.002,
+   0.03,
+   0.0005
+  ],
+  "retention": [
+   0.6,
+   1.1,
+   0.01
+  ],
+  "upgrades_per_ae": [
+   10,
+   80,
+   1
+  ],
+  "uplift": [
+   0.0,
+   0.03,
+   0.0005
+  ]
+ },
+ "test": {
+  "alpha": 0.05,
+  "baseline_upgrade_rate": 0.004,
+  "guardrail_churn": 0.03,
+  "guardrail_margin": 0.005,
+  "power": 0.8,
+  "seed": 2025,
+  "window_days": 90
+ },
+ "test_sliders": {
+  "baseline_upgrade_rate": [
+   0.001,
+   0.015,
+   0.0005
+  ]
+ }
+}

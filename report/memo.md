@@ -4,6 +4,8 @@
 **Sources:** Vimeo, Inc. annual reports (10-K, covering 2021–2024) and quarterly reports (10-Q, Q1–Q3 2025) filed with the SEC; every figure traced in [data/SOURCES.md](../data/SOURCES.md)
 **Status:** an outside-in exercise on public data. Assumptions are mine and labelled; the test results are simulated.
 
+**Try it:** [the interactive model](https://d0m3n1c0x.github.io/vimeo-growth-case/model/) recomputes the case and the test as you move each assumption.
+
 > The question: Self-Serve has lost subscribers every quarter for three years while price held revenue up. Where does growth come from next, and how would we know before spending on it?
 
 ## The answer

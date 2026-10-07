@@ -33,11 +33,12 @@ def per_window(yearly: float, window_days: int) -> float:
     return yearly * window_days / 365
 
 
-def designs() -> pd.DataFrame:
+def designs(bet: dict | None = None, test: dict | None = None) -> pd.DataFrame:
     """The bar is the break-even uplift: a test that cannot see it cannot decide anything."""
-    available = business_case.model()["eligible"]
-    be = business_case.breakeven()
-    base_rate_90 = C.TEST["baseline_upgrade_rate"]
+    test = C.TEST if test is None else test
+    available = business_case.model(bet)["eligible"]
+    be = business_case.breakeven() if bet is None else business_case.breakeven_for(bet)
+    base_rate_90 = test["baseline_upgrade_rate"]
     rows = []
     for name, window, one_sided, eligible_mult in (
             ("90 days, two-sided", 90, False, 1.0),
@@ -48,7 +49,7 @@ def designs() -> pd.DataFrame:
         # doubling eligibility brings in weaker accounts: assume the uplift per account halves
         uplift = be / eligible_mult
         p1 = p0 + per_window(uplift, window)
-        n = sample_size(p0, p1, one_sided=one_sided)
+        n = sample_size(p0, p1, alpha=test["alpha"], power=test["power"], one_sided=one_sided)
         rows.append({"design": name, "window_days": window, "one_sided": one_sided,
                      "control_rate": p0, "treatment_rate_at_breakeven": p1, "per_arm": n, "needed": 2 * n,
                      "available": available * eligible_mult, "feasible": 2 * n <= available * eligible_mult})
