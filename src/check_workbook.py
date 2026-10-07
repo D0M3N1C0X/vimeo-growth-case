@@ -14,75 +14,23 @@ first. Two engines are supported:
 The check fails on any formula error anywhere in the workbook, and on any row of the
 Reconciliation sheet that does not match.
 """
+
 import argparse
 import sys
 from pathlib import Path
 
-ERRORS = ("#DIV/0!", "#N/A", "#NAME?", "#NULL!", "#NUM!", "#REF!", "#VALUE!", "Err:")
+import excel_twin as et
+from excel_twin import ERRORS, values_from_formulas, values_from_saved  # noqa: F401  (used by the tests)
+from excel_twin.reconcile import Layout
 
-
-def values_from_saved(path: Path) -> dict[tuple[str, str], object]:
-    from openpyxl import load_workbook
-    wb = load_workbook(path, data_only=True, read_only=True)
-    out = {}
-    for ws in wb.worksheets:
-        for row in ws.iter_rows():
-            for cell in row:
-                if cell.value is not None:
-                    out[(ws.title, cell.coordinate)] = cell.value
-    return out
-
-
-def _excel_round(x, d):
-    """Excel's ROUND: the value is first cut to 15 significant digits, then rounded half away from
-    zero, so ROUND(34.245, 2) is 34.25. `formulas` multiplies the float by 100 and gets 3424.4999...,
-    which gives 34.24 on every half-cent tie. LibreOffice and Excel agree with this version."""
-    from decimal import ROUND_HALF_UP, Decimal
-    v = Decimal(f"{float(x):.15g}").quantize(Decimal(1).scaleb(-int(d)), rounding=ROUND_HALF_UP)
-    return float(v)
-
-
-def values_from_formulas(path: Path) -> dict[tuple[str, str], object]:
-    import formulas
-    from formulas.functions import FUNCTIONS, wrap_ufunc
-    FUNCTIONS["ROUND"] = wrap_ufunc(_excel_round)
-    solution = formulas.ExcelModel().loads(str(path)).finish().calculate()
-    out = {}
-    for key, ranges in solution.items():
-        if "!" not in key:
-            continue
-        sheet, ref = key.rsplit("!", 1)
-        sheet = sheet.strip("'").split("]", 1)[-1]
-        if ":" in ref:
-            continue
-        value = ranges.value[0][0] if hasattr(ranges, "value") else ranges
-        if hasattr(value, "item"):
-            value = value.item()
-        out[(sheet.upper(), ref.replace("$", ""))] = value
-    return out
+LAYOUT = Layout()
 
 
 def check(values: dict, sheet_names: list[str], n_checks: int) -> int:
-    upper = {s.upper(): s for s in sheet_names}
-    get = lambda sheet, ref: values.get((sheet, ref), values.get((sheet.upper(), ref)))
-
-    errors = [(s, r, v) for (s, r), v in values.items()
-              if not isinstance(v, (int, float)) and str(v).startswith(ERRORS)]
-    for s, r, v in errors[:20]:
-        print(f"::error::formula error {v} at {upper.get(s, s)}!{r}")
-
-    mismatches = []
-    for row in range(7, 7 + n_checks):
-        if get("Reconciliation", f"G{row}") != "Yes":
-            mismatches.append((get("Reconciliation", f"A{row}"), get("Reconciliation", f"B{row}"),
-                               get("Reconciliation", f"D{row}"), get("Reconciliation", f"E{row}")))
-    for m in mismatches[:30]:
-        print("::error::mismatch", m)
-
-    print(f"formula errors: {len(errors)}")
-    print(f"reconciliation: {n_checks - len(mismatches)} of {n_checks} match")
-    print(f"summary cell: {get('Reconciliation', 'B3')}")
-    return 1 if errors or mismatches or n_checks == 0 else 0
+    """The excel-twin check with this repository's layout; 0 when everything matches."""
+    report = et.check(values, n_checks, LAYOUT)
+    report.print()
+    return 0 if report.ok else 1
 
 
 def main() -> int:
