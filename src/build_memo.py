@@ -197,7 +197,7 @@ def write(a, bc, ex, oc) -> dict:
     add(f"The model starts from Q3 2025: {f['base']['self_serve_subscribers']:,.0f} Self-Serve subscribers at "
         f"{usd(f['base']['self_serve_arpu'])} a year and Enterprise ARPU of {usd(f['base']['enterprise_arpu'])}. Upgrades start at "
         f"{pct(C.BET['entry_acv_share'])} of the Enterprise average ({usd(mod['acv'])}), keep {pct(C.BET['retention'])} of revenue "
-        f"each year after the first, and stop paying their Self-Serve plan. The sales team is hired for the plan before the real "
+        f"each year after the first, and stop paying their Self-Serve plan, counted as lost every year even for accounts that later leave Enterprise (the conservative choice). The sales team is hired for the plan before the real "
         "uplift is known, so its cost is fixed.")
     add("")
     add(table(["US$", "Year 1", "Year 2", "Year 3"],

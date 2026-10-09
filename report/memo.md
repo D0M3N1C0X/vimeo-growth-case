@@ -52,7 +52,7 @@ In 2025 Vimeo regrouped its categories, so the quarterly series stands apart fro
 
 ## 3. The business case
 
-The model starts from Q3 2025: 1,127,900 Self-Serve subscribers at $204 a year and Enterprise ARPU of $24,567. Upgrades start at 50% of the Enterprise average ($12,284), keep 90% of revenue each year after the first, and stop paying their Self-Serve plan. The sales team is hired for the plan before the real uplift is known, so its cost is fixed.
+The model starts from Q3 2025: 1,127,900 Self-Serve subscribers at $204 a year and Enterprise ARPU of $24,567. Upgrades start at 50% of the Enterprise average ($12,284), keep 90% of revenue each year after the first, and stop paying their Self-Serve plan, counted as lost every year even for accounts that later leave Enterprise (the conservative choice). The sales team is hired for the plan before the real uplift is known, so its cost is fixed.
 
 | US$ | Year 1 | Year 2 | Year 3 |
 |---|---:|---:|---:|
