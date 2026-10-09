@@ -14,6 +14,7 @@ from datetime import datetime
 from pathlib import Path
 
 from openpyxl import Workbook
+from openpyxl.cell.cell import Cell
 from openpyxl.formatting.rule import CellIsRule
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter as col
@@ -39,11 +40,11 @@ USDM = '"$"#,##0.0,,"M";-"$"#,##0.0,,"M";"-"'
 NUM, NUM1, NUM2, PCT, PCT1, PCT2, PCT3 = "#,##0", "#,##0.0", "#,##0.00", "0%", "0.0%", "0.00%", "0.000%"
 
 
-def font(color=INK, bold=False, italic=False, size=10):
+def font(color=INK, bold=False, italic=False, size=10) -> Font:
     return Font(name=FONT, color=color, bold=bold, italic=italic, size=size)
 
 
-def put(ws, ref, value, *, color=INK, bold=False, italic=False, size=10, fmt=None, fill=None, wrap=False):
+def put(ws, ref, value, *, color=INK, bold=False, italic=False, size=10, fmt=None, fill=None, wrap=False) -> Cell:
     c = ws[ref]
     c.value = value
     c.font = font(color, bold, italic, size)
@@ -56,7 +57,7 @@ def put(ws, ref, value, *, color=INK, bold=False, italic=False, size=10, fmt=Non
     return c
 
 
-def header(ws, row, labels, start=1, height=32):
+def header(ws, row, labels, start=1, height=32) -> None:
     for i, label in enumerate(labels):
         c = ws.cell(row=row, column=start + i, value=label)
         c.font = font(WHITE, bold=True)
@@ -65,18 +66,18 @@ def header(ws, row, labels, start=1, height=32):
     ws.row_dimensions[row].height = height
 
 
-def title(ws, text, subtitle=None):
+def title(ws, text, subtitle=None) -> None:
     put(ws, "A1", text, bold=True, size=14)
     if subtitle:
         put(ws, "A2", subtitle, color=MUTED, italic=True)
 
 
-def widths(ws, spec):
+def widths(ws, spec) -> None:
     for k, v in spec.items():
         ws.column_dimensions[k].width = v
 
 
-def plain(x):
+def plain(x) -> object:
     if hasattr(x, "item"):
         x = x.item()
     if isinstance(x, float) and math.isnan(x):
@@ -91,10 +92,10 @@ class Workbook_:
         self.R = {}
         self.checks = []
 
-    def check(self, area, item, value, ref):
+    def check(self, area, item, value, ref) -> None:
         self.checks.append((area, item, plain(value), ref))
 
-    def build(self, path: Path):
+    def build(self, path: Path) -> None:
         names = ["Cover", "Summary", "Business case", "Sensitivity", "Test design", "Test readout", "Value of test", "Bridge",
                  "Segments", "P&L", "Inputs", "Reconciliation"]
         self.wb.active.title = names[0]
@@ -127,7 +128,7 @@ class Workbook_:
         normalise(path)
 
     # ---- Inputs --------------------------------------------------------------------------------
-    def inputs(self, ws):
+    def inputs(self, ws) -> None:
         title(ws, "Inputs", "Blue = input. Yellow = the assumptions the result depends on most. Sources in docs/assumptions.md.")
         widths(ws, {"A": 3, "B": 50, "C": 16, "D": 80})
         header(ws, 4, ["", "Assumption", "Value", "Why"], height=20)
@@ -164,7 +165,7 @@ class Workbook_:
             self.R[key] = f"Inputs!$C${r}"
 
     # ---- Filings data -------------------------------------------------------------------------
-    def segments(self, ws):
+    def segments(self, ws) -> None:
         m = analysis.metrics()
         title(ws, "Segments: operating metrics from Vimeo's filings",
               "Transcribed from the MD&A of each 10-K and 10-Q; accession numbers in data/operating_metrics.csv. Two bases: do not join them.")
@@ -204,10 +205,10 @@ class Workbook_:
         self.check("Segments", "Largest ARPU x average gap", float(self.a["transcription"]["gap"].abs().max()), f"Segments!K{last + 2}")
         ws.freeze_panes = "E5"
 
-    def lk(self, key, metric_range, basis, period, seg):
+    def lk(self, key, metric_range, basis, period, seg) -> str:
         return f'INDEX({metric_range},MATCH("{basis}|{period}|{seg}",{self.R["sg_key"]},0))'
 
-    def pnl(self, ws):
+    def pnl(self, ws) -> None:
         f = analysis.financials()
         p = self.a["pnl"]
         title(ws, "P&L from XBRL facts", "US$ millions. Blue figures from data/sec_financials.csv; ratios are formulas.")
@@ -240,7 +241,7 @@ class Workbook_:
                     self.check("P&L", f"{per} {label}", float(v), f"'P&L'!{c}{r}")
         self.R["gross_margin_2024"] = "'P&L'!$E$13"
 
-    def bridge(self, ws):
+    def bridge(self, ws) -> None:
         b = self.a["bridge"]
         title(ws, "Revenue bridge: volume and price",
               "Change in revenue = change in average subscribers at the mid ARPU (volume) + change in ARPU at the mid subscriber count (price), "
@@ -254,7 +255,7 @@ class Workbook_:
             put(ws, f"A{r}", frm, color=BLUE)
             put(ws, f"B{r}", to, color=BLUE)
             put(ws, f"C{r}", seg, color=BLUE)
-            g = lambda rng, per: self.lk(None, rng, basis, per, seg)
+            g = lambda rng, per, basis=basis, seg=seg: self.lk(None, rng, basis, per, seg)
             d0, y0 = analysis.days(frm)
             d1, y1 = analysis.days(to)
             u0 = f"{g(R_['sg_arpu'], frm)}*{d0}/{y0}"         # revenue per average subscriber in the period
@@ -270,7 +271,7 @@ class Workbook_:
         ws.freeze_panes = "D5"
 
     # ---- The case ------------------------------------------------------------------------------
-    def case(self, ws):
+    def case(self, ws) -> None:
         R_, base, m = self.R, self.a["baseline"], self.bc["model"]
         title(ws, "Business case: route Self-Serve teams that look like Enterprise buyers to sales",
               "Three years, a new cohort of upgrades each year, upgrades mid-year. US$. Starting point: Vimeo's Q3 2025 10-Q.")
@@ -344,7 +345,7 @@ class Workbook_:
         self.R.update({"npv": "'Business case'!$B$30", "payback": "'Business case'!$B$31", "breakeven": "'Business case'!$B$37",
                        "eligible": "'Business case'!$B$10", "year3": "'Business case'!$B$32"})
 
-    def sensitivity(self, ws):
+    def sensitivity(self, ws) -> None:
         R_, s = self.R, self.bc["sensitivity"]
         title(ws, "Sensitivity: net present value with one driver at its low or high value",
               "Each row recomputes the three-year case in full. Sorted by swing at the time of building; values update live.")
@@ -388,7 +389,7 @@ class Workbook_:
         ws.freeze_panes = "C5"
 
     # ---- The test ------------------------------------------------------------------------------
-    def design(self, ws):
+    def design(self, ws) -> None:
         R_, d = self.R, self.ex["designs"]
         title(ws, "Test design: can the test see the break-even uplift?",
               "Per-arm sample size for two proportions (normal approximation). The bar is the break-even uplift from the business case.")
@@ -418,7 +419,7 @@ class Workbook_:
         put(ws, f"A{last + 2}", "Doubling eligibility brings in weaker accounts: the uplift per account is assumed to halve.",
             color=MUTED, italic=True)
 
-    def readout(self, ws):
+    def readout(self, ws) -> None:
         R_, s = self.R, self.ex["simulation"]
         title(ws, "Test readout: paste the counts, read the decision",
               "Filled with one simulated run of the 180-day design (true uplift 1% a year). Simulated, not Vimeo data.")
@@ -461,7 +462,7 @@ class Workbook_:
         put(ws, "A24", "Rule, in order: a broken split invalidates the test; without an uplift there is nothing to protect; "
                        "then the guardrail; then the business bar.", color=MUTED, italic=True)
 
-    def voi(self, ws):
+    def voi(self, ws) -> None:
         R_, v = self.R, self.ex["voi"]
         priors = list(C.PRIORS)
         title(ws, "Is the test worth running?",
@@ -518,7 +519,7 @@ class Workbook_:
         put(ws, f"A{r + k + 3}", "The test's own upgrades are not counted, which understates its value slightly. The chance of 'Scale' at an "
                                  "uplift below break-even is the rule's cost: it can scale a bet that loses.", color=MUTED, italic=True)
 
-    def summary(self, ws):
+    def summary(self, ws) -> None:
         R_ = self.R
         title(ws, "Summary", "Everything on this sheet is a link or a formula.")
         widths(ws, {"A": 52, "B": 20})
@@ -535,7 +536,7 @@ class Workbook_:
             put(ws, f"B{r}", f, color=GREEN, fmt=fmt)
         self.check("Summary", "Smallest feasible test", experiment.chosen_design()["design"], "Summary!B10")
 
-    def reconciliation(self, ws):
+    def reconciliation(self, ws) -> None:
         title(ws, "Reconciliation: workbook formulas against the Python pipeline",
               "Column D was written by src/build_workbook.py from the pandas results; column E is the live formula.")
         widths(ws, {"A": 16, "B": 58, "C": 3, "D": 20, "E": 20, "F": 14, "G": 8})
@@ -557,7 +558,7 @@ class Workbook_:
         ws.freeze_panes = "A7"
         self.recon = "Reconciliation!B3"
 
-    def cover(self, ws, names):
+    def cover(self, ws, names) -> None:
         widths(ws, {"A": 3, "B": 22, "C": 100})
         put(ws, "B2", "Vimeo: the Self-Serve to Enterprise upgrade case", bold=True, size=18)
         put(ws, "B3", "Public filings, a business case and the test that would decide it", color=MUTED, size=12)

@@ -20,7 +20,8 @@ def test_readme_is_current(a, bc, ex, tmp_path):
         f"about {f['multiple']:.0f} times",
         f"pays above {M.pct(f['be'], 2)} upgrades a year",
         f"{M.usd_m(mod['npv'] / 1e6)} net present value",
-        f"{int(ch['window_days'])}-day one-sided test on {int(ch['needed']):,} of the {ch['available']:,.0f} eligible accounts",
+        f"{int(ch['window_days'])}-day one-sided test on {int(ch['needed']):,} "
+        f"of the {ch['available']:,.0f} eligible accounts",
         f"**{len(build_workbook.build(a, bc, ex, tmp_path / 'w.xlsx').checks)} values**",
     ]
     assert not [w for w in want if w not in README]

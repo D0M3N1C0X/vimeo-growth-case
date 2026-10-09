@@ -49,3 +49,13 @@ Everything not taken from Vimeo's filings is listed here. The filings data and t
 - **Not inside information.** Every figure is public; nothing comes from Vimeo or Bending Spoons.
 - **Not a view on decisions already taken**, such as pricing or headcount, beyond what the filings report.
 - **Not investment advice**, and not affiliated with Vimeo or Bending Spoons.
+
+## What happened after the last filing
+
+Bending Spoons agreed to acquire Vimeo on 10 September 2025 for $7.85 a share in cash, about $1.38 billion
+([Vimeo press release, SEC exhibit 99.1](https://www.sec.gov/Archives/edgar/data/1837686/000110465925089107/tm2525763d1_ex99-1.htm)),
+and completed it on 24 November 2025 ([Bending Spoons S.p.A., Form F-1, 8 June 2026](https://www.sec.gov/Archives/edgar/data/0002004711/000110465926071170/tm2613674-7_f1.htm):
+"On November 24, 2025, we acquired Vimeo, Inc."). Vimeo was delisted from Nasdaq, so no 10-Q or 10-K covers
+later periods, and the F-1 gives no separate figures for Vimeo. The case therefore stops at Q3 2025 by
+necessity, not by choice; anything Vimeo's new owner has changed since is outside it.
+

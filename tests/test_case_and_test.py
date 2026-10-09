@@ -18,8 +18,10 @@ def test_npv_is_linear_in_uplift_and_zero_at_breakeven(bc):
 
 def test_year_lines_add_up(bc):
     y = bc["model"]["years"]
-    assert ((y["gross_profit"] - y["sales_cost"] - y["outreach_cost"] - y["build_cost"]) - y["contribution"]).abs().max() < 1e-6
-    assert list(y["weight"].round(4)) == [0.5, 0.5 + C.BET["retention"], 0.5 + C.BET["retention"] + C.BET["retention"] ** 2]
+    costs = y["sales_cost"] + y["outreach_cost"] + y["build_cost"]
+    assert ((y["gross_profit"] - costs) - y["contribution"]).abs().max() < 1e-6
+    r = C.BET["retention"]
+    assert list(y["weight"].round(4)) == [0.5, 0.5 + r, 0.5 + r + r**2]
 
 
 def test_sensitivity_moves_the_right_way(bc):
@@ -60,13 +62,13 @@ def test_guardrail_blocks_a_harmful_uplift():
 
 
 def test_value_of_information_holds_together(ex):
-    for name, v in ex["voi"].items():
+    for v in ex["voi"].values():
         t = v["table"]
         assert t["probability"].sum() == pytest.approx(1.0)
         # linearity: launching now is worth the NPV at the prior's mean uplift
         mean_npv = business_case.model({**C.BET, "uplift": v["prior_mean"]})["npv"]
         assert v["launch_now"] == pytest.approx(mean_npv, rel=1e-9)
-        assert 0 <= v["value_of_test"] + max(v["launch_now"], 0) - v["test_first"] + 1e-6
+        assert v["value_of_test"] + max(v["launch_now"], 0) - v["test_first"] + 1e-6 >= 0
         assert v["value_of_test"] <= v["evpi"] + 1e-6          # no test beats perfect information
         assert (t["p_scale"].diff().dropna() >= 0).all()      # more uplift, more often scaled
     assert ex["voi"]["sceptical"]["best"] == "Test first" and ex["voi"]["optimistic"]["best"] == "Launch now"

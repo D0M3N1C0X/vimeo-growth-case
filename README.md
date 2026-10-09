@@ -11,8 +11,9 @@ and the **experiment** that would decide it before anyone is hired for it.
 
 > **Public data, labelled assumptions, simulated test.** Figures come from Vimeo's 10-K and 10-Q filings,
 > each traced to its accession number. The business case rests on assumptions listed in
-> [docs/assumptions.md](docs/assumptions.md); the test results are simulated. Not affiliated with Vimeo or
-> Bending Spoons. Not investment advice.
+> [docs/assumptions.md](docs/assumptions.md); the test results are simulated. Bending Spoons completed its
+> acquisition of Vimeo on 24 November 2025, so the Q3 2025 10-Q is the last quarterly report: the case reads
+> the business as it stood at the handover. Not affiliated with Vimeo or Bending Spoons. Not investment advice.
 
 ### ▶ [Read the memo](https://d0m3n1c0x.github.io/vimeo-growth-case/) · [Try the interactive model](https://d0m3n1c0x.github.io/vimeo-growth-case/model/) · [Download the Excel model](https://github.com/D0M3N1C0X/vimeo-growth-case/raw/main/deliverables/vimeo_upgrade_case.xlsx)
 
@@ -59,7 +60,11 @@ python3 -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt
 python src/run_all.py          # about ten seconds
 pip install -r requirements-dev.txt && pytest
+ruff check .                   # the lint CI runs; rules in pyproject.toml
 ```
+
+Every function in `src/` declares what it returns, CI lints the code and measures test coverage, and
+[docs/decisions.md](docs/decisions.md) records each choice of method with the alternative it replaced.
 
 ## What's inside
 
@@ -80,7 +85,10 @@ pip install -r requirements-dev.txt && pytest
 ├── deliverables/              the workbook
 ├── report/                    the memo, its HTML page and figures
 ├── web/                       the interactive model: one page, model.js, inputs.json
-├── docs/assumptions.md
+├── docs/
+│   ├── assumptions.md         every assumption, its value and why
+│   ├── decisions.md           each choice of method and the alternative it replaced
+│   └── data-dictionary.md     every column, tag, category and metric, kept complete by a test
 └── tests/
 ```
 

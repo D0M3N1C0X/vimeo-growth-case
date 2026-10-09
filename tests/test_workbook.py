@@ -29,7 +29,8 @@ def test_a_wrong_value_is_caught(built, tmp_path):
     w, path = built
     wb = load_workbook(path)
     ws = wb["Reconciliation"]
-    row = next(r for r in range(7, 7 + len(w.checks)) if isinstance(ws[f"D{r}"].value, float) and abs(ws[f"D{r}"].value) > 1)
+    big = lambda r: isinstance(ws[f"D{r}"].value, float) and abs(ws[f"D{r}"].value) > 1
+    row = next(r for r in range(7, 7 + len(w.checks)) if big(r))
     ws[f"D{row}"].value *= 1.01
     broken = tmp_path / "broken.xlsx"
     wb.save(broken)

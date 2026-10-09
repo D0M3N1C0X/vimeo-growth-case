@@ -154,10 +154,11 @@ def operating_characteristics(runs: int = 200, uplifts: tuple | None = None) -> 
     return pd.DataFrame(rows).fillna(0.0)
 
 
-@functools.lru_cache(maxsize=None)
+@functools.cache
 def p_scale(uplift: float, runs: int = C.VOI_RUNS) -> float:
     """Share of simulated tests at this true uplift that end in 'Scale'."""
-    return sum(simulate(true_uplift=uplift, seed=50_000 + s)["decision"].startswith("Scale") for s in range(runs)) / runs
+    scaled = sum(simulate(true_uplift=uplift, seed=50_000 + s)["decision"].startswith("Scale") for s in range(runs))
+    return scaled / runs
 
 
 def value_of_information(prior: dict) -> dict:

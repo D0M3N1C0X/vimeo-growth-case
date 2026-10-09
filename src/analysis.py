@@ -76,7 +76,8 @@ def pnl() -> pd.DataFrame:
     f = financials()
     periods = [f"CY{y}" for y in C.YEARS] + [f"CY{y}{q}" for y in ("2024", "2025") for q in C.QUARTERS]
     p = pd.DataFrame(index=[x[2:] for x in periods])
-    get_ = lambda tag: [f.loc[x, tag] / 1e6 if x in f.index and pd.notna(f.loc[x, tag]) else float("nan") for x in periods]
+    get_ = lambda tag: [f.loc[x, tag] / 1e6 if x in f.index and pd.notna(f.loc[x, tag]) else float("nan")
+                        for x in periods]
     p["revenue"] = get_(C.REVENUE)
     p["cost_of_revenue"] = get_("CostOfGoodsAndServicesSold")
     p["sales_marketing"] = get_("SellingAndMarketingExpense")
@@ -92,7 +93,7 @@ def pnl() -> pd.DataFrame:
 
 # ---- Revenue bridge: volume and price --------------------------------------------------------
 
-def _bridge_rows(m, basis, p0, p1, segments):
+def _bridge_rows(m, basis, p0, p1, segments) -> list[dict]:
     rows = []
     for seg in segments:
         a0, a1 = get(m, basis, p0, seg, "avg_subscribers_k"), get(m, basis, p1, seg, "avg_subscribers_k")
@@ -114,7 +115,7 @@ def _bridge_rows(m, basis, p0, p1, segments):
 def bridge() -> pd.DataFrame:
     m = metrics()
     rows = []
-    for y0, y1 in zip(C.YEARS[:-1], C.YEARS[1:]):
+    for y0, y1 in zip(C.YEARS[:-1], C.YEARS[1:], strict=True):
         rows += _bridge_rows(m, "2022", y0, y1, list(C.OLD.values()))
     for q in C.QUARTERS:
         rows += _bridge_rows(m, "2025", f"2024{q}", f"2025{q}", list(C.NEW.values()))
@@ -134,7 +135,7 @@ def bridge_total(b: pd.DataFrame, years=("2021", "2024")) -> pd.DataFrame:
 def trends() -> pd.DataFrame:
     m = metrics()
     rows = []
-    for basis, pairs, segs in (("2022", list(zip(C.YEARS[:-1], C.YEARS[1:])), C.OLD.values()),
+    for basis, pairs, segs in (("2022", list(zip(C.YEARS[:-1], C.YEARS[1:], strict=True)), C.OLD.values()),
                                ("2025", [(f"2024{q}", f"2025{q}") for q in C.QUARTERS], C.NEW.values())):
         for p0, p1 in pairs:
             for seg in segs:
@@ -150,7 +151,7 @@ def advertising_vs_subscribers() -> pd.DataFrame:
     observation to test, not a causal estimate."""
     p, m = pnl(), metrics()
     rows = []
-    for y0, y1 in zip(C.YEARS[:-1], C.YEARS[1:]):
+    for y0, y1 in zip(C.YEARS[:-1], C.YEARS[1:], strict=True):
         rows.append({"year": y1, "advertising": p.loc[y1, "advertising"],
                      "advertising_change": p.loc[y1, "advertising"] / p.loc[y0, "advertising"] - 1,
                      "self_serve_avg_change": get(m, "2022", y1, C.OLD["self"], "avg_subscribers_k")
@@ -160,7 +161,7 @@ def advertising_vs_subscribers() -> pd.DataFrame:
 
 # ---- Starting point of the bet -----------------------------------------------------------------
 
-@functools.lru_cache(maxsize=None)
+@functools.cache
 def _baseline() -> tuple:
     m = metrics()
     q = "2025Q3"

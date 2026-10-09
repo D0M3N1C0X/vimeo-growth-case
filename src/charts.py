@@ -2,6 +2,7 @@
 Four SVG charts for the memo, hand-written like the ones in pay-transparency-readiness-kit:
 validated reference palette, light and dark steps inside each file, a <title> on every mark.
 """
+from collections.abc import Callable
 from html import escape
 
 STYLE = """<style>
@@ -20,32 +21,32 @@ STYLE = """<style>
 </style>"""
 
 
-def _svg(w, h, body, label):
+def _svg(w, h, body, label) -> str:
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" '
             f'aria-label="{escape(label)}">{STYLE}<rect width="{w}" height="{h}" rx="8" fill="var(--surface)"/>'
             f'{"".join(body)}</svg>\n')
 
 
 
-def _scale(d0, d1, r0, r1):
+def _scale(d0, d1, r0, r1) -> Callable[[float], float]:
     return lambda v: r0 + (v - d0) / (d1 - d0) * (r1 - r0)
 
 
-def _path(points):
+def _path(points) -> str:
     return "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in points)
 
 
-def pct(x, d=0, signed=False):
+def pct(x, d=0, signed=False) -> str:
     sign = ("+" if x > 0 else "−" if x < 0 else "") if signed else ("−" if x < 0 else "")
     return f"{sign}{abs(x) * 100:.{d}f}%"
 
 
-def usd_m(x, d=1, signed=False):
+def usd_m(x, d=1, signed=False) -> str:
     sign = ("+" if x > 0 else "−" if x < 0 else "") if signed else ("−" if x < 0 else "")
     return f"{sign}${abs(x):,.{d}f}M"
 
 
-def index_lines(periods, series, title, subtitle):
+def index_lines(periods, series, title, subtitle) -> str:
     """series: (label, [values], colour var). Indexed to the first period = 100."""
     W, H, x0, x1, y0, y1 = 720, 380, 70, 600, 310, 90
     idx = [(lab, [v / vals[0] * 100 for v in vals], c) for lab, vals, c in series]
@@ -63,13 +64,13 @@ def index_lines(periods, series, title, subtitle):
     for lab, vals, c in idx:
         pts = [(x(i), y(v)) for i, v in enumerate(vals)]
         body.append(f'<path d="{_path(pts)}" fill="none" stroke="{c}" stroke-width="2.5"/>')
-        for (px, py), v, per in zip(pts, vals, periods):
+        for (px, py), v, per in zip(pts, vals, periods, strict=True):
             body.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="4" fill="{c}"><title>{escape(lab)} {per}: {v:.0f}</title></circle>')
         body.append(f'<text class="val" x="{pts[-1][0] + 10:.1f}" y="{pts[-1][1] + 4:.1f}" style="fill:{c}">{escape(lab)} {vals[-1]:.0f}</text>')
     return _svg(W, H, body, title)
 
 
-def volume_price(rows, title, subtitle):
+def volume_price(rows, title, subtitle) -> str:
     """rows: (segment, volume, price) in US$ millions. Two bars per segment from zero."""
     W, top, band = 720, 110, 74
     H = top + band * len(rows) + 30
@@ -94,7 +95,7 @@ def volume_price(rows, title, subtitle):
     return _svg(W, H, body, title)
 
 
-def grouped_growth(periods, series, title, subtitle):
+def grouped_growth(periods, series, title, subtitle) -> str:
     """series: (label, [yoy], colour). Vertical grouped bars around zero."""
     W, H, x0, x1, y0, y1 = 720, 380, 70, 690, 320, 100
     vals = [v for _, vs, _ in series for v in vs]
@@ -126,7 +127,7 @@ def grouped_growth(periods, series, title, subtitle):
     return _svg(W, H, body, title)
 
 
-def outcomes(rows, labels, title, subtitle):
+def outcomes(rows, labels, title, subtitle) -> str:
     """rows: (true uplift label, {decision: share}). One stacked bar per true uplift."""
     colours = {"Scale": "var(--s3)", "Iterate": "var(--s1)", "Stop or redesign": "var(--muted)", "Do not scale": "var(--s2)"}
     W, top, band = 720, 120, 46

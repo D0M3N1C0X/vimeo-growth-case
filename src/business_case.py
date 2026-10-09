@@ -50,10 +50,10 @@ def model(bet: dict | None = None, base: dict | None = None) -> dict:
                 (int(r.year) for r in y.itertuples() if r.cumulative >= 0), None)}
 
 
-@functools.lru_cache(maxsize=None)
+@functools.cache
 def breakeven(field: str = "uplift", lo: float = 0.0, hi: float = 0.2) -> float:
     """Value of one driver at which the net present value is zero, by bisection."""
-    def npv(x):
+    def npv(x) -> float:
         b = copy.deepcopy(C.BET)
         b[field] = x
         return model(b)["npv"]

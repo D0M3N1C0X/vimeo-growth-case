@@ -3,6 +3,7 @@
 **For:** the business owner of Vimeo Self-Serve and Enterprise
 **Sources:** Vimeo, Inc. annual reports (10-K, covering 2021–2024) and quarterly reports (10-Q, Q1–Q3 2025) filed with the SEC; every figure traced in [data/SOURCES.md](../data/SOURCES.md)
 **Status:** an outside-in exercise on public data. Assumptions are mine and labelled; the test results are simulated.
+**Context:** Bending Spoons agreed to buy Vimeo on 10 September 2025 for $7.85 a share, about $1.38 billion in cash, and completed the deal on 24 November 2025; Vimeo then left Nasdaq, so the Q3 2025 10-Q is its last quarterly report. This memo reads the business as it stood at the handover and uses nothing published after it.
 
 **Try it:** [the interactive model](https://d0m3n1c0x.github.io/vimeo-growth-case/model/) recomputes the case and the test as you move each assumption.
 

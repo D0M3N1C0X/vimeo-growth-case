@@ -14,21 +14,21 @@ import experiment
 FIG = C.REPORT / "figures"
 
 
-def usd_m(x, d=1, signed=False):
+def usd_m(x, d=1, signed=False) -> str:
     sign = ("+" if x > 0 else "−" if x < 0 else "") if signed else ("−" if x < 0 else "")
     return f"{sign}${abs(x):,.{d}f}M"
 
 
-def usd(x):
+def usd(x) -> str:
     return f"{'−' if x < 0 else ''}${abs(x):,.0f}"
 
 
-def pct(x, d=0, signed=False):
+def pct(x, d=0, signed=False) -> str:
     sign = ("+" if x > 0 else "−" if x < 0 else "") if signed else ("−" if x < 0 else "")
     return f"{sign}{abs(x) * 100:.{d}f}%"
 
 
-def table(head, rows, align):
+def table(head, rows, align) -> str:
     out = ["| " + " | ".join(head) + " |", "|" + "|".join("---:" if a == "r" else "---" for a in align) + "|"]
     return "\n".join(out + ["| " + " | ".join(str(c) for c in r) + " |" for r in rows])
 
@@ -36,7 +36,7 @@ def table(head, rows, align):
 def facts(a: dict, bc: dict, ex: dict, oc: pd.DataFrame) -> dict:
     m = analysis.metrics()
     g = lambda basis, per, seg, met: analysis.get(m, basis, per, seg, met)
-    S, E, O = C.OLD["self"], C.OLD["ent"], C.OLD["other"]
+    S, E = C.OLD["self"], C.OLD["ent"]
     t = a["trends"]
     q = t[t["basis"] == "2025"]
     ss_q = q[q["segment"] == C.NEW["self"]].set_index("period")
@@ -116,6 +116,9 @@ def write(a, bc, ex, oc) -> dict:
         "filed with the SEC; every figure traced in "
         "[data/SOURCES.md](../data/SOURCES.md)")
     add("**Status:** an outside-in exercise on public data. Assumptions are mine and labelled; the test results are simulated.")
+    add("**Context:** Bending Spoons agreed to buy Vimeo on 10 September 2025 for $7.85 a share, about $1.38 billion in "
+        "cash, and completed the deal on 24 November 2025; Vimeo then left Nasdaq, so the Q3 2025 10-Q is its last "
+        "quarterly report. This memo reads the business as it stood at the handover and uses nothing published after it.")
     add("")
     add("**Try it:** [the interactive model](https://d0m3n1c0x.github.io/vimeo-growth-case/model/) recomputes the case and the test as you move each assumption.")
     add("")
