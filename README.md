@@ -103,6 +103,8 @@ Every function in `src/` declares what it returns, CI lints the code and measure
 ## About
 
 Built by **Domenico Perroni** — HR advisory, people analytics and media education, based in Kraków.
+
+The published pages count visits with [GoatCounter](https://www.goatcounter.com): no cookies, no personal data.
 I build with an AI coding assistant; the question, the method and the checks are mine.
 [GitHub profile](https://github.com/D0M3N1C0X) · [LinkedIn](https://www.linkedin.com/in/domenico-perroni)
 
@@ -110,7 +112,7 @@ I build with an AI coding assistant; the question, the method and the checks are
 
 - [workforce-cost-model](https://github.com/D0M3N1C0X/workforce-cost-model) — a driver-based people-cost model with budget variance and scenarios, Excel reconciled with pandas
 - [where-pay-transparency-bites](https://github.com/D0M3N1C0X/where-pay-transparency-bites) — Eurostat data for 27 countries in R: a published statistic that understates what it measures
-- [controlli-cedolini](https://github.com/D0M3N1C0X/controlli-cedolini) — nine pre-release checks on Italian payslips, measured on injected errors and random perturbations
+- [controlli-cedolini](https://github.com/D0M3N1C0X/controlli-cedolini) — fourteen pre-release checks on Italian payslips, in Python, a live-formula sheet and a browser tool, measured on injected errors and random perturbations
 - [pay-transparency-readiness-kit](https://github.com/D0M3N1C0X/pay-transparency-readiness-kit) — the EU Pay Transparency Directive run end to end for a four-country employer
 
 MIT licensed.
