@@ -6,14 +6,14 @@ from collections.abc import Callable
 from html import escape
 
 STYLE = """<style>
-  svg { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7;
-        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --base:#0b0b0b; --up:#e34948; --down:#2a78d6; }
+  svg { --surface:#ffffff; --ink:#1d1d1f; --ink2:#424245; --muted:#6e6e73; --grid:#e8e8ed; --axis:#d2d2d7;
+        --s1:#0071e3; --s2:#ff9500; --s3:#34c759; --base:#1d1d1f; --up:#d70015; --down:#0071e3; }
   @media (prefers-color-scheme: dark) {
-    svg { --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --axis:#383835;
-          --s1:#3987e5; --s2:#d95926; --s3:#199e70; --base:#ffffff; --up:#e66767; --down:#3987e5; }
+    svg { --surface:#15171c; --ink:#f5f5f7; --ink2:#c7c9d1; --muted:#8b8f9a; --grid:#23262e; --axis:#343844;
+          --s1:#4f8cff; --s2:#ff9f0a; --s3:#32d74b; --base:#f5f5f7; --up:#ff6961; --down:#4f8cff; }
   }
-  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink2); font-size: 12px; }
-  .title { fill: var(--ink); font-size: 15px; font-weight: 600; }
+  text { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", sans-serif; fill: var(--ink2); font-size: 12px; }
+  .title { fill: var(--ink); font-size: 17px; font-weight: 700; letter-spacing: -.01em; }
   .muted { fill: var(--muted); font-size: 11px; }
   .val { fill: var(--ink); font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface);
          stroke-width: 4px; stroke-linejoin: round; }
@@ -23,7 +23,7 @@ STYLE = """<style>
 
 def _svg(w, h, body, label) -> str:
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" '
-            f'aria-label="{escape(label)}">{STYLE}<rect width="{w}" height="{h}" rx="8" fill="var(--surface)"/>'
+            f'aria-label="{escape(label)}">{STYLE}<rect width="{w}" height="{h}" rx="16" fill="var(--surface)"/>'
             f'{"".join(body)}</svg>\n')
 
 

@@ -1,23 +1,33 @@
-# Vimeo Growth Case
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="site-assets/cover-dark.png">
+  <img alt="Where Vimeo's next dollar comes from: an Enterprise account pays about 120 times a Self-Serve one; the bet breaks even at 0.68% upgrades a year; $2.2M net present value at the 1% plan." src="site-assets/cover-light.png">
+</picture>
 
-An outside-in business analysis of **Vimeo** from its public SEC filings (2021 to Q3 2025): what is
-driving revenue, three places growth could come from, a **business case** for the most promising one,
-and the **experiment** that would decide it before anyone is hired for it.
+<p align="center">
+  <a href="https://d0m3n1c0x.github.io/vimeo-growth-case/model/"><b>Try the interactive model</b></a> ·
+  <a href="https://d0m3n1c0x.github.io/vimeo-growth-case/">Read the memo</a> ·
+  <a href="https://github.com/D0M3N1C0X/vimeo-growth-case/raw/main/deliverables/vimeo_upgrade_case.xlsx">Excel model</a>
+</p>
 
-[![CI](https://github.com/D0M3N1C0X/vimeo-growth-case/actions/workflows/ci.yml/badge.svg)](https://github.com/D0M3N1C0X/vimeo-growth-case/actions/workflows/ci.yml)
-![python](https://img.shields.io/badge/python-3.12%2B-blue)
-![data](https://img.shields.io/badge/data-SEC%20filings-f2a900)
-![license](https://img.shields.io/badge/license-MIT-lightgrey)
+<p align="center">
+  <a href="https://github.com/D0M3N1C0X/vimeo-growth-case/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/D0M3N1C0X/vimeo-growth-case/actions/workflows/ci.yml/badge.svg"></a>
+  <img alt="Python 3.12+" src="https://img.shields.io/badge/python-3.12%2B-0071e3">
+  <img alt="Data: SEC filings" src="https://img.shields.io/badge/data-SEC%20filings-5e5ce6">
+  <img alt="MIT licence" src="https://img.shields.io/badge/licence-MIT-6e6e73">
+</p>
+
+## Why this matters
+
+When a company changes hands, the first question is where the next dollar of revenue will come from, and the honest
+answer starts from what the filings already show. This is an **outside-in business analysis of Vimeo** from its SEC
+filings (2021 to Q3 2025): what is driving revenue, three places growth could come from, a **business case** for the
+most promising one, and the **experiment** that would decide it before anyone is hired for it.
 
 > **Public data, labelled assumptions, simulated test.** Figures come from Vimeo's 10-K and 10-Q filings,
 > each traced to its accession number. The business case rests on assumptions listed in
 > [docs/assumptions.md](docs/assumptions.md); the test results are simulated. Bending Spoons completed its
 > acquisition of Vimeo on 24 November 2025, so the Q3 2025 10-Q is the last quarterly report: the case reads
 > the business as it stood at the handover. Not affiliated with Vimeo or Bending Spoons. Not investment advice.
-
-### ▶ [Read the memo](https://d0m3n1c0x.github.io/vimeo-growth-case/) · [Try the interactive model](https://d0m3n1c0x.github.io/vimeo-growth-case/model/) · [Download the Excel model](https://github.com/D0M3N1C0X/vimeo-growth-case/raw/main/deliverables/vimeo_upgrade_case.xlsx)
-
----
 
 ## The answer
 
@@ -26,7 +36,15 @@ and the **experiment** that would decide it before anyone is hired for it.
 | **Self-Serve runs on price.** Subscribers fell 21% from 2021 to 2024 while ARPU rose 9%; in 2025 subscribers are down 11% a year in every quarter and ARPU growth has reached +13%. | **Enterprise carried the growth, and it is slowing.** Revenue went from $23.2M to $83.2M in three years, but bookings fell 2% in Q3 2025. |
 | **The lever is between the two.** An Enterprise account pays about 120 times a Self-Serve one, and Vimeo's filings say Enterprise is often an upgrade from Self-Serve. | **The bet pays above 0.68% upgrades a year** per eligible account: $2.2M net present value at the 1% plan. A 180-day one-sided test on 20,982 of the 22,558 eligible accounts can tell. |
 
-![Volume and price](report/figures/02_bridge.svg)
+<img alt="Volume and price" src="report/figures/02_bridge.svg" width="100%">
+
+## Move the assumptions yourself
+
+The interactive model puts the business case in the browser: move the upgrade uplift, the size of the first
+Enterprise deal, retention or the sales capacity and watch the net present value, the break-even and the verdict
+change, with the sample sizes the test designs would need. Its JavaScript is checked against the Python model in CI.
+
+<p align="center"><a href="https://d0m3n1c0x.github.io/vimeo-growth-case/model/"><img alt="The interactive model: the upgrade rate moves through break-even and the verdict flips." src="site-assets/tool.webp" width="100%"></a></p>
 
 ## Understand, ideate, execute, optimise
 
@@ -38,7 +56,7 @@ and the **experiment** that would decide it before anyone is hired for it.
 | **Decide** | Is the test even worth running? Each option's expected value under a sceptical and an optimistic prior: the test is worth $0.57M if you doubt the bet, and not worth its cost if you already believe it. | [memo §5](report/memo.md), sheet *Value of test* |
 | **Optimise** | How would we know? **Sample sizes** for four test designs against the accounts available, a **decision rule** with its error rates over 200 simulated tests, and a readout sheet to paste real counts into. | [memo §4](report/memo.md), `src/experiment.py`, sheets *Test design* and *Test readout* |
 
-## What makes the numbers trustworthy
+## Built to be checked
 
 - **Every figure is traced.** Financials come from the SEC's XBRL facts; subscriber metrics are transcribed
   from each filing's MD&A, with accession numbers in [data/](data/).
@@ -53,7 +71,16 @@ and the **experiment** that would decide it before anyone is hired for it.
   from 40 random scenarios in CI, including sample sizes to the unit: it uses the same inverse-normal algorithm.
 - **The tests caught real mistakes**, including a leap-year quarter that leaked into the residual of the bridge.
 
-## Run it
+## Limits
+
+- **Outside in.** No access to Vimeo's data: the organic upgrade rate, the signals that predict an upgrade and
+  sales capacity are assumptions, and the memo lists them as the first things to measure.
+- **ARPU is rounded** to the dollar and Enterprise subscribers to the hundred in the filings; the bridge shows
+  the residual this leaves.
+- **Correlation, not cause**, for advertising and Self-Serve subscribers: three yearly points.
+
+<details>
+<summary><b>For engineers: how to run it, what is inside</b></summary>
 
 ```bash
 python3 -m venv .venv && . .venv/bin/activate
@@ -65,8 +92,6 @@ ruff check .                   # the lint CI runs; rules in pyproject.toml
 
 Every function in `src/` declares what it returns, CI lints the code and measures test coverage, and
 [docs/decisions.md](docs/decisions.md) records each choice of method with the alternative it replaced.
-
-## What's inside
 
 ```
 ├── data/
@@ -92,17 +117,11 @@ Every function in `src/` declares what it returns, CI lints the code and measure
 └── tests/
 ```
 
-## Limits
-
-- **Outside in.** No access to Vimeo's data: the organic upgrade rate, the signals that predict an upgrade and
-  sales capacity are assumptions, and the memo lists them as the first things to measure.
-- **ARPU is rounded** to the dollar and Enterprise subscribers to the hundred in the filings; the bridge shows
-  the residual this leaves.
-- **Correlation, not cause**, for advertising and Self-Serve subscribers: three yearly points.
+</details>
 
 ## About
 
-Built by **Domenico Perroni** — HR advisory, people analytics and media education, based in Kraków.
+Built by **Domenico Perroni**: HR advisory for the Italian market, people analytics and business analysis, based in Kraków.
 
 The published pages count visits with [GoatCounter](https://www.goatcounter.com): no cookies, no personal data.
 I build with an AI coding assistant; the question, the method and the checks are mine.

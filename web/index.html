@@ -5,38 +5,35 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Vimeo Upgrade Model</title>
 <meta name="description" content="Interactive version of the Vimeo growth case: move the assumptions and see the value of the bet, its break-even uplift and which tests can detect it.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <style>
 :root{
-  --paper:#fbfcfd; --surface:#ffffff; --ink:#131a24; --ink-soft:#39434f; --muted:#5f6b7a;
-  --line:#e2e7ef; --line-strong:#c9d2df; --accent:#1d4ed8; --accent-wash:#eef3ff;
-  --good:#0c6b59; --good-wash:#e8f5f1; --bad:#b5352c; --bad-wash:#fdeceb;
-  --s1:#2a78d6; --s2:#eb6834; --grid:#e1e0d9; --on-accent:#ffffff;
+  --paper:#ffffff; --surface:#ffffff; --ink:#1d1d1f; --ink-soft:#424245; --muted:#6e6e73;
+  --line:#e8e8ed; --line-strong:#d2d2d7; --accent:#0071e3; --accent-wash:#eef5fd;
+  --good:#1a7f37; --good-wash:#e6f4ea; --bad:#d70015; --bad-wash:#fdeceb;
+  --s1:#0071e3; --s2:#ff9500; --grid:#e8e8ed; --on-accent:#ffffff;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#0f141b; --surface:#161d26; --ink:#e7ecf3; --ink-soft:#c3cbd6; --muted:#8b97a6;
-    --line:#232c38; --line-strong:#33404f; --accent:#7ba4ff; --accent-wash:#17233a;
-    --good:#5fc6ae; --good-wash:#12291f; --bad:#f08a80; --bad-wash:#2e1b1a;
-    --s1:#3987e5; --s2:#d95926; --grid:#2c2c2a; --on-accent:#0f141b;
+    --paper:#000000; --surface:#15171c; --ink:#f5f5f7; --ink-soft:#c7c9d1; --muted:#8b8f9a;
+    --line:#23262e; --line-strong:#343844; --accent:#4f8cff; --accent-wash:#101b33;
+    --good:#32d74b; --good-wash:#0f2a17; --bad:#ff6961; --bad-wash:#331314;
+    --s1:#4f8cff; --s2:#ff9f0a; --grid:#23262e; --on-accent:#000000;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#0f141b; --surface:#161d26; --ink:#e7ecf3; --ink-soft:#c3cbd6; --muted:#8b97a6;
-  --line:#232c38; --line-strong:#33404f; --accent:#7ba4ff; --accent-wash:#17233a;
-  --good:#5fc6ae; --good-wash:#12291f; --bad:#f08a80; --bad-wash:#2e1b1a;
-  --s1:#3987e5; --s2:#d95926; --grid:#2c2c2a; --on-accent:#0f141b;
+  --paper:#000000; --surface:#15171c; --ink:#f5f5f7; --ink-soft:#c7c9d1; --muted:#8b8f9a;
+  --line:#23262e; --line-strong:#343844; --accent:#4f8cff; --accent-wash:#101b33;
+  --good:#32d74b; --good-wash:#0f2a17; --bad:#ff6961; --bad-wash:#331314;
+  --s1:#4f8cff; --s2:#ff9f0a; --grid:#23262e; --on-accent:#000000;
 }
 *{box-sizing:border-box}
 body{margin:0; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased;
-  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   font-size:15px; line-height:1.55}
 .page{max-width:72rem; margin:0 auto; padding:clamp(1.25rem,3vw,2.5rem) 16px 4rem}
-.eyebrow{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace; font-size:.72rem; letter-spacing:.08em;
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.72rem; letter-spacing:.08em;
   text-transform:uppercase; color:var(--accent); margin:0 0 .5rem}
-h1,h2{font-family:"Source Serif 4",Georgia,serif; margin:0; text-wrap:balance}
+h1,h2{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; margin:0; text-wrap:balance}
 h1{font-size:clamp(1.8rem,4.5vw,2.5rem); font-weight:600; line-height:1.15}
 h2{font-size:1.2rem; font-weight:600; margin:0 0 .75rem}
 p{margin:.5rem 0 0; color:var(--ink-soft); max-width:46rem}
@@ -47,11 +44,11 @@ a{color:var(--accent); text-underline-offset:2px}
 .controls{position:sticky; top:1rem}
 @media (max-width:860px){.controls{position:static}}
 fieldset{border:0; margin:0 0 1rem; padding:0}
-legend{font-size:.72rem; font-family:"IBM Plex Mono",ui-monospace,monospace; letter-spacing:.08em; text-transform:uppercase;
+legend{font-size:.72rem; font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; letter-spacing:.08em; text-transform:uppercase;
   color:var(--muted); margin-bottom:.4rem}
 .ctl{margin:.55rem 0 .8rem}
 .ctl label{display:flex; justify-content:space-between; gap:.75rem; font-size:.86rem; color:var(--ink-soft)}
-.ctl output{font-family:"IBM Plex Mono",ui-monospace,monospace; color:var(--ink); white-space:nowrap}
+.ctl output{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; color:var(--ink); white-space:nowrap}
 .ctl .hint{font-size:.75rem; color:var(--muted); margin-top:.1rem}
 input[type=range]{width:100%; accent-color:var(--accent); margin:.3rem 0 0}
 input[type=range]:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
@@ -64,12 +61,12 @@ button.primary{background:var(--accent); border-color:var(--accent); color:var(-
 @media (max-width:640px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .kpi{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:.8rem .9rem}
 .kpi .k{font-size:.75rem; color:var(--muted)}
-.kpi .v{font-family:"Source Serif 4",Georgia,serif; font-size:1.55rem; font-weight:600; font-variant-numeric:tabular-nums; margin-top:.15rem}
+.kpi .v{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; font-size:1.55rem; font-weight:600; font-variant-numeric:tabular-nums; margin-top:.15rem}
 .verdict{margin-top:.75rem; border-radius:12px; padding:.85rem 1rem; font-weight:500}
 .verdict.good{background:var(--good-wash); color:var(--good)}
 .verdict.bad{background:var(--bad-wash); color:var(--bad)}
 .section{margin-top:1.25rem}
-svg text{font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:11px; fill:var(--muted)}
+svg text{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; font-size:11px; fill:var(--muted)}
 .table-wrap{overflow-x:auto}
 table{width:100%; border-collapse:collapse; font-size:.86rem}
 th,td{padding:.45rem .5rem; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap}
